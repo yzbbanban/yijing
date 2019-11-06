@@ -1,0 +1,56 @@
+<resources>
+    <dimen name="toolBarPaddingTop">24dp</dimen>
+    <!--splash start-->
+    <dimen name="splash_jump_size">40dp</dimen>
+    <!--splash end-->
+
+    <!--密码或验证码输入框高度-->
+    <dimen name="code_size">40dp</dimen>
+
+    <!--login start-->
+    <dimen name="login_logo_margin_top">66dp</dimen>
+    <dimen name="login_etaccount_margin_top">50dp</dimen>
+    <dimen name="login_bt_margin_top">24dp</dimen>
+    <!--login end-->
+
+    <!--regist start-->
+    <dimen name="regist_etaccount_margin_top">100dp</dimen>
+    <dimen name="sms_code_btn_h">30dp</dimen>
+    <dimen name="sms_code_btn_w">100dp</dimen>
+    <dimen name="regist_bt_margin_top">34dp</dimen>
+    <!--regist end-->
+
+    <!--PayDialogFragment-->
+    <dimen name="paydiaolog_coinname_text_size">28sp</dimen>
+
+    <!--HomeFragment-->
+    <dimen name="home_asset_bg_h">150dp</dimen>
+    <dimen name="homeNoticeH">30dp</dimen>
+    <dimen name="homeRecommendIcoinSize">60dp</dimen>
+    <dimen name="iconModuleLarge">34dp</dimen>
+
+    <!--FinanceFragment-->
+    <dimen name="finance_lable_h">32dp</dimen>
+    <dimen name="finance_lable_w">5dp</dimen>
+    <dimen name="iconModuleNormal">32dp</dimen>
+
+    <!--msg-->
+    <dimen name="unread_bg_h">12dp</dimen>
+    <dimen name="forbidden_size">14dp</dimen>
+    <dimen name="msg_avatar_size">45dp</dimen>
+
+    <!--mine-->
+    <dimen name="mine_avatar_size">50dp</dimen>
+    <dimen name="mine_qr_size">14dp</dimen>
+    <dimen name="mine_big_num">21sp</dimen>
+    <dimen name="mine_money">18sp</dimen>
+    <dimen name="mine_notice">36sp</dimen>
+    <dimen name="mine_icon">20dp</dimen>
+    <dimen name="mine_item_h">44dp</dimen>
+
+    <!--contract-->
+    <dimen name="contract_icon_size">38dp</dimen>
+    <dimen name="contract_item_h">64dp</dimen>
+    <dimen name="my_qr_size">130dp</dimen>
+
+</resources>

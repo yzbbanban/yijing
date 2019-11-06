@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWinBg"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_toolbar" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/clChinese"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolBar"
+        android:layout_marginTop="@dimen/marginViewLittle"
+        android:background="@drawable/ripple_comon_selector"
+        android:paddingLeft="@dimen/marginScreenNormal"
+        android:paddingRight="@dimen/marginScreenNormal">
+
+        <TextView
+            android:id="@+id/tvChinese"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/toolBar"
+            android:drawablePadding="2dp"
+            android:drawableRight="@drawable/ic_zhongguo"
+            android:gravity="center_vertical"
+            android:text="@string/setting_simplified_chinese"
+            android:textColor="@color/colorBlackTextImportant"
+            android:textSize="@dimen/textNormal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivChinese"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_check_box_select"
+            app:layout_constraintBottom_toBottomOf="@+id/tvChinese"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvChinese" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/clKorea"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolBar"
+        android:layout_marginTop="@dimen/border1"
+        android:background="@drawable/ripple_comon_selector"
+        android:paddingLeft="@dimen/marginScreenNormal"
+        android:paddingRight="@dimen/marginScreenNormal">
+
+        <TextView
+            android:id="@+id/tvKorea"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/toolBar"
+            android:drawablePadding="2dp"
+            android:drawableRight="@drawable/ic_hanguo"
+            android:gravity="center_vertical"
+            android:text="@string/setting_language_korea"
+            android:textColor="@color/colorBlackTextImportant"
+            android:textSize="@dimen/textNormal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/ivKorea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_check_box_select"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/tvKorea"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvKorea" />
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/clEnglish"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolBar"
+        android:layout_marginTop="@dimen/border1"
+        android:background="@drawable/ripple_comon_selector"
+        android:paddingLeft="@dimen/marginScreenNormal"
+        android:paddingRight="@dimen/marginScreenNormal">
+
+        <TextView
+            android:id="@+id/tvEnglish"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/toolBar"
+            android:drawablePadding="2dp"
+            android:drawableRight="@drawable/ic_english"
+            android:gravity="center_vertical"
+            android:text="@string/setting_language_english"
+            android:textColor="@color/colorBlackTextImportant"
+            android:textSize="@dimen/textNormal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/ivEnglish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:src="@drawable/ic_check_box_select"
+            app:layout_constraintBottom_toBottomOf="@+id/tvEnglish"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvEnglish" />
+    </android.support.constraint.ConstraintLayout>
+</LinearLayout>

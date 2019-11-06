@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.dian.commonlib.utils.widget.MultipleStatusView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/multipleStatusView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/smartRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivHomeAssetBg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/home_asset_bg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvTotalAssetTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginScreenLarge"
+                    android:drawablePadding="@dimen/marginViewALittle"
+                    android:drawableRight="@drawable/ic_light_eye_close"
+                    android:text="@string/home_total_asset_title"
+                    android:textColor="@color/colorWhiteTextNormal"
+                    android:textSize="@dimen/textNormal"
+                    app:layout_constraintBottom_toTopOf="@+id/tvTotalAsset"
+                    app:layout_constraintEnd_toEndOf="@+id/ivHomeAssetBg"
+                    app:layout_constraintStart_toStartOf="@+id/ivHomeAssetBg"
+                    app:layout_constraintTop_toTopOf="@+id/ivHomeAssetBg"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <com.huohuo.ui.widget.NumberTextView
+                    android:id="@+id/tvTotalAsset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginViewNormal"
+                    android:text="3243.33"
+                    android:textColor="@color/colorWhiteTextImportant"
+                    android:textSize="@dimen/textHomeAsset"
+                    app:layout_constraintBottom_toTopOf="@+id/tvSafe"
+                    app:layout_constraintEnd_toEndOf="@+id/ivHomeAssetBg"
+                    app:layout_constraintStart_toStartOf="@+id/ivHomeAssetBg"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTotalAssetTitle" />
+
+                <ImageView
+                    android:id="@+id/ivSafe"
+                    android:layout_width="@dimen/iconCoinLogoNormal"
+                    android:layout_height="@dimen/iconCoinLogoNormal"
+                    android:src="@drawable/asset_safe_lable"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/tvSafe"
+                    app:layout_constraintTop_toTopOf="@+id/tvSafe" />
+
+                <TextView
+                    android:id="@+id/tvSafe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/marginScreenLarge"
+                    android:layout_marginTop="@dimen/marginViewNormal"
+                    android:text="@string/asset_safe_text"
+                    android:textColor="@color/colorWhiteTextSub"
+                    android:textSize="@dimen/textSmall"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivHomeAssetBg"
+                    app:layout_constraintLeft_toRightOf="@+id/ivSafe"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTotalAsset" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvModule"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:layout_marginTop="@dimen/marginViewLittle"
+                    app:layout_constraintTop_toBottomOf="@+id/ivHomeAssetBg" />
+
+                <ImageView
+                    android:id="@+id/ivNoticeBg"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/homeNoticeH"
+                    android:layout_marginLeft="@dimen/marginScreenLarge"
+                    android:layout_marginRight="@dimen/marginScreenLarge"
+                    android:layout_marginTop="@dimen/marginViewLittle"
+                    android:background="@drawable/shape_home_notice_bg"
+                    app:layout_constraintTop_toBottomOf="@+id/rvModule" />
+
+                <ImageView
+                    android:id="@+id/ivLaba"
+                    android:layout_width="@dimen/homeNoticeH"
+                    android:layout_height="@dimen/homeNoticeH"
+                    android:background="@drawable/shape_home_notice_laba_bg"
+                    android:padding="@dimen/marginViewLittle"
+                    android:src="@drawable/ic_notice"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivNoticeBg"
+                    app:layout_constraintLeft_toLeftOf="@+id/ivNoticeBg"
+                    app:layout_constraintTop_toTopOf="@+id/ivNoticeBg" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/marginViewNormal"
+                    android:layout_marginRight="@dimen/marginViewNormal"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="通知"
+                    android:textColor="@color/homeNoticeText"
+                    android:textSize="@dimen/textLittle"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivNoticeBg"
+                    app:layout_constraintLeft_toRightOf="@+id/ivLaba"
+                    app:layout_constraintRight_toLeftOf="@+id/ivNext"
+                    app:layout_constraintTop_toTopOf="@+id/ivNoticeBg" />
+
+                <ImageView
+                    android:id="@+id/ivNext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/marginScreenLarge"
+                    android:src="@drawable/ic_next"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivNoticeBg"
+                    app:layout_constraintRight_toRightOf="@+id/ivNoticeBg"
+                    app:layout_constraintTop_toTopOf="@+id/ivNoticeBg" />
+
+                <ImageView
+                    android:id="@+id/ivBanner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/marginScreenLarge"
+                    android:layout_marginRight="@dimen/marginScreenLarge"
+                    android:layout_marginTop="@dimen/marginScreenLarge"
+                    android:elevation="@dimen/marginViewNormal"
+                    android:scaleType="fitXY"
+                    android:src="@color/colorDivider"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivNoticeBg" />
+
+                <TextView
+                    android:id="@+id/tvRecommend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/marginScreenLarge"
+                    android:layout_marginTop="@dimen/marginScreenLarge"
+                    android:text="@string/recommend"
+                    android:textColor="@color/colorBlackTextImportant"
+                    android:textSize="@dimen/textNormalTitle"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivBanner" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvRecommend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/marginViewNormal"
+                    android:nestedScrollingEnabled="false"
+                    android:layout_marginRight="@dimen/marginViewNormal"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRecommend" />
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+        <!--底部-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="@dimen/marginScreenLarge"
+                android:src="@drawable/bi_te_money_pack" />
+        </LinearLayout>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+</com.dian.commonlib.utils.widget.MultipleStatusView>

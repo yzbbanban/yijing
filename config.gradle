@@ -1,0 +1,20 @@
+ext {
+    api = [
+            API_MAIN              : "\"https://app.btw.com/app/\"",//线上正式
+            API_ONLINE_TEST       : "\"https://app.btw.com/app/\"",//线上测试
+            API_LOCAL_TEST        : "\"http://192.168.1.35:9527/app/\"",//本地测试
+
+            API_IMG_MAIN          : "\"https://data.btw.com/\"",//线上正式
+            API_IMG_ONLINE_TEST   : "\"https://data.btw.com/\"",
+            API_IMG_LOCAL_TEST    : "\"https://data.btw.com/\"",
+
+            API_SOCKET_MAIN       : "\"wss://websocket.btw.com/\"",//线上正式
+            API_SOCKET_ONLINE_TEST: "\"wss://websocket.btw.com/\"",//线上测试
+            API_SOCKET_LOCAL_TEST : "\"ws://192.168.1.119:5566/\"",//本地测试
+
+            API_H5_MAIN           : "\"https://data.btw.com/\"",//线上正式
+            API_H5_ONLINE_TEST    : "\"https://data.btw.com/\"",//线上测试
+            API_H5_LOCAL_TEST     : "\"https://data.btw.com/\""//本地测试
+
+    ]
+}

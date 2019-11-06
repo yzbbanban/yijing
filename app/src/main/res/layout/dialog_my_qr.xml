@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:paddingTop="@dimen/marginScreenMoreLagre"
+    android:paddingBottom="@dimen/marginScreenMoreLagre"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ivAvatar"
+        android:layout_width="@dimen/contract_icon_size"
+        android:layout_height="@dimen/contract_icon_size"
+        android:src="@color/colorAccent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginScreenLarge"
+        android:text="名字"
+        android:textColor="@color/colorBlackTextNormal"
+        android:textSize="@dimen/textNormal"
+        app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
+        app:layout_constraintLeft_toRightOf="@+id/ivAvatar"
+        app:layout_constraintTop_toTopOf="@+id/ivAvatar" />
+
+    <ImageView
+        android:id="@+id/ivQr"
+        android:layout_width="@dimen/my_qr_size"
+        android:layout_height="@dimen/my_qr_size"
+        android:layout_marginTop="@dimen/marginScreenMoreLagre"
+        android:src="@color/colorAccent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivAvatar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginScreenMoreLagre"
+        android:text="@string/my_qr_text"
+        android:textColor="@color/colorBlackTextHint"
+        android:textSize="@dimen/textLittle"
+        app:layout_constraintLeft_toLeftOf="@+id/ivQr"
+        app:layout_constraintRight_toRightOf="@+id/ivQr"
+        app:layout_constraintTop_toBottomOf="@+id/ivQr" />
+</android.support.constraint.ConstraintLayout>

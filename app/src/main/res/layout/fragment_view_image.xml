@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.dian.commonlib.utils.widget.MultipleStatusView
+    android:id="@+id/multipleStatusView"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.huohuo.ui.viewimage.PhotoView
+        android:id="@+id/imageView"
+        android:transitionName="show_big_img"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+</com.dian.commonlib.utils.widget.MultipleStatusView>

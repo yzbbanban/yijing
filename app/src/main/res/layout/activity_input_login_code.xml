@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_toolbar" />
+
+    <com.dian.commonlib.utils.widget.MultipleStatusView
+        android:layout_width="match_parent"
+        android:id="@+id/multipleStatusView"
+        android:layout_height="match_parent">
+
+
+        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/login_logo_margin_top"
+                android:text="@string/input_code"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/textNormalTitle"
+                android:visibility="invisible"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.dian.commonlib.utils.widget.IdentifyingCodeView
+                android:id="@+id/codeView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/code_size"
+                android:layout_centerHorizontal="true"
+                app:icv_et_bg_focus="@drawable/shape_code_facus"
+                app:icv_et_bg_normal="@drawable/shape_code_normal"
+                app:icv_et_divider_drawable="@drawable/shape_divider_identifying"
+                app:icv_et_number="6"
+                app:icv_et_text_color="@color/colorAccent"
+                app:icv_et_width="@dimen/code_size"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+            <Button
+                android:id="@+id/acbBtn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bt_h"
+                android:layout_marginLeft="@dimen/marginScreenLarge"
+                android:layout_marginRight="@dimen/marginScreenLarge"
+                android:layout_marginTop="@dimen/regist_bt_margin_top"
+                android:background="@drawable/selector_primary_bt"
+                android:enabled="false"
+                style="?android:attr/borderlessButtonStyle"
+                android:text="@string/login"
+                android:textColor="@color/colorWhiteTextImportant"
+                android:textSize="@dimen/textNormalTitle"
+                app:layout_constraintTop_toBottomOf="@+id/codeView" />
+        </android.support.constraint.ConstraintLayout>
+    </com.dian.commonlib.utils.widget.MultipleStatusView>
+</LinearLayout>

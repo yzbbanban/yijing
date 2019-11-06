@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.huohuo">
+
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" /><!-- 读取手机联系人权限 -->
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" /><!-- 读取手机联系人权限 -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" /> <!--指纹权限-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.GET_INTENT_SENDER_INTENT" />
+
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-permission android:name="android.permission.VIBRATE" /><!--通知震动效果权限-->
+
+    <!--安卓8.0打开apk安装更新-->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <application
+        android:name="com.huohuo.app.HuoHuoApp"
+        android:allowBackup="true"
+        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:replace="android:appComponentFactory">
+        <service
+            android:name=".im.SocketService"
+            android:exported="false" />
+
+        <activity
+            android:name="com.huohuo.ui.splash.TranslucentActivity"
+            android:theme="@style/AppTransparentBg">
+
+        </activity>
+        <activity android:name="com.huohuo.ui.splash.SplashActivity" />
+        <activity
+            android:name="com.huohuo.ui.main.MainActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.huohuo.ui.user.LoginActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.user.InputLoginCodeActivity" />
+        <activity android:name=".ui.user.RegistActivity" />
+        <activity android:name=".ui.set.LanguageActivity" />
+        <activity android:name=".ui.sys.PhoneCodeActivity" />
+        <activity android:name=".ui.spread.SpreadIntroduceActivity" />
+        <activity android:name=".ui.user.MobileCodeActivty" />
+        <activity android:name=".ui.web.HuoHuoWebViewActivity" />
+        <activity android:name=".ui.main.home.ModuleEditActivity" />
+        <activity
+            android:name=".ui.main.msg.FriendActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".ui.main.msg.NewFriendActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name=".ui.main.msg.SearchFriendActivity" />
+        <activity android:name=".ui.main.msg.FriendInfoActivity" />
+        <activity
+            android:name=".ui.main.msg.GroupActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name=".ui.main.msg.SearchUserActivity" />
+        <activity android:name=".ui.main.msg.AddFriendActivity" />
+        <activity
+            android:name=".ui.main.msg.PhoneFriendActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".ui.scan.CaptureActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeTranslate" />
+        <activity android:name=".ui.asset.AllAssetActvity" />
+
+
+        <!--图片选择器-->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.huohuo.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths_public" />
+        </provider>
+
+    </application>
+
+
+</manifest>

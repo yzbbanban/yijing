@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ripple_comon_selector"
+    android:clickable="true"
+    android:focusable="true"
+    android:paddingBottom="@dimen/marginScreenSmall"
+    android:paddingLeft="@dimen/marginScreenLarge"
+    android:paddingRight="@dimen/marginScreenLarge"
+    android:paddingTop="@dimen/marginScreenSmall">
+
+
+    <TextView
+        android:id="@+id/tvAlreadyRead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="240dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="200已读"
+        android:textColor="@color/colorBlackTextHint"
+        android:textSize="@dimen/textSmall"
+        app:layout_constraintBottom_toBottomOf="@+id/llAvatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/tvMsgTarget"
+        app:layout_constraintTop_toBottomOf="@+id/tvMsgTarget" />
+
+    <LinearLayout
+        android:id="@+id/llAvatar"
+        android:layout_width="@dimen/toolBar"
+        android:gravity="center_vertical"
+        android:layout_height="@dimen/toolBar">
+        <ImageView
+            android:id="@+id/ivAvatar"
+            android:layout_width="@dimen/msg_avatar_size"
+            android:layout_height="@dimen/msg_avatar_size"
+            android:scaleType="centerCrop"
+            android:src="@color/colorDivider"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/tvMsgTarget"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvMsgTarget"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginViewMini"
+        android:layout_marginRight="@dimen/marginViewSmall"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点"
+        android:textColor="@color/colorBlackTextNormal"
+        android:textSize="@dimen/textLarge"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@+id/llAvatar"
+        app:layout_constraintRight_toLeftOf="@+id/ivIcon"
+        app:layout_constraintTop_toTopOf="@+id/llAvatar"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <!--<ImageView-->
+        <!--android:id="@+id/ivIcon"-->
+        <!--android:layout_width="@dimen/forbidden_size"-->
+        <!--android:layout_height="@dimen/forbidden_size"-->
+        <!--android:src="@drawable/ic_forbidden"-->
+        <!--app:layout_constraintBottom_toBottomOf="@+id/tvMsgTarget"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="@+id/tvMsgTarget" />-->
+
+
+    <!--<TextView-->
+        <!--android:id="@+id/tvMsgContent"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="@dimen/marginViewMini"-->
+        <!--android:layout_marginRight="@dimen/marginScreenNormal"-->
+        <!--android:layout_marginTop="@dimen/marginViewALittle"-->
+        <!--android:ellipsize="end"-->
+        <!--android:maxLines="1"-->
+        <!--android:text="嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻"-->
+        <!--android:textColor="@color/colorBlackTextSub"-->
+        <!--android:textSize="@dimen/textNormal"-->
+        <!--app:layout_constraintBottom_toBottomOf="@+id/llAvatar"-->
+        <!--app:layout_constraintLeft_toRightOf="@+id/tvMsgContentLable"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/tvMsgTarget" />-->
+
+    <TextView
+        android:id="@+id/tvMsgTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="新闻今天11:22"
+        android:textColor="@color/colorBlackTextHint"
+        android:textSize="@dimen/textSmall"
+        app:layout_constraintBottom_toBottomOf="@+id/llAvatar"
+        app:layout_constraintLeft_toLeftOf="@+id/tvMsgTarget"
+        app:layout_constraintTop_toBottomOf="@+id/tvMsgTarget" />
+
+    <TextView
+        android:id="@+id/tvMsgContentLable"
+        android:layout_width="wrap_content"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:text="[未读]"
+        android:textColor="@color/colorSubPrimary"
+        android:textSize="@dimen/textNormal"
+        app:layout_constraintBottom_toBottomOf="@+id/tvMsgContent"
+        app:layout_constraintLeft_toLeftOf="@+id/tvMsgTarget"
+        app:layout_constraintTop_toTopOf="@+id/tvMsgContent" />
+
+</android.support.constraint.ConstraintLayout>

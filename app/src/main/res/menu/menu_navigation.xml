@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--<item-->
+        <!--android:id="@+id/i_home"-->
+        <!--android:checked="true"-->
+        <!--android:icon="@drawable/selector_home"-->
+        <!--android:title="@string/home" />-->
+    <item
+        android:id="@+id/i_finance"
+        android:icon="@drawable/selector_finance"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/i_msg"
+        android:icon="@drawable/selector_msg"
+        android:title="@string/yj_new" />
+
+    <item
+        android:id="@+id/i_mine"
+        android:icon="@drawable/selector_mine"
+        android:title="@string/mine" />
+</menu>

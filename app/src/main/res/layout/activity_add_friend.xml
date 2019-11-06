@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_toolbar" />
+
+    <com.dian.commonlib.utils.widget.MultipleStatusView
+        android:id="@+id/multipleStatusView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include layout="@layout/layout_search" />
+
+            <TextView
+                android:id="@+id/tvMyQr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginScreenNormal"
+                android:drawablePadding="@dimen/marginViewSmall"
+                android:drawableRight="@drawable/ic_primay_qr"
+                android:padding="@dimen/marginViewSmall"
+                android:text="@string/my_qr"
+                android:textColor="@color/colorBlackTextNormal"
+                android:textSize="@dimen/textLarge"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etSearch" />
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/border0.5"
+                android:layout_marginTop="@dimen/marginScreenNormal"
+                android:background="@color/colorDivider"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvMyQr" />
+            <!--扫一扫-->
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/clSaoYiSao"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mine_item_h"
+                android:background="@drawable/ripple_comon_selector"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintTop_toBottomOf="@+id/view1">
+
+                <ImageView
+                    android:id="@+id/ivSaoYiSaoIcon"
+                    android:layout_width="@dimen/mine_icon"
+                    android:layout_height="@dimen/mine_icon"
+                    android:layout_marginLeft="@dimen/marginScreenLarge"
+                    android:src="@drawable/friend_sao_yi_sao"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvSaoYiSaoTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/textLarge"
+                    android:textColor="@color/colorBlackTextNormal"
+                    android:layout_marginLeft="@dimen/marginViewNormal"
+                    android:text="@string/saoyisao"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/ivSaoYiSaoIcon"
+                    app:layout_constraintRight_toLeftOf="@+id/ivSaoYiSaoNext"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ivSaoYiSaoNext"
+                    android:layout_width="@dimen/mine_item_h"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/marginScreenLagre"
+                    android:src="@drawable/ic_next"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/border0.5"
+                android:background="@color/colorDivider"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/clSaoYiSao" />
+
+            <!--手机联系人-->
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/clPhoneFriend"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mine_item_h"
+                android:background="@drawable/ripple_comon_selector"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintTop_toBottomOf="@+id/view2">
+
+                <ImageView
+                    android:id="@+id/ivPhoneFriendIcon"
+                    android:layout_width="@dimen/mine_icon"
+                    android:layout_height="@dimen/mine_icon"
+                    android:layout_marginLeft="@dimen/marginScreenLarge"
+                    android:src="@drawable/phone_contract"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvPhoneFriendTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/textLarge"
+                    android:textColor="@color/colorBlackTextNormal"
+                    android:layout_marginLeft="@dimen/marginViewNormal"
+                    android:text="@string/phone_friend"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/ivPhoneFriendIcon"
+                    app:layout_constraintRight_toLeftOf="@+id/ivPhoneFriendNext"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ivPhoneFriendNext"
+                    android:layout_width="@dimen/mine_item_h"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/marginScreenLagre"
+                    android:src="@drawable/ic_next"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/border0.5"
+                android:background="@color/colorDivider"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/clPhoneFriend" />
+        </android.support.constraint.ConstraintLayout>
+    </com.dian.commonlib.utils.widget.MultipleStatusView>
+</LinearLayout>

@@ -1,0 +1,77 @@
+<resources>
+    <!--basic start-->
+    <!--边框-->
+    <dimen name="border0.5">0.5dp</dimen>
+    <dimen name="border1">1dp</dimen>
+    <!--toolbar-->
+    <dimen name="toolBar">56dp</dimen>
+    <!--basic end-->
+
+    <!--bt-->
+    <dimen name="bt_h">48dp</dimen>
+    <dimen name="toorbar_bt_h">28dp</dimen>
+
+    <!--tablayout start-->
+    <dimen name="tlH">48dp</dimen>
+    <dimen name="tlIndicatorH">2dp</dimen>
+    <dimen name="tlIndicatorw">10dp</dimen>
+    <!--tablayout end-->
+
+    <!--textsize  start-->
+    <dimen name="textHomeAsset">35sp</dimen>
+    <dimen name="textFirstTitle">20sp</dimen>
+    <dimen name="textSecondTitle">18sp</dimen>
+    <dimen name="textNormalTitle">16sp</dimen>
+    <dimen name="textLarge">15sp</dimen>
+    <dimen name="textNormal">14sp</dimen>
+    <dimen name="textLittle">13sp</dimen>
+    <dimen name="textSmall">12sp</dimen>
+    <dimen name="textMini">10sp</dimen>
+    <!--textsize  end-->
+
+    <!--iconsize  start-->
+    <dimen name="iconCoinLogoLarge">32dp</dimen>
+    <dimen name="iconCoinLogoNormal">24dp</dimen>
+    <dimen name="iconCoinLogoSmall">12dp</dimen>
+    <dimen name="iconCoinLogoLittle">10dp</dimen>
+
+    <!--iconsize  end-->
+
+    <!--et height start-->
+    <dimen name="etHeight">40dp</dimen>
+    <!--et height end-->
+
+    <!--search h start-->
+    <dimen name="seachHeight">36dp</dimen>
+    <!--search h end-->
+
+    <!--qrsize start-->
+    <dimen name="qrGoogleSize">200dp</dimen>
+    <!--qrsize end-->
+
+    <!--radius start-->
+    <dimen name="radiusAll">999dp</dimen>
+    <dimen name="radiusLarge">18dp</dimen>
+    <dimen name="radiusNormal">12dp</dimen>
+    <dimen name="radiusSmall">10dp</dimen>
+    <dimen name="radiusLittle">6dp</dimen>
+    <dimen name="radiusMini">4dp</dimen>
+    <!--radius end-->
+
+    <!--margin start-->
+    <dimen name="marginScreenMoreLagre">20dp</dimen>
+    <dimen name="marginScreenLarge">16dp</dimen>
+    <dimen name="marginScreenSmall">12dp</dimen>
+    <dimen name="marginScreenNormal">14dp</dimen>
+    <dimen name="marginScreenLagre">16dp</dimen>
+
+    <dimen name="marginViewLot">14dp</dimen>
+    <dimen name="marginViewALot">12dp</dimen>
+    <dimen name="marginViewNormal">10dp</dimen>
+    <dimen name="marginViewSmall">8dp</dimen>
+    <dimen name="marginViewLittle">6dp</dimen>
+    <dimen name="marginViewALittle">4dp</dimen>
+    <dimen name="marginViewMini">2dp</dimen>
+    <!--margin send-->
+
+</resources>

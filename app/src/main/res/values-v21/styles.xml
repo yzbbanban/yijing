@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--状态栏颜色-->
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!--ActionBar颜色-->
+        <item name="android:colorPrimary">@color/colorPrimary</item>
+        <!--界面背景颜色-->
+        <item name="android:windowBackground">@color/colorViewBg</item>
+        <!--导航栏颜色-->
+        <!--<item name="android:navigationBarColor">@color/colorBlack</item>-->
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionOverflowButtonStyle">@style/ToolbarOverflow</item>//修改toolbar右边三个点
+        <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
+        <item name="android:textColorSecondary">@color/colorDivider</item>
+    </style>
+
+    <!--修改toolbar的三个点-->
+    <style name="ToolbarOverflow" parent="@android:style/Widget.ActionButton.Overflow">
+        <item name="android:src">@drawable/selector_home_add</item>
+        <item name="android:layout_width">12dp</item>
+        <item name="android:layout_height">12dp</item>
+    </style>
+
+    <!--toolbar的menu弹窗在toolbar之下-->
+    <style name="OverflowMenuStyle" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
+        <item name="overlapAnchor">false</item>
+        <item name="android:colorBackground">@color/colorViewBg</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppThemeTranslate" parent="AppTheme">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+
+    <style name="AppTransparentBg" parent="AppThemeTranslate">
+        <!--界面背景颜色-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+    <style name="AppTransparentBgLogin" parent="AppTheme">
+        <!--界面背景颜色-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+</resources>

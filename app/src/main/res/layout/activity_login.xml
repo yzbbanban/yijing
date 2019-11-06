@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorSubPrimary"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_toolbar" />
+
+    <com.dian.commonlib.utils.widget.MultipleStatusView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/multipleStatusView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/code_size">
+
+            <TextView
+                android:id="@+id/tvLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/login_logo_margin_top"
+                android:src="@mipmap/ic_launcher"
+                android:text="洋河义警"
+                android:textColor="@color/colorWhiteTextImportant"
+                android:textSize="@dimen/homeNoticeH"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvSign"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/marginViewALot"
+                android:text=""
+                android:textColor="@color/colorBlackTextNormal"
+                android:textSize="@dimen/textNormalTitle"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLogo" />
+
+
+            <EditText
+                android:id="@+id/etPhone"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/toolBar"
+                android:layout_marginTop="@dimen/login_etaccount_margin_top"
+                android:background="@drawable/shape_login_bt_press"
+                android:gravity="center_vertical"
+                android:hint="@string/hint_phone"
+                android:inputType="number"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/height_quicksidebaritem"
+                android:textColor="@color/colorWhiteTextImportant"
+                android:textColorHint="@color/colorWhiteTextImportant"
+                android:textSize="@dimen/textNormalTitle"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvSign" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/sendSmsCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/marginScreenLarge"
+                android:background="@null"
+                android:gravity="center"
+                android:minWidth="@dimen/sms_code_btn_w"
+                android:minHeight="@dimen/sms_code_btn_h"
+                android:text="@string/send_sms_code"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorWhiteTextImportant"
+                android:textSize="@dimen/textNormal"
+                app:layout_constraintBottom_toBottomOf="@+id/etPhone"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/etPhone" />
+
+            <EditText
+                android:id="@+id/etCode"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/toolBar"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/shape_login_bt_press"
+                android:gravity="center_vertical"
+                android:hint="@string/hint_sms_code"
+                android:inputType="number"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/height_quicksidebaritem"
+                android:paddingRight="@dimen/sms_code_btn_w"
+                android:textColorHint="@color/colorWhiteTextImportant"
+                android:textSize="@dimen/textNormalTitle"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etPhone" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bt_h"
+                android:layout_marginTop="112dp"
+                android:background="@drawable/selector_login_bt"
+                android:text="@string/login"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/textNormalTitle"
+                app:layout_constraintTop_toBottomOf="@+id/etPhone"
+                tools:layout_editor_absoluteX="16dp" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </com.dian.commonlib.utils.widget.MultipleStatusView>
+</LinearLayout>

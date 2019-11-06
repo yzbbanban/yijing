@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/marginScreenLagre"
+    android:layout_marginTop="@dimen/marginViewLittle"
+    android:layout_marginLeft="@dimen/marginScreenMoreLagre"
+    android:layout_marginRight="@dimen/marginScreenMoreLagre"
+    android:elevation="@dimen/marginViewNormal"
+    app:cardCornerRadius="@dimen/marginViewLittle">
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivLable"
+            android:layout_width="@dimen/finance_lable_w"
+            android:layout_height="@dimen/finance_lable_h"
+            android:src="@color/colorAccent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/marginViewALot"
+            android:text="排名"
+            android:textColor="@color/colorBlackTextNormal"
+            android:textSize="@dimen/textNormalTitle"
+            app:layout_constraintBottom_toBottomOf="@+id/ivLable"
+            app:layout_constraintLeft_toRightOf="@+id/ivLable"
+            app:layout_constraintTop_toTopOf="@+id/ivLable" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/border1"
+            android:layout_marginLeft="@dimen/marginScreenMoreLagre"
+            android:background="@color/colorDivider"
+            app:layout_constraintLeft_toLeftOf="@+id/tvTitle"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivLable" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

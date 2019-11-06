@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--主要颜色-->
+    <color name="colorPrimaryLight">#03A9F4</color>
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorSubPrimary">#007aff</color>
+    <color name="colorSubPrimaryLight">#4E9AF0</color>
+    <color name="colorPrimaryDark">#3F51B5</color>
+    <color name="colorAccent">#2196F3</color>
+    <color name="colorWinBg">#eeeeee</color>
+    <color name="colorViewBg">#ffffff</color>
+    <color name="colorDivider">#e5e5e5</color>
+    <color name="colorRipple">#15000000</color>
+    <!--警告色-->
+    <color name="colorWarning">#ff3a3d</color>
+    <!--ok色-->
+    <color name="colorOk">#4ea733</color>
+
+    <!--文字颜色-->
+    <color name="colorBlackTextImportant">#000000</color>
+    <color name="colorBlackTextI">#636363</color>
+    <color name="colorBlackTextNormal">#dd000000</color>
+    <color name="colorBlackTextSub">#88000000</color>
+    <color name="colorBlackTextHint">#66000000</color>
+    <color name="colorWhiteTextImportant">#ffffff</color>
+    <color name="colorWhiteTextNormal">#ddffffff</color>
+    <color name="colorWhiteTextSub">#99ffffff</color>
+    <color name="colorWhiteTextHint">#66ffffff</color>
+
+</resources>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/tvAdded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginScreenLarge"
+        android:layout_marginTop="@dimen/marginScreenLarge"
+        android:text="@string/added"
+        android:textColor="@color/colorBlackTextNormal"
+        android:textSize="@dimen/textNormalTitle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvAddedDes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginViewALittle"
+        android:layout_marginTop="@dimen/marginScreenLarge"
+        android:text="@string/added_des"
+        android:textColor="@color/colorBlackTextSub"
+        android:textSize="@dimen/textNormalTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAdded"
+        app:layout_constraintLeft_toRightOf="@+id/tvAdded" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvAdded"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginViewNormal"
+        android:layout_marginRight="@dimen/marginViewMini"
+        android:layout_marginTop="@dimen/marginViewNormal"
+        android:nestedScrollingEnabled="false"
+        app:layout_constraintTop_toBottomOf="@+id/tvAdded" />
+
+    <View
+        android:id="@+id/iv1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/border1"
+        android:layout_marginLeft="@dimen/marginScreenLarge"
+        android:layout_marginRight="@dimen/marginScreenLarge"
+        android:layout_marginTop="@dimen/marginScreenMoreLagre"
+        android:background="@color/colorDivider"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvAdded" />
+
+</android.support.constraint.ConstraintLayout>

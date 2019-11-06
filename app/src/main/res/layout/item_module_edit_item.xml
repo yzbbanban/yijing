@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="@dimen/marginViewSmall"
+    android:layout_marginTop="@dimen/marginViewSmall"
+    android:background="@color/colorRipple"
+    android:clickable="true"
+    android:focusable="true"
+    android:paddingBottom="@dimen/marginViewNormal"
+    >
+
+    <ImageView
+        android:id="@+id/ivModuleIcon"
+        android:layout_width="@dimen/iconModuleNormal"
+        android:layout_height="@dimen/iconModuleNormal"
+        android:src="@color/colorDivider"
+        android:layout_marginTop="@dimen/marginViewNormal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvModuleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginViewLittle"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/saoyisao"
+        android:textColor="@color/colorBlackTextImportant"
+        android:textSize="@dimen/textLittle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivModuleIcon" />
+
+    <ImageView
+        android:id="@+id/ivAddOrDel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/module_del"
+        android:padding="@dimen/marginViewMini"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>

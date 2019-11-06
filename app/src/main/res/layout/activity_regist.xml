@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_toolbar" />
+
+    <com.dian.commonlib.utils.widget.MultipleStatusView
+        android:id="@+id/multipleStatusView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <EditText
+                android:id="@+id/etPhone"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/toolBar"
+                android:layout_marginLeft="@dimen/marginScreenLarge"
+                android:layout_marginRight="@dimen/marginScreenLarge"
+                android:layout_marginTop="@dimen/regist_etaccount_margin_top"
+                android:gravity="center_vertical"
+                android:hint="@string/hint_phone"
+                android:inputType="number"
+                android:maxLines="1"
+                android:paddingLeft="74dp"
+                android:paddingRight="@dimen/marginViewALot"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorBlackTextHint"
+                android:textSize="@dimen/textNormalTitle"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="16dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/marginViewNormal"
+                android:layout_toRightOf="@+id/tvPhoneCode"
+                android:background="@color/colorDivider"
+                app:layout_constraintBottom_toBottomOf="@+id/tvPhoneCode"
+                app:layout_constraintLeft_toRightOf="@+id/tvPhoneCode"
+                app:layout_constraintTop_toTopOf="@+id/tvPhoneCode" />
+
+            <TextView
+                android:id="@+id/tvPhoneCode"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/toolBar"
+                android:layout_marginLeft="@dimen/marginScreenLarge"
+                android:gravity="center"
+                android:minWidth="@dimen/toolBar"
+                android:text="+86"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/textNormalTitle"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/etPhone" />
+
+            <EditText
+                android:id="@+id/etCode"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/toolBar"
+                android:layout_marginLeft="@dimen/marginScreenLarge"
+                android:layout_marginRight="@dimen/marginScreenLarge"
+                android:gravity="center_vertical"
+                android:hint="@string/hint_sms_code"
+                android:inputType="number"
+                android:maxLines="1"
+                android:paddingRight="@dimen/sms_code_btn_w"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorBlackTextHint"
+                android:textSize="@dimen/textNormalTitle"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etPhone" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/sendSmsCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/marginScreenLarge"
+                android:background="@drawable/selector_primary_bt"
+                android:gravity="center"
+                android:minHeight="@dimen/sms_code_btn_h"
+                android:minWidth="@dimen/sms_code_btn_w"
+                android:text="@string/send_sms_code"
+                android:textColor="@color/colorWhiteTextImportant"
+                android:textSize="@dimen/textNormal"
+                app:layout_constraintBottom_toBottomOf="@+id/etCode"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/etCode" />
+
+            <CheckBox
+                android:id="@+id/cbXieyi"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/toolBar"
+                android:layout_marginLeft="@dimen/marginScreenLarge"
+                android:checked="true"
+                android:paddingLeft="@dimen/marginViewLittle"
+                android:text="@string/accept_regist"
+                android:textColor="@color/colorBlackTextHint"
+                android:textSize="@dimen/textSmall"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etCode" />
+
+            <TextView
+                android:id="@+id/tvRegistXieyi"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/toolBar"
+                android:layout_marginLeft="@dimen/marginViewMini"
+                android:layout_marginRight="@dimen/marginScreenLarge"
+                android:gravity="center_vertical"
+                android:text="@string/btw_server_xieyi"
+                android:textColor="@color/colorSubPrimary"
+                android:textSize="@dimen/textSmall"
+                app:layout_constraintBottom_toBottomOf="@+id/cbXieyi"
+                app:layout_constraintLeft_toRightOf="@+id/cbXieyi"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/cbXieyi" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/acbBtn"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bt_h"
+                android:layout_marginLeft="@dimen/marginScreenLarge"
+                android:layout_marginRight="@dimen/marginScreenLarge"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/selector_primary_bt"
+                android:enabled="false"
+                android:text="@string/sure"
+                android:textColor="@color/colorWhiteTextImportant"
+                android:textSize="@dimen/textNormalTitle"
+                app:layout_constraintTop_toBottomOf="@+id/cbXieyi" />
+        </android.support.constraint.ConstraintLayout>
+    </com.dian.commonlib.utils.widget.MultipleStatusView>
+</LinearLayout>

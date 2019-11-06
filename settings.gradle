@@ -1,0 +1,1 @@
+include ':app', ':adapterLib', ':bottomnavigationviewex', ':commonlib', ':matisse', ':refresh-layout', ':quicksidebar'

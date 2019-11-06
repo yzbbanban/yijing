@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/clGroup"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/contract_item_h"
+    android:background="@drawable/ripple_comon_selector"
+    android:clickable="true"
+    android:focusable="true">
+
+    <ImageView
+        android:id="@+id/ivAvatar"
+        android:layout_width="@dimen/contract_icon_size"
+        android:layout_height="@dimen/contract_icon_size"
+        android:layout_marginLeft="@dimen/marginScreenLarge"
+        android:gravity="center_vertical"
+        android:src="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginScreenLarge"
+        android:text="@string/group_chat"
+        android:textColor="@color/colorBlackTextNormal"
+        android:textSize="@dimen/textLarge"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/ivAvatar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btAgree"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/toorbar_bt_h"
+        android:background="@drawable/selector_radio_bt"
+        android:minWidth="50dp"
+        android:layout_marginRight="@dimen/marginScreenNormal"
+        android:text="@string/agree"
+        android:textColor="@color/colorWhiteTextImportant"
+        android:textSize="@dimen/textSmall"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/btRefuse"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/btRefuse"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/toorbar_bt_h"
+        android:layout_marginRight="@dimen/marginScreenLarge"
+        android:background="@drawable/selector_radio_dark_bt"
+        android:minWidth="50dp"
+        android:text="@string/refuse"
+        android:textColor="@color/colorWhiteTextImportant"
+        android:textSize="@dimen/textSmall"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>

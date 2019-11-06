@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/toolBar"
+    android:background="@drawable/ripple_comon_selector"
+    android:clickable="true"
+    android:focusable="true">
+
+
+    <ImageView
+        android:id="@+id/ivAvatar"
+        android:layout_width="@dimen/contract_icon_size"
+        android:layout_height="@dimen/contract_icon_size"
+        android:layout_marginLeft="@dimen/marginScreenLarge"
+        android:gravity="center_vertical"
+        android:src="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginScreenLarge"
+        android:text="--"
+        android:textColor="@color/colorBlackTextNormal"
+        android:textSize="@dimen/textLarge"
+        app:layout_constraintBottom_toTopOf="@+id/tvSearch"
+        app:layout_constraintLeft_toRightOf="@+id/ivAvatar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/tvSearch"
+        android:layout_marginTop="@dimen/marginViewMini"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="--"
+        android:textColor="@color/colorBlackTextSub"
+        android:textSize="@dimen/textLittle"
+        app:layout_constraintTop_toBottomOf="@+id/tvName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/tvName" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/border0.5"
+        android:background="@color/colorDivider"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ripple_comon_selector"
+    android:clickable="true"
+    android:focusable="true"
+    android:padding="@dimen/marginViewSmall">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="@dimen/homeRecommendIcoinSize"
+        android:layout_height="@dimen/homeRecommendIcoinSize"
+        app:cardCornerRadius="@dimen/marginViewALot">
+
+        <ImageView
+            android:id="@+id/ivIcon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvLable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_home_recom_new"
+            android:paddingBottom="@dimen/marginViewMini"
+            android:paddingLeft="@dimen/marginViewALittle"
+            android:paddingRight="@dimen/marginViewALittle"
+            android:paddingTop="@dimen/marginViewMini"
+            android:text="上新"
+            android:textColor="@color/colorWhiteTextImportant"
+            android:textSize="@dimen/textMini"
+            app:layout_constraintLeft_toLeftOf="@+id/ivIcon"
+            app:layout_constraintTop_toTopOf="@+id/ivIcon" />
+
+    </android.support.v7.widget.CardView>
+
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginViewSmall"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="----"
+        android:textColor="@color/colorBlackTextNormal"
+        android:textSize="@dimen/textNormal"
+        app:layout_constraintBottom_toTopOf="@+id/tvTitleSub"
+        app:layout_constraintLeft_toRightOf="@+id/cardView"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cardView" />
+
+    <TextView
+        android:id="@+id/tvTitleSub"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈"
+        android:textColor="@color/colorBlackTextSub"
+        android:textSize="@dimen/textSmall"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView"
+        app:layout_constraintLeft_toLeftOf="@+id/tvTitle"
+        app:layout_constraintRight_toRightOf="@+id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.dian.commonlib.utils.widget.SearchEditText
+        android:id="@+id/etSearch"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/seachHeight"
+        android:layout_marginLeft="@dimen/marginScreenNormal"
+        android:layout_marginRight="@dimen/marginScreenNormal"
+        android:layout_marginTop="@dimen/marginScreenNormal"
+        android:background="@drawable/shape_search_bg"
+        android:drawablePadding="@dimen/marginViewSmall"
+        android:elevation="@dimen/marginViewSmall"
+        android:hint="@string/search"
+        android:singleLine="true"
+        android:imeOptions="actionSearch"
+        android:paddingLeft="@dimen/marginViewLot"
+        android:paddingRight="@dimen/marginViewLot"
+        android:textSize="@dimen/textNormal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</merge>

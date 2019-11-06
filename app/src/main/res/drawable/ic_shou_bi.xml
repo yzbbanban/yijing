@@ -1,0 +1,46 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="19dp"
+    android:height="18dp"
+    android:viewportHeight="18.0"
+    android:viewportWidth="19.0">
+    <path
+        android:fillColor="#00000000"
+        android:fillType="evenOdd"
+        android:pathData="M16.187,11.148C15.669,10.821 15.056,10.632 14.399,10.632C12.547,10.632 11.046,12.134 11.046,13.988C11.046,14.388 11.116,14.771 11.244,15.127L0.818,15.127L0.818,1.318L16.187,1.318L16.187,11.148Z"
+        android:strokeColor="#333333"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:strokeWidth="1.125" />
+    <path
+        android:fillColor="#00000000"
+        android:fillType="evenOdd"
+        android:pathData="M0.823,6.246L16.191,6.246"
+        android:strokeColor="#333333"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:strokeWidth="1.125" />
+    <path
+        android:fillColor="#00000000"
+        android:fillType="evenOdd"
+        android:pathData="M17.753,13.988C17.753,15.841 16.251,17.343 14.399,17.343C12.547,17.343 11.046,15.841 11.046,13.988C11.046,12.134 12.547,10.632 14.399,10.632C16.251,10.632 17.753,12.134 17.753,13.988Z"
+        android:strokeColor="#333333"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:strokeWidth="1.125" />
+    <path
+        android:fillColor="#00000000"
+        android:fillType="evenOdd"
+        android:pathData="M13.429,14.743C13.763,14.103 14.526,13.595 15.596,13.539"
+        android:strokeColor="#333333"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:strokeWidth="1.125" />
+    <path
+        android:fillColor="#00000000"
+        android:fillType="evenOdd"
+        android:pathData="M14.371,12.89l1.259,0.625l-0.625,1.26"
+        android:strokeColor="#333333"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:strokeWidth="1.125" />
+</vector>

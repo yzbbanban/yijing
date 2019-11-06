@@ -1,0 +1,312 @@
+<resources>
+    <string name="app_name">洋河义警</string>
+
+    <!--com-->
+    <string name="phone_code_not_empty">国家代码不能为空</string>
+    <string name="account_not_empty">账号不能为空</string>
+    <string name="code_not_empty">验证码不能为空</string>
+    <string name="code_send_success">验证码发送成功</string>
+    <string name="sms_send_error">验证码获取失败</string>
+    <string name="hint_phone">手机号</string>
+    <string name="hint_sms_code">验证码</string>
+    <string name="send_sms_code">发送验证码</string>
+    <string name="input_code">输入验证码</string>
+    <string name="app_language">语言</string>
+    <string name="setting_language_english">English</string>
+    <string name="setting_language_korea">한글</string>
+    <string name="setting_simplified_chinese">简体中文</string>
+    <string name="setting_traditional_chinese_tw">繁體中文（臺灣）</string>
+    <string name="setting_traditional_chinese_hk">繁體中文（香港）</string>
+    <string name="setting_language_auto">跟随系统</string>
+    <string name="china">中国</string>
+    <string name="korea">韩国</string>
+    <string name="search">搜索</string>
+    <string name="cancel">取消</string>
+    <string name="sure">确定</string>
+    <string name="forget_pay_pwd">忘记支付密码</string>
+    <string name="yes_i_know">好的，我知道了</string>
+    <string name="fabi_fuzhi_yue">约</string>
+    <string name="fabi_unit_rmb">元</string>
+    <string name="fabi_unit_usa">美元</string>
+    <string name="please_input_paypwd">请输入支付密码</string>
+    <string name="asset_safe_text">冷隔离保护中</string>
+    <string name="finish">完成</string>
+    <string name="search_friend">搜索好友</string>
+    <string name="saoyisao">扫一扫</string>
+    <string name="save_success">保存成功</string>
+    <string name="save_fail">保存失败</string>
+    <string name="web_default_title">详情</string>
+
+    <!--MainActivity-->
+    <string name="home">首页</string>
+    <string name="msg">消息</string>
+    <string name="finance">金融</string>
+    <string name="yhyj">洋河义警</string>
+    <string name="mine">我的</string>
+    <string name="grzx">个人中心</string>
+
+    <!--Menu-->
+    <string name="menu_create_group_chat">创建群聊</string>
+    <string name="menu_add_friend">添加好友</string>
+
+    <string name="menu_shoubi">收币</string>
+
+    <!--MsgFragment-->
+    <string name="empty" />
+    <string name="message">消息</string>
+    <string name="yj_new">义警新闻</string>
+
+    <!--SplashActivity-->
+    <string name="jump">跳过</string>
+
+    <!--LoginActivity-->
+    <string name="login">登录</string>
+    <string name="login_success">登录成功</string>
+    <string name="login_subtitle">安全·专业·易用</string>
+    <string name="regist_login"><![CDATA[点击注册>>]]></string>
+    <string name="not_regist_phone">该手机号还没有注册过比特钱包，是否注册？</string>
+    <string name="go_regist">去注册</string>
+    <string name="code_error">验证码错误，请验证后重新输入</string>
+
+
+    <!--RegistActivity-->
+    <string name="accept_regist">已阅读并同意</string>
+    <string name="btw_server_xieyi">《BTW比特钱包服务和隐私协议》</string>
+    <string name="regist_phone">手机号注册</string>
+    <string name="regist_success">注册成功</string>
+    <string name="change_phone_need_sendsms">修改手机号后需重新发送验证码</string>
+
+    <!--设置-->
+    <string name="loginout">退出登录</string>
+
+
+    <!--GroupsActivity-->
+    <string name="groups">群聊</string>
+    <string name="hd_create_wallet">创建钱包</string>
+    <string name="hd_agreement">服务协议</string>
+    <string name="backup_mnemonic">备份助记词</string>
+    <string name="timeout">连接超时</string>
+    <string name="network_err">网络错误</string>
+
+    <!--PaydialogFragment-->
+    <string name="auth_paypwd">为了您的账户安全\n进行实名认证前需要验证您的支付密码</string>
+    <string name="h5_pay">用于执行当前操作</string>
+    <string name="auth_zhiwen">验证指纹</string>
+    <string name="pwd_pay">使用密码</string>
+    <string name="pwd_fingerprint">使用指纹</string>
+    <string name="zhuangei">转给：</string>
+
+    <!--lang-->
+    <string name="change_language">语言选择</string>
+
+    <!--国家代码-->
+    <string name="chang_yong">常用</string>
+    <string name="phone_code">手机号归属地</string>
+
+    <!--HomeFragment-->
+    <string name="home_total_asset_title">总资产(%s)</string>
+    <string name="recommend">推荐</string>
+
+    <!--ModuleEditActivity-->
+    <string name="added">已添加</string>
+    <string name="added_des">(按住拖动调整顺序)</string>
+    <string name="sys_module">系统功能</string>
+    <string name="edit_my_module">我的应用编辑</string>
+
+
+    <!--msgFragment-->
+    <string name="sys_msg">系统消息</string>
+    <string name="no_news_yet">暂无消息</string>
+
+    <!--mineFragment-->
+    <string name="yunduan_wallet">云端钱包</string>
+    <string name="hd_wallet">HD钱包</string>
+    <string name="licai">理财</string>
+    <string name="bizhong">币种</string>
+    <string name="ge">个</string>
+    <string name="xiang">项</string>
+    <string name="to_renzheng">去认证</string>
+    <string name="mine_invite">邀请好友</string>
+    <string name="mine_ticket">我的卡券</string>
+    <string name="account_safe">账号安全</string>
+    <string name="ren_zheng_yet">已认证</string>
+    <string name="kefu">人工客服</string>
+    <string name="select_lang">语言选择</string>
+    <string name="about_huohuo">关于洋河义警</string>
+
+    <!--FriendActivity-->
+    <string name="new_friend">新的朋友</string>
+    <string name="group_chat">群聊</string>
+    <string name="contracts">通讯录</string>
+    <string name="phone_num">手机号码</string>
+
+    <!--newFriend-->
+    <string name="agree">同意</string>
+    <string name="refuse">拒绝</string>
+    <string name="add_phone_friend">添加手机联系人</string>
+
+    <!--addFriend-->
+    <string name="my_qr">我的二维码</string>
+    <string name="phone_friend">手机联系人</string>
+    <string name="add_friend">添加好友</string>
+    <string name="my_qr_text">用比特钱包扫我二维码，加我好友</string>
+
+    <!--phoneContract-->
+    <string name="invite">邀请</string>
+    <string name="add">添加</string>
+    <string name="send_success">发送成功</string>
+    <string name="add_friend_request">好友请求发送成功，请等待回复</string>
+
+    <!--scan-->
+    <string name="app_picker_name">Applications</string>
+    <string name="bookmark_picker_name">Bookmarks</string>
+    <string name="button_add_calendar">Add to calendar</string>
+    <string name="button_add_contact">Add contact</string>
+    <string name="button_book_search">Book Search</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_custom_product_search">Custom search</string>
+    <string name="button_dial">Dial number</string>
+    <string name="button_email">Send email</string>
+    <string name="button_get_directions">Get directions</string>
+    <string name="button_mms">Send MMS</string>
+    <string name="button_ok">OK</string>
+    <string name="button_open_browser">Open browser</string>
+    <string name="button_product_search">Product search</string>
+    <string name="button_search_book_contents">Search contents</string>
+    <string name="button_share_app">Application</string>
+    <string name="button_share_bookmark">Bookmark</string>
+    <string name="button_share_by_email">Share via email</string>
+    <string name="button_share_by_sms">Share via SMS</string>
+    <string name="button_share_clipboard">Clipboard</string>
+    <string name="button_share_contact">Contact</string>
+    <string name="button_show_map">Show map</string>
+    <string name="button_sms">Send SMS</string>
+    <string name="button_web_search">Web search</string>
+    <string name="button_wifi">Connect to Network</string>
+    <string name="contents_contact">Contact info</string>
+    <string name="contents_email">Email address</string>
+    <string name="contents_location">Geographic coordinates</string>
+    <string name="contents_phone">Phone number</string>
+    <string name="contents_sms">SMS address</string>
+    <string name="contents_text">Plain text</string>
+    <string name="history_clear_text">Clear history</string>
+    <string name="history_clear_one_history_text">Clear</string>
+    <string name="history_email_title">Barcode Scanner history</string>
+    <string name="history_empty">Empty</string>
+    <string name="history_empty_detail">No barcode scans have been recorded</string>
+    <string name="history_send">Send history</string>
+    <string name="history_title">History</string>
+    <string name="menu_encode_mecard">Use MECARD</string>
+    <string name="menu_encode_vcard">Use vCard</string>
+    <string name="menu_help">Help</string>
+    <string name="menu_history">History</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_share">Share</string>
+    <string name="msg_bulk_mode_scanned">Bulk mode: barcode scanned and saved</string>
+    <string name="msg_camera_framework_bug">Sorry, the Android camera encountered a problem. You may need to restart the device.</string>
+    <string name="msg_default_format">Format</string>
+    <string name="msg_default_meta">Metadata</string>
+    <string name="msg_default_mms_subject">Hi</string>
+    <string name="msg_default_status">Place a barcode inside the viewfinder rectangle to scan it.</string>
+    <string name="msg_default_time">Time</string>
+    <string name="msg_default_type">Type</string>
+    <string name="msg_encode_contents_failed">Could not encode a barcode from the data provided.</string>
+    <string name="msg_error">Error</string>
+    <string name="msg_google_books">Google</string>
+    <string name="msg_google_product">Google</string>
+    <string name="msg_intent_failed">Sorry, the requested application could not be launched. The barcode contents may be invalid.</string>
+    <string name="msg_invalid_value">Invalid value</string>
+    <string name="msg_redirect">Redirect</string>
+    <string name="msg_sbc_book_not_searchable">Sorry, this book is not searchable.</string>
+    <string name="msg_sbc_failed">Sorry, the search encountered a problem.</string>
+    <string name="msg_sbc_no_page_returned">No page returned</string>
+    <string name="msg_sbc_page">Page</string>
+    <string name="msg_sbc_results">Results</string>
+    <string name="msg_sbc_searching_book">Searching book\u2026</string>
+    <string name="msg_sbc_snippet_unavailable">Snippet not available</string>
+    <string name="msg_share_explanation">You can share data by displaying a barcode on your screen and scanning it with another phone.</string>
+    <string name="msg_share_text">Or type some text and press Enter</string>
+    <string name="msg_sure">Are you sure?</string>
+    <string name="msg_unmount_usb">Sorry, the SD card is not accessible.</string>
+    <string name="preferences_actions_title">When a barcode is found\u2026</string>
+    <string name="preferences_auto_focus_title">Use auto focus</string>
+    <string name="preferences_auto_open_web_title">Open web pages automatically</string>
+    <string name="preferences_bulk_mode_summary">Scan and save many barcodes continuously</string>
+    <string name="preferences_bulk_mode_title">Bulk scan mode</string>
+    <string name="preferences_copy_to_clipboard_title">Copy to clipboard</string>
+    <string name="preferences_custom_product_search_summary" formatted="false">Substitutions: %s = contents, %f = format, %t = type</string>
+    <string name="preferences_custom_product_search_title">Custom search URL</string>
+    <string name="preferences_decode_1D_industrial_title">1D Industrial</string>
+    <string name="preferences_decode_1D_product_title">1D Product</string>
+    <string name="preferences_decode_Aztec_title">Aztec</string>
+    <string name="preferences_decode_Data_Matrix_title">Data Matrix</string>
+    <string name="preferences_decode_PDF417_title">PDF417 (β)</string>
+    <string name="preferences_decode_QR_title">QR Codes</string>
+    <string name="preferences_device_bug_workarounds_title">Device Bug Workarounds</string>
+    <string name="preferences_disable_barcode_scene_mode_title">No barcode scene mode</string>
+    <string name="preferences_disable_continuous_focus_summary">Use only standard focus mode</string>
+    <string name="preferences_disable_continuous_focus_title">No continuous focus</string>
+    <string name="preferences_disable_exposure_title">No exposure</string>
+    <string name="preferences_disable_metering_title">No metering</string>
+    <string name="preferences_front_light_summary">Improves scanning in low light on some phones, but may cause glare. Does not work on all phones.</string>
+    <string name="preferences_front_light_title">Use front light</string>
+    <string name="preferences_front_light_auto">Automatic</string>
+    <string name="preferences_front_light_off">Off</string>
+    <string name="preferences_front_light_on">On</string>
+    <string name="preferences_general_title">General settings</string>
+    <string name="preferences_history_summary">Store your scans in History</string>
+    <string name="preferences_history_title">Add to History</string>
+    <string name="preferences_invert_scan_title">Invert scan</string>
+    <string name="preferences_invert_scan_summary">Scan for white barcodes on black background. Not available on some devices.</string>
+    <string name="preferences_name">Settings</string>
+    <string name="preferences_orientation_title">No automatic rotation</string>
+    <string name="preferences_play_beep_title">Beep</string>
+    <string name="preferences_remember_duplicates_summary">Store multiple scans of the same barcode in History</string>
+    <string name="preferences_remember_duplicates_title">Remember duplicates</string>
+    <string name="preferences_result_title">Result settings</string>
+    <string name="preferences_scanning_title">When scanning for barcodes, decode\u2026</string>
+    <string name="preferences_search_country">Search country</string>
+    <string name="preferences_supplemental_summary">Try to retrieve more information about the barcode contents</string>
+    <string name="preferences_supplemental_title">Retrieve more info</string>
+    <string name="preferences_vibrate_title">Vibrate</string>
+    <string name="result_address_book">Found contact info</string>
+    <string name="result_calendar">Found calendar event</string>
+    <string name="result_email_address">Found email address</string>
+    <string name="result_geo">Found geographic coordinates</string>
+    <string name="result_isbn">Found book</string>
+    <string name="result_product">Found product</string>
+    <string name="result_sms">Found SMS address</string>
+    <string name="result_tel">Found phone number</string>
+    <string name="result_text">Found plain text</string>
+    <string name="result_uri">Found URL</string>
+    <string name="result_wifi">Found WLAN Configuration</string>
+    <string name="sbc_name">Google Book Search</string>
+    <string name="wifi_changing_network">Requesting connection to network\u2026</string>
+    <string name="album">相册</string>
+    <string name="open_shoudiantong">打开手电筒</string>
+    <string name="close_shoudiantong">关闭手电筒</string>
+    <string name="shibie_fail">识别失败</string>
+    <string name="camera_quanxian">您已拒绝相机权限，请前往应用设置开启权限</string>
+    <string name="to_set">去设置</string>
+    <string name="cant_analysis_qrcode">无法识别</string>
+    <string name="scan_tips">将二维码/条形码放在框内\n即可自动扫描</string>
+
+    <!--聊天-->
+    <string name="save_img">保存图片</string>
+    <string name="shibie_qr">识别图中二维码</string>
+    <string name="find_chongbi_address">发现充币地址</string>
+
+
+    <!--search-->
+    <string name="phone_lable">手机号：</string>
+    <string name="nickname_lable">昵称：</string>
+
+    <!--group-->
+    <string name="search_group">搜索群</string>
+
+    <!--总资产-->
+    <string name="all_asset">总资产</string>
+    <string name="yun_wallet">云钱包</string>
+
+
+</resources>

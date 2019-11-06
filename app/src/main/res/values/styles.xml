@@ -1,0 +1,118 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/colorViewBg</item>
+        <item name="actionOverflowButtonStyle">@style/ToolbarOverflow</item>
+        <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
+        <item name="android:textColorSecondary">@color/colorDivider</item>
+    </style>
+
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <!--<item name="android:fitsSystemWindows">true</item>-->
+    </style>
+
+    <!--修改toolbar的三个点-->
+    <style name="ToolbarOverflow" parent="@android:style/Widget.ActionButton.Overflow">
+        <item name="android:src">@drawable/selector_home_add</item>
+        <item name="android:width">12dp</item>
+        <item name="android:height">12dp</item>
+    </style>
+
+    <!--toolbar的menu弹窗在toolbar之下-->
+    <style name="OverflowMenuStyle" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
+        <item name="overlapAnchor">false</item>
+        <item name="android:colorBackground">@color/colorViewBg</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="MyDialog" parent="@android:style/Theme.Holo.Dialog">
+        <!-- 是否有边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!--是否在悬浮Activity之上  -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!--阴影  -->
+        <item name="android:windowIsTranslucent">true</item><!--半透明-->
+        <!--背景透明-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 还可以加入一些弹出和退出的动画 (lan)-->
+    </style>
+
+
+    <!--<style name="AppThemeTranslate" parent="AppTheme"></style>-->
+
+    <style name="AppTransparentBgMain" parent="AppThemeTranslate">
+        <!--界面背景颜色-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="AppTransparentBgLogin" parent="AppTheme">
+        <!--界面背景颜色-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+    <!--BottomSheetDialogFragment-->
+    <style name="TransparentBottomSheetStyle" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/SheetStyle</item>
+    </style>
+
+    <style name="SheetStyle" parent="android:Widget">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="behavior_peekHeight">auto</item>
+        <item name="behavior_hideable">true</item>
+        <!--<item name="behavior_skipCollapsed">false</item>-->
+    </style>
+
+    <style name="TabLayoutTextSizeStyle">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!--开关-->
+    <style name="SwitchStyle" parent="AppTheme">
+        <item name="colorAccent">@color/colorOk</item>
+    </style>
+
+    <!--pop动画-->
+    <style name="PopupAnimation" mce_bogus="1" parent="android:Animation">
+        <!--<item name="android:windowEnterAnimation">@anim/popup_in</item>-->
+        <!--<item name="android:windowExitAnimation">@anim/popup_out</item>-->
+    </style>
+
+
+    <style name="CustomCheckBoxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <!--<item name="android:button">@drawable/selector_my_checkbox</item>-->
+    </style>
+
+    <style name="ActivityInOutAnim" parent="@android:style/Animation.Activity">
+        <!--<item name="android:activityOpenEnterAnimation">@anim/anim_bottom_in</item>-->
+        <!--<item name="android:activityCloseExitAnimation">@anim/anim_bottom_out</item>-->
+    </style>
+
+    <style name="ChooseActivityTheme" parent="AppTheme">
+        <item name="android:windowAnimationStyle">@style/ActivityInOutAnim</item>
+    </style>
+
+    <style name="PrimaryCheckTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <!--<item name="android:button">@drawable/selector_my_primary_checkbox</item>-->
+    </style>
+    <style name="RadingStyle" parent="@android:style/Widget.RatingBar">
+        <!-- 定义星星图片 -->
+        <!--<item name="android:progressDrawable">@drawable/appraise_rating_bar</item>-->
+        <!-- 根据自定义星星图片的大小,设置相应的值,否则可能显示不全 -->
+        <item name="android:minHeight">20dp</item>
+        <item name="android:maxHeight">20dp</item>
+    </style>
+
+</resources>

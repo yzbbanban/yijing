@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_toolbar" />
+
+    <com.dian.commonlib.utils.widget.MultipleStatusView
+        android:id="@+id/multipleStatusView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include layout="@layout/layout_search" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/marginViewNormal"
+                android:layout_marginTop="@dimen/marginScreenLarge"
+                android:background="@color/colorWinBg"
+                app:layout_constraintTop_toBottomOf="@+id/etSearch" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/clPhoneContract"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/contract_item_h"
+                android:background="@drawable/ripple_comon_selector"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintTop_toBottomOf="@+id/view">
+
+
+                <ImageView
+                    android:id="@+id/ivGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/marginScreenLarge"
+                    android:gravity="center_vertical"
+                    android:src="@drawable/ic_primary_phone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/marginScreenNormal"
+                    android:text="@string/add_phone_friend"
+                    android:textColor="@color/colorBlackTextNormal"
+                    android:textSize="@dimen/textLarge"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/ivGroup"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </android.support.constraint.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tvNewFriend"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@color/colorWinBg"
+                android:gravity="bottom"
+                android:paddingBottom="@dimen/marginViewALittle"
+                android:paddingLeft="@dimen/marginScreenLarge"
+                android:text="@string/new_friend"
+                android:textColor="@color/colorBlackTextSub"
+                android:textSize="@dimen/textLittle"
+                app:layout_constraintTop_toBottomOf="@+id/clPhoneContract" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvNewFriend" />
+        </android.support.constraint.ConstraintLayout>
+    </com.dian.commonlib.utils.widget.MultipleStatusView>
+</LinearLayout>
