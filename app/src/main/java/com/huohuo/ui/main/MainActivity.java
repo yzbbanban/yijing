@@ -4,38 +4,30 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuItem;
 
 import com.dian.commonlib.base.BaseFragment;
 import com.dian.commonlib.base.BaseFragmentAdapter;
 import com.dian.commonlib.base.BaseLoadActivity;
 import com.dian.commonlib.broadcastreceiver.NetWorkStateReceiver;
-import com.dian.commonlib.utils.LogUtil;
 import com.dian.commonlib.utils.ToastUtil;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.dian.commonlib.utils.widget.NotScrollViewPager;
-import com.huohuo.app.HuoHuoApp;
-import com.huohuo.dao.table.Friend;
-import com.huohuo.mvp.contract.main.MainContract;
-import com.huohuo.mvp.model.bean.PhoneInfoBean;
-import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.huohuo.R;
+import com.huohuo.app.HuoHuoApp;
 import com.huohuo.app.HuoHuoConstants;
-import com.huohuo.im.SocketService;
-import com.huohuo.mvp.presenter.main.MainPresenter;
 import com.huohuo.ui.main.finance.FinanceFragmrnt;
-import com.huohuo.ui.main.home.HomeFragmrnt;
 import com.huohuo.ui.main.mine.MineFragmrnt;
 import com.huohuo.ui.main.msg.MsgFragmrnt;
+import com.huohuo.im.SocketService;
+import com.huohuo.mvp.contract.main.MainContract;
+import com.huohuo.mvp.presenter.main.MainPresenter;
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-
 
 import butterknife.BindView;
 import q.rorbin.badgeview.Badge;
@@ -86,8 +78,8 @@ public class MainActivity extends BaseLoadActivity implements MainContract.View 
         bottomNavigationViewEx.setLabelVisibilityMode(1);//设置文字一直可见
         bottomNavigationViewEx.setItemIconTintList(null);
 
-        badgeMsgNum = addBadgeAt(2);
-        badgeMsgNum.setBadgeNumber(3);
+//        badgeMsgNum = addBadgeAt(2);
+//        badgeMsgNum.setBadgeNumber(3);
 
         initData();
     }
@@ -135,15 +127,16 @@ public class MainActivity extends BaseLoadActivity implements MainContract.View 
      */
     private void initData() {
 
-        MsgFragmrnt msgFragment = new MsgFragmrnt();
-        Bundle bundleMsg = new Bundle();
-        bundleMsg.putString("title", getString(R.string.home));
-        msgFragment.setArguments(bundleMsg);
 
         FinanceFragmrnt financeFragment = new FinanceFragmrnt();
         Bundle bundleFind = new Bundle();
-        bundleFind.putString("title", "义警新闻");
+        bundleFind.putString("title", getString(R.string.home));
         financeFragment.setArguments(bundleFind);
+
+        MsgFragmrnt msgFragment = new MsgFragmrnt();
+        Bundle bundleMsg = new Bundle();
+        bundleMsg.putString("title", "洋河义警");
+        msgFragment.setArguments(bundleMsg);
 
         MineFragmrnt mineFragment = new MineFragmrnt();
         Bundle bundleMine = new Bundle();

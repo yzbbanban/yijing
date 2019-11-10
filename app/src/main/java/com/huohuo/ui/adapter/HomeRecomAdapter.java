@@ -6,7 +6,6 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.dian.commonlib.base.BaseMyViewHolder;
 import com.huohuo.R;
 import com.huohuo.mvp.model.bean.HomeRecomBean;
-import com.scwang.smartrefresh.layout.util.DensityUtil;
 
 import java.util.List;
 

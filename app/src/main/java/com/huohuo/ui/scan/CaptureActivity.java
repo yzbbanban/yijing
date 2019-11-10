@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Handler;
 import android.provider.Settings;
@@ -18,14 +17,11 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dian.commonlib.base.BaseLoadActivity;
 import com.dian.commonlib.utils.LogUtil;
 import com.dian.commonlib.utils.MyMatisseUtil;
-import com.dian.commonlib.utils.SchedulerUtil;
-import com.dian.commonlib.utils.ToastUtil;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
@@ -43,7 +39,6 @@ import com.huohuo.scan.ViewfinderView;
 import com.huohuo.scan.camera.CameraManager;
 import com.huohuo.scan.decode.DecodeFormatManager;
 import com.huohuo.scan.decode.DecodeHintManager;
-import com.huohuo.scan.decode.DecodeImg;
 import com.zhihu.matisse.Matisse;
 
 import java.io.IOException;
@@ -53,12 +48,6 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.ObservableSource;
-import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function;
 
 /**
  * Created by kennysun on 2019/9/4.

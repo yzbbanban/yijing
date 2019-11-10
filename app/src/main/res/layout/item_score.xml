@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ripple_comon_selector"
+    android:clickable="true"
+    android:focusable="true"
+    android:padding="@dimen/marginViewSmall">
+
+    <TextView
+        android:id="@+id/tvIndex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:background="@drawable/order1"
+        android:gravity="center"
+        android:text="1"
+        app:layout_constraintBottom_toBottomOf="@+id/ivImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivImage" />
+
+    <ImageView
+        android:id="@+id/ivImage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/colorWhiteTextImportant"
+        android:scaleType="fitXY"
+        android:src="@drawable/contact_default_avatar"
+        app:layout_constraintStart_toEndOf="@+id/tvIndex"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginRight="180dp"
+        android:layout_marginBottom="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="jim"
+        android:textColor="@color/colorBlackTextNormal"
+        android:textSize="@dimen/textNormal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tvTitleSub"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivImage"
+        app:layout_constraintTop_toTopOf="@+id/cardView" />
+
+
+    <TextView
+        android:id="@+id/tvDetailRemark"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="ojiowejfoiwaefwefw"
+        android:textColor="@color/colorBlackTextNormal"
+        android:textSize="@dimen/textNormal"
+        app:layout_constraintBottom_toBottomOf="@+id/ivImage"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivImage" />
+
+    <TextView
+        android:id="@+id/tvDetailTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="8dp"
+        android:text="270.81小时"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

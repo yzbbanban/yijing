@@ -1,12 +1,9 @@
 package com.huohuo.mvp.presenter.msg;
 
 import com.dian.commonlib.net.RxHttpCallback;
-import com.dian.commonlib.utils.ToastUtil;
-import com.huohuo.app.HuoHuoConstants;
 import com.huohuo.base.HuoHuoBasePresenter;
 import com.huohuo.dao.table.FriendApply;
 import com.huohuo.mvp.contract.msg.NewFriendContract;
-import com.huohuo.mvp.contract.msg.NewFriendContract.Presenter;
 
 import java.util.List;
 

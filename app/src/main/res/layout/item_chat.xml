@@ -7,10 +7,10 @@
     android:background="@drawable/ripple_comon_selector"
     android:clickable="true"
     android:focusable="true"
-    android:paddingBottom="@dimen/marginScreenSmall"
     android:paddingLeft="@dimen/marginScreenLarge"
+    android:paddingTop="@dimen/marginScreenSmall"
     android:paddingRight="@dimen/marginScreenLarge"
-    android:paddingTop="@dimen/marginScreenSmall">
+    android:paddingBottom="@dimen/marginScreenSmall">
 
 
     <TextView
@@ -31,8 +31,15 @@
     <LinearLayout
         android:id="@+id/llAvatar"
         android:layout_width="@dimen/toolBar"
-        android:gravity="center_vertical"
-        android:layout_height="@dimen/toolBar">
+        android:layout_height="@dimen/toolBar"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
             android:id="@+id/ivAvatar"
             android:layout_width="@dimen/msg_avatar_size"
@@ -62,32 +69,6 @@
         app:layout_constraintTop_toTopOf="@+id/llAvatar"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <!--<ImageView-->
-        <!--android:id="@+id/ivIcon"-->
-        <!--android:layout_width="@dimen/forbidden_size"-->
-        <!--android:layout_height="@dimen/forbidden_size"-->
-        <!--android:src="@drawable/ic_forbidden"-->
-        <!--app:layout_constraintBottom_toBottomOf="@+id/tvMsgTarget"-->
-        <!--app:layout_constraintRight_toRightOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="@+id/tvMsgTarget" />-->
-
-
-    <!--<TextView-->
-        <!--android:id="@+id/tvMsgContent"-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginLeft="@dimen/marginViewMini"-->
-        <!--android:layout_marginRight="@dimen/marginScreenNormal"-->
-        <!--android:layout_marginTop="@dimen/marginViewALittle"-->
-        <!--android:ellipsize="end"-->
-        <!--android:maxLines="1"-->
-        <!--android:text="嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻"-->
-        <!--android:textColor="@color/colorBlackTextSub"-->
-        <!--android:textSize="@dimen/textNormal"-->
-        <!--app:layout_constraintBottom_toBottomOf="@+id/llAvatar"-->
-        <!--app:layout_constraintLeft_toRightOf="@+id/tvMsgContentLable"-->
-        <!--app:layout_constraintRight_toRightOf="parent"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/tvMsgTarget" />-->
 
     <TextView
         android:id="@+id/tvMsgTime"
@@ -100,17 +81,5 @@
         app:layout_constraintBottom_toBottomOf="@+id/llAvatar"
         app:layout_constraintLeft_toLeftOf="@+id/tvMsgTarget"
         app:layout_constraintTop_toBottomOf="@+id/tvMsgTarget" />
-
-    <TextView
-        android:id="@+id/tvMsgContentLable"
-        android:layout_width="wrap_content"
-        android:visibility="gone"
-        android:layout_height="wrap_content"
-        android:text="[未读]"
-        android:textColor="@color/colorSubPrimary"
-        android:textSize="@dimen/textNormal"
-        app:layout_constraintBottom_toBottomOf="@+id/tvMsgContent"
-        app:layout_constraintLeft_toLeftOf="@+id/tvMsgTarget"
-        app:layout_constraintTop_toTopOf="@+id/tvMsgContent" />
 
 </android.support.constraint.ConstraintLayout>

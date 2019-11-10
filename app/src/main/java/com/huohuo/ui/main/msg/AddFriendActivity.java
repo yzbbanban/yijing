@@ -1,7 +1,6 @@
 package com.huohuo.ui.main.msg;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -14,13 +13,12 @@ import com.dian.commonlib.utils.RxPermissionsUtil;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.dian.commonlib.utils.widget.SearchEditText;
 import com.huohuo.R;
-import com.huohuo.mvp.contract.msg.AddFriendContract;
-import com.huohuo.mvp.presenter.msg.AddFriendPresenter;
 import com.huohuo.ui.dialog.MyQrDialog;
 import com.huohuo.ui.scan.CaptureActivity;
+import com.huohuo.mvp.contract.msg.AddFriendContract;
+import com.huohuo.mvp.presenter.msg.AddFriendPresenter;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**

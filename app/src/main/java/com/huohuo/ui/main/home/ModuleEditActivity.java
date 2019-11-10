@@ -9,8 +9,8 @@ import android.view.View;
 import com.dian.commonlib.base.BaseLoadActivity;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.huohuo.R;
-import com.huohuo.mvp.model.bean.ModuleBean;
 import com.huohuo.ui.adapter.ModuleEditAdapter;
+import com.huohuo.mvp.model.bean.ModuleBean;
 
 import java.util.ArrayList;
 import java.util.List;

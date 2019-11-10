@@ -1,7 +1,6 @@
 package com.huohuo.ui.user;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.Toolbar;
@@ -29,7 +28,6 @@ import com.huohuo.ui.sys.PhoneCodeActivity;
 import com.huohuo.ui.web.HuoHuoWebViewActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**

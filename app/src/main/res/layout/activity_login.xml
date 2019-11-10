@@ -100,6 +100,16 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etPhone" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="未注册的手机号将自动创建账号"
+                android:textColor="@color/colorWhiteTextImportant"
+                app:layout_constraintBottom_toTopOf="@+id/btnLogin"
+                app:layout_constraintTop_toBottomOf="@+id/etCode"
+                tools:layout_editor_absoluteX="40dp" />
+
             <Button
                 android:id="@+id/btnLogin"
                 style="?android:attr/borderlessButtonStyle"

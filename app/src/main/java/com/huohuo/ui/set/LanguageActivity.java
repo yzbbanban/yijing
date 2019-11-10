@@ -1,23 +1,19 @@
 package com.huohuo.ui.set;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dian.commonlib.base.BaseActivity;
 import com.dian.commonlib.lang.MultiLanguageUtil;
-import com.dian.commonlib.utils.widget.BaseCheckAdapter;
 import com.huohuo.R;
 import com.huohuo.app.HuoHuoConstants;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -85,7 +81,7 @@ public class LanguageActivity extends BaseActivity {
         MultiLanguageUtil.getInstance().updateLanguage(selectedLanguage);
         // 设置完语言后返回的界面可能是MainActivitty,LoginActivity,RegistActivity...
         if (TextUtils.isEmpty(className)) {
-            className = "com.huohuo.ui.main.MainActivity";
+            className = "MainActivity";
         }
         try {
             Intent intent = new Intent(LanguageActivity.this, Class.forName(className));

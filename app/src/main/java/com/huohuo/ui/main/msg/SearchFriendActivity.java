@@ -1,39 +1,28 @@
 package com.huohuo.ui.main.msg;
 
-import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextUtils;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import com.dian.commonlib.base.BaseLoadActivity;
-import com.dian.commonlib.utils.ToastUtil;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
-import com.dian.commonlib.utils.widget.OnDrawableLeftListener;
 import com.dian.commonlib.utils.widget.OnDrawableListener;
-import com.dian.commonlib.utils.widget.OnDrawableRightListener;
 import com.dian.commonlib.utils.widget.OnTextChangeListener;
 import com.dian.commonlib.utils.widget.SearchEditText;
 import com.huohuo.R;
+import com.huohuo.ui.adapter.SearchFriendAdapter;
 import com.huohuo.dao.table.Friend;
 import com.huohuo.mvp.contract.msg.SearchFriendContract;
 import com.huohuo.mvp.presenter.msg.SearchFriendPresenter;
-import com.huohuo.ui.adapter.SearchFriendAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * 搜索好友  本地搜索

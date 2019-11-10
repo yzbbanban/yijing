@@ -6,10 +6,10 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" /><!-- 读取手机联系人权限 -->
-    <uses-permission android:name="android.permission.WRITE_CONTACTS" /><!-- 读取手机联系人权限 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" /> <!-- 读取手机联系人权限 -->
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" /> <!-- 读取手机联系人权限 -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.USE_FINGERPRINT" /> <!--指纹权限-->
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" /> <!-- 指纹权限 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -17,17 +17,15 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.GET_INTENT_SENDER_INTENT" />
-
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
-    <uses-permission android:name="android.permission.VIBRATE" /><!--通知震动效果权限-->
-
-    <!--安卓8.0打开apk安装更新-->
+    <uses-permission android:name="android.permission.VIBRATE" /> <!-- 通知震动效果权限 -->
+    <!-- 安卓8.0打开apk安装更新 -->
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
     <application
-        android:name="com.huohuo.app.HuoHuoApp"
+        android:name=".app.HuoHuoApp"
         android:allowBackup="true"
         android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
         android:icon="@mipmap/ic_launcher"
@@ -37,24 +35,34 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:appComponentFactory">
+        <activity android:name=".ui.main.finance.YiApplyActivity"></activity>
+        <activity android:name=".ui.main.finance.YiFcDetailActivity" />
+        <activity android:name=".ui.main.finance.YiFcActivity" />
+        <activity android:name=".ui.main.finance.ScoreActivity" />
+        <activity android:name=".ui.main.mine.AcDetailActivity" />
+        <activity android:name=".ui.main.mine.MyAcActivity" />
+        <activity android:name=".ui.main.msg.NewsDetailActivity" />
+        <activity android:name=".ui.main.shop.ShopRecordActivity" />
+        <activity android:name=".ui.main.shop.ShopActivity" />
+        <activity android:name=".ui.main.activi.YjActivity" />
+
         <service
             android:name=".im.SocketService"
             android:exported="false" />
 
         <activity
-            android:name="com.huohuo.ui.splash.TranslucentActivity"
-            android:theme="@style/AppTransparentBg">
-
-        </activity>
-        <activity android:name="com.huohuo.ui.splash.SplashActivity" />
+            android:name=".ui.splash.TranslucentActivity"
+            android:theme="@style/AppTransparentBg" />
+        <activity android:name=".ui.splash.SplashActivity" />
         <activity
-            android:name="com.huohuo.ui.main.MainActivity"
+            android:name=".ui.main.MainActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name="com.huohuo.ui.user.LoginActivity"
+            android:name=".ui.user.LoginActivity"
             android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -86,10 +94,7 @@
             android:name=".ui.scan.CaptureActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeTranslate" />
-        <activity android:name=".ui.asset.AllAssetActvity" />
-
-
-        <!--图片选择器-->
+        <activity android:name=".ui.asset.AllAssetActvity" /> <!-- 图片选择器 -->
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.huohuo.fileprovider"
@@ -100,8 +105,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths_public" />
         </provider>
-
     </application>
-
 
 </manifest>

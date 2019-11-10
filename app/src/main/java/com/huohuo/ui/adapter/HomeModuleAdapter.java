@@ -4,7 +4,6 @@ import android.support.annotation.Nullable;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.dian.commonlib.base.BaseMyViewHolder;
-import com.huohuo.mvp.model.bean.ModuleBean;
 import com.huohuo.mvp.model.bean.ModuleItemBean;
 
 import java.util.List;

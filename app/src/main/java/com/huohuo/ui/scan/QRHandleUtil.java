@@ -1,41 +1,22 @@
 package com.huohuo.ui.scan;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
-import android.view.View;
 
-import com.dian.commonlib.app.Constants;
 import com.dian.commonlib.utils.LogUtil;
-import com.dian.commonlib.utils.SchedulerUtil;
 import com.dian.commonlib.utils.ToastUtil;
-import com.google.zxing.Result;
 import com.huohuo.R;
 import com.huohuo.app.HuoHuoConstants;
 import com.huohuo.mvp.model.bean.CoinAddressBean;
 import com.huohuo.mvp.model.bean.ScanBean;
 import com.huohuo.mvp.presenter.sys.ScanPresenter;
-import com.huohuo.scan.decode.DecodeImg;
-import com.huohuo.ui.viewimage.ViewImagesActivity;
-import com.huohuo.ui.web.HuoHuoWebViewActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
-import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.ObservableSource;
-import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function;
 
 /**
  * 集中处理扫描后的结果

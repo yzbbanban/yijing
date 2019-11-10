@@ -1,28 +1,17 @@
 package com.huohuo.mvp.presenter.msg;
 
 import com.dian.commonlib.net.HttpResult;
-import com.dian.commonlib.utils.LogUtil;
-import com.dian.commonlib.utils.MmkvUtil;
 import com.dian.commonlib.utils.SchedulerUtil;
-import com.google.gson.Gson;
-import com.huohuo.app.HuoHuoConstants;
 import com.huohuo.base.HuoHuoBasePresenter;
+import com.huohuo.net.HuoHuoErrorStatus;
 import com.huohuo.dao.manager.DaoManager;
-import com.huohuo.dao.table.Friend;
 import com.huohuo.dao.table.Group;
 import com.huohuo.mvp.contract.msg.GroupContract;
-import com.huohuo.mvp.model.bean.ContractsBean;
-import com.huohuo.net.HuoHuoErrorStatus;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.functions.Consumer;
 
 /**
  * Created by kennysun on 2019/9/5.

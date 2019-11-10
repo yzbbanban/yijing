@@ -1,24 +1,37 @@
 package com.huohuo.ui.main.finance;
 
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.dian.commonlib.base.BaseLoadFragment;
 import com.dian.commonlib.utils.DeviceUtil;
+import com.dian.commonlib.utils.ToastUtil;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.huohuo.R;
-import com.huohuo.mvp.model.bean.ModuleBean;
+import com.huohuo.mvp.model.bean.ModuleItemBean;
 import com.huohuo.ui.adapter.FinanceModuleAdapter;
-import com.huohuo.ui.main.MainActivity;
 import com.huohuo.ui.widget.banner.BannerViewPager;
+import com.huohuo.mvp.model.bean.ModuleBean;
+import com.huohuo.ui.main.MainActivity;
+import com.huohuo.ui.main.activi.YjActivity;
+import com.huohuo.ui.main.shop.ShopActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
 
 /**
  * Created by kennysun on 2019/8/8.
@@ -31,6 +44,15 @@ public class FinanceFragmrnt extends BaseLoadFragment {
     RecyclerView recyclerview;
     @BindView(R.id.multipleStatusView)
     MultipleStatusView multipleStatusView;
+    @BindView(R.id.llPoliceActivity)
+    LinearLayout llPoliceActivity;
+    @BindView(R.id.llPoliceFC)
+    LinearLayout llPoliceFC;
+    @BindView(R.id.llBuy)
+    LinearLayout llBuy;
+    @BindView(R.id.llPoliceApply)
+    LinearLayout llPoliceApply;
+    Unbinder unbinder;
     private MainActivity mainActivity;
     private boolean isVisibleToUser;
     private boolean isLoad = false;
@@ -59,6 +81,24 @@ public class FinanceFragmrnt extends BaseLoadFragment {
         lazyLoad();
     }
 
+    @OnClick({R.id.llPoliceActivity, R.id.llPoliceFC, R.id.llBuy, R.id.llPoliceApply})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.llPoliceActivity:
+                startActivity(new Intent(getBaseActivity(), YjActivity.class));
+                break;
+            case R.id.llPoliceFC:
+                startActivity(new Intent(getBaseActivity(), YiFcActivity.class));
+                break;
+            case R.id.llBuy:
+                startActivity(new Intent(getBaseActivity(), ShopActivity.class));
+                break;
+            case R.id.llPoliceApply:
+                startActivity(new Intent(getBaseActivity(), YiApplyActivity.class));
+                break;
+        }
+    }
+
     public void lazyLoad() {
         if (isVisibleToUser && isCreated) {
             mainActivity = (MainActivity) getActivity();
@@ -76,14 +116,43 @@ public class FinanceFragmrnt extends BaseLoadFragment {
     private void initModule() {
         recyclerview.setLayoutManager(new LinearLayoutManager(getBaseActivity(), LinearLayoutManager.VERTICAL, false));
         List<ModuleBean> list = new ArrayList<>();
-        ModuleBean m1=new ModuleBean();
+        ModuleBean m1 = new ModuleBean();
         m1.setTitle("义警排名");
+        m1.setType(1);
+        List<ModuleItemBean> mList = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            ModuleItemBean itemBean = new ModuleItemBean();
+            itemBean.setIndex(i + 1);
+            itemBean.setName("JA" + i);
+            itemBean.setPhotoUrl("");
+            mList.add(itemBean);
+        }
+        m1.setModuleItems(mList);
         list.add(m1);
-        ModuleBean m2=new ModuleBean();
+        ModuleBean m2 = new ModuleBean();
         m2.setTitle("优秀义警");
+        m2.setType(2);
+        List<ModuleItemBean> mList2 = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            ModuleItemBean itemBean = new ModuleItemBean();
+            itemBean.setIndex(i + 1);
+            itemBean.setName("IAD" + i);
+            itemBean.setPhotoUrl("");
+            mList2.add(itemBean);
+        }
+        m2.setModuleItems(mList2);
         list.add(m2);
         financeModuleAdapter = new FinanceModuleAdapter(R.layout.item_finance_module, list);
         recyclerview.setAdapter(financeModuleAdapter);
+        financeModuleAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                ToastUtil.show(getBaseActivity(), "+++" + list.get(position));
+                Intent intent = new Intent(getBaseActivity(), ScoreActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void initBanner() {
@@ -124,4 +193,17 @@ public class FinanceFragmrnt extends BaseLoadFragment {
         lazyLoad();
     }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        unbinder = ButterKnife.bind(this, rootView);
+        return rootView;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
 }

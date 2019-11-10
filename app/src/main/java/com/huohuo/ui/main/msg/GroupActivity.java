@@ -1,6 +1,5 @@
 package com.huohuo.ui.main.msg;
 
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -14,16 +13,15 @@ import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.dian.commonlib.utils.widget.OnTextChangeListener;
 import com.dian.commonlib.utils.widget.SearchEditText;
 import com.huohuo.R;
+import com.huohuo.ui.adapter.GroupAdapter;
 import com.huohuo.dao.table.Group;
 import com.huohuo.mvp.contract.msg.GroupContract;
 import com.huohuo.mvp.presenter.msg.GroupPresenter;
-import com.huohuo.ui.adapter.GroupAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by kennysun on 2019/9/3.

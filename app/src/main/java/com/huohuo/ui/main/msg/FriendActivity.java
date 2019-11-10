@@ -20,10 +20,10 @@ import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.dian.commonlib.utils.widget.SearchEditText;
 import com.huohuo.R;
 import com.huohuo.app.HuoHuoConstants;
+import com.huohuo.ui.adapter.FriendHeadAdapter;
 import com.huohuo.dao.table.Friend;
 import com.huohuo.mvp.contract.msg.FriendContract;
 import com.huohuo.mvp.presenter.msg.FriendPersenter;
-import com.huohuo.ui.adapter.FriendHeadAdapter;
 import com.timehop.stickyheadersrecyclerview.StickyRecyclerHeadersDecoration;
 
 import java.util.HashMap;

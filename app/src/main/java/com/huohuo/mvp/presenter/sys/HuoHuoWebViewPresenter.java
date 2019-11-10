@@ -1,11 +1,9 @@
 package com.huohuo.mvp.presenter.sys;
 
 import com.dian.commonlib.net.RxHttpCallback;
-import com.dian.commonlib.net.exception.ErrorStatus;
-import com.huohuo.app.HuoHuoConstants;
 import com.huohuo.base.HuoHuoBasePresenter;
-import com.huohuo.mvp.contract.sys.HuoHuoWebViewContract;
 import com.huohuo.net.HuoHuoErrorStatus;
+import com.huohuo.mvp.contract.sys.HuoHuoWebViewContract;
 
 /**
  * Created by kennysun on 2019/8/29.

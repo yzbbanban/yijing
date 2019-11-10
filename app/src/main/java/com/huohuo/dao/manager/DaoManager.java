@@ -3,9 +3,9 @@ package com.huohuo.dao.manager;
 import com.dian.commonlib.app.Constants;
 import com.dian.commonlib.utils.MmkvUtil;
 import com.huohuo.app.HuoHuoApp;
-import com.huohuo.dao.DaoMaster;
 import com.huohuo.dao.DaoSession;
 import com.huohuo.dao.MySQLiteOpenHelper;
+import com.huohuo.dao.DaoMaster;
 
 /**
  * 数据库管理器

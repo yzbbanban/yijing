@@ -22,7 +22,7 @@ public class Constants {
     public static String WEBCLOSE = "webclose";//h5页面是否需要展示叉叉
 
 
-    public static final String PIC_PATH = "com.huohuo.fileprovider";
+    public static final String PIC_PATH = "com.yj.fileprovider";
     //net
    public enum NET_STATE {
         CONNECT,

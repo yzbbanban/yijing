@@ -14,10 +14,10 @@ import com.dian.commonlib.base.BaseLoadActivity;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.huohuo.R;
 import com.huohuo.app.HuoHuoConstants;
+import com.huohuo.ui.adapter.PhoneCodeWithHeaderAdapter;
 import com.huohuo.mvp.contract.sys.PhoneCodeContract;
 import com.huohuo.mvp.model.bean.CountryCodeBean;
 import com.huohuo.mvp.presenter.sys.PhoneCodePresenter;
-import com.huohuo.ui.adapter.PhoneCodeWithHeaderAdapter;
 import com.timehop.stickyheadersrecyclerview.StickyRecyclerHeadersDecoration;
 
 import java.util.ArrayList;

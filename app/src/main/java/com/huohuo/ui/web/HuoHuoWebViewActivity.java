@@ -1,6 +1,5 @@
 package com.huohuo.ui.web;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,14 +14,13 @@ import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.dian.commonlib.utils.widget.MyDialog;
 import com.huohuo.R;
 import com.huohuo.app.HuoHuoConstants;
+import com.huohuo.ui.spread.SpreadIntroduceActivity;
+import com.huohuo.ui.user.MobileCodeActivty;
 import com.huohuo.mvp.contract.sys.HuoHuoWebViewContract;
 import com.huohuo.mvp.presenter.sys.HuoHuoWebViewPresenter;
-import com.huohuo.ui.spread.SpreadIntroduceActivity;
 import com.huohuo.ui.sys.PayDialogFragment;
-import com.huohuo.ui.user.MobileCodeActivty;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**

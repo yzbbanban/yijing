@@ -3,9 +3,7 @@ package com.huohuo.mvp.presenter.msg;
 import android.database.Cursor;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
-import android.view.View;
 
-import com.dian.commonlib.net.HttpResult;
 import com.dian.commonlib.net.RxHttpCallback;
 import com.dian.commonlib.net.exception.ErrorStatus;
 import com.dian.commonlib.utils.LogUtil;
@@ -23,15 +21,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.ObservableSource;
-import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function;
 
 /**
  * Created by kennysun on 2019/9/4.

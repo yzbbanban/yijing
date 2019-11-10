@@ -1,14 +1,11 @@
 package com.huohuo.mvp.presenter.user;
 
 import com.dian.commonlib.net.RxHttpCallback;
-import com.dian.commonlib.utils.AppUtil;
-import com.dian.commonlib.utils.SignUtil;
 import com.dian.commonlib.utils.ToastUtil;
 import com.huohuo.R;
 import com.huohuo.base.HuoHuoBasePresenter;
-import com.huohuo.mvp.contract.user.LoginContract;
-import com.huohuo.mvp.model.bean.TokenBean;
 import com.huohuo.net.HuoHuoErrorStatus;
+import com.huohuo.mvp.contract.user.LoginContract;
 
 
 /**

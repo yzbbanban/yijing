@@ -1,10 +1,6 @@
 package com.huohuo.mvp.presenter.sys;
 
-import com.dian.commonlib.net.HttpResult;
 import com.dian.commonlib.net.RxHttpCallback;
-import com.dian.commonlib.net.exception.ApiException;
-import com.dian.commonlib.net.exception.ErrorStatus;
-import com.dian.commonlib.net.exception.ExceptionHandle;
 import com.dian.commonlib.utils.SchedulerUtil;
 import com.huohuo.base.HuoHuoBasePresenter;
 import com.huohuo.mvp.contract.sys.PhoneCodeContract;

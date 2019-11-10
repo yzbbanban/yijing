@@ -1,8 +1,6 @@
 package com.huohuo.mvp.presenter.main;
 
 import com.dian.commonlib.app.Constants;
-import com.dian.commonlib.net.HttpResult;
-import com.dian.commonlib.net.exception.ApiException;
 import com.dian.commonlib.net.exception.ErrorStatus;
 import com.dian.commonlib.net.exception.ExceptionHandle;
 import com.dian.commonlib.utils.LogUtil;
@@ -12,8 +10,6 @@ import com.huohuo.app.HuoHuoApp;
 import com.huohuo.app.HuoHuoConstants;
 import com.huohuo.base.HuoHuoBasePresenter;
 import com.huohuo.dao.manager.DaoManager;
-import com.huohuo.dao.manager.FriendManager;
-import com.huohuo.dao.manager.GroupManager;
 import com.huohuo.dao.table.Group;
 import com.huohuo.mvp.contract.main.MainContract;
 import com.huohuo.mvp.model.HuoHuoDataManager;

@@ -1,6 +1,5 @@
 package com.huohuo.ui.user;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -21,7 +20,6 @@ import com.geetest.sdk.GTCallBack;
 import com.google.gson.Gson;
 import com.huohuo.BuildConfig;
 import com.huohuo.R;
-import com.huohuo.app.HuoHuoApp;
 import com.huohuo.app.HuoHuoConstants;
 import com.huohuo.mvp.contract.user.InputLoginCodeContract;
 import com.huohuo.mvp.model.bean.JiYanData;

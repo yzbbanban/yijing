@@ -2,9 +2,6 @@ package com.huohuo.mvp.model;
 
 import com.dian.commonlib.net.DataManager;
 import com.dian.commonlib.net.HttpResult;
-import com.huohuo.dao.table.Friend;
-import com.huohuo.dao.table.FriendApply;
-import com.huohuo.dao.table.Group;
 import com.huohuo.mvp.model.bean.AboutBean;
 import com.huohuo.mvp.model.bean.ContractsBean;
 import com.huohuo.mvp.model.bean.CountryCodeBean;
@@ -14,14 +11,14 @@ import com.huohuo.mvp.model.bean.SplashBean;
 import com.huohuo.mvp.model.bean.TokenBean;
 import com.huohuo.mvp.model.bean.User;
 import com.huohuo.net.HuoHuoApi;
+import com.huohuo.dao.table.Friend;
+import com.huohuo.dao.table.FriendApply;
+import com.huohuo.dao.table.Group;
 
 import java.util.List;
 
 import io.reactivex.Observable;
 import okhttp3.RequestBody;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
-import retrofit2.http.Query;
 
 /**
  * Created by kennysun on 2019/8/26.

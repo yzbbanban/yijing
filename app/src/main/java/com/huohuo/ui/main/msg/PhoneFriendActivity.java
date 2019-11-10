@@ -1,9 +1,7 @@
 package com.huohuo.ui.main.msg;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -15,16 +13,15 @@ import com.bigkoo.quicksidebar.QuickSideBarTipsView;
 import com.bigkoo.quicksidebar.QuickSideBarView;
 import com.bigkoo.quicksidebar.listener.OnQuickSideBarTouchListener;
 import com.dian.commonlib.base.BaseLoadActivity;
-import com.dian.commonlib.utils.LogUtil;
 import com.dian.commonlib.utils.ToastUtil;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.dian.commonlib.utils.widget.OnTextChangeListener;
 import com.dian.commonlib.utils.widget.SearchEditText;
 import com.huohuo.R;
+import com.huohuo.ui.adapter.PhoneFriendHeadAdapter;
 import com.huohuo.dao.table.Friend;
 import com.huohuo.mvp.contract.msg.PhoneFriendContract;
 import com.huohuo.mvp.presenter.msg.PhoneFriendPresenter;
-import com.huohuo.ui.adapter.PhoneFriendHeadAdapter;
 import com.timehop.stickyheadersrecyclerview.StickyRecyclerHeadersDecoration;
 
 import java.util.ArrayList;
@@ -33,7 +30,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by kennysun on 2019/9/3.

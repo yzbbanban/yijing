@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ripple_comon_selector"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center_vertical"
+    android:padding="@dimen/marginViewSmall">
+
+    <ImageView
+        android:id="@+id/ivShopRecordImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/contact_default_avatar"
+        android:scaleType="fitXY" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvShopRecordTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="金龙鱼调和油" />
+
+        <TextView
+            android:id="@+id/tvShopRecordPay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="分值:" />
+
+        <TextView
+            android:id="@+id/tvShopRecordTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="兑换时间：" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tvShopRecordStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="未领取"
+        android:textColor="@color/colorBlackTextI"
+        android:textSize="@dimen/textNormal" />
+
+
+</LinearLayout>

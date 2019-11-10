@@ -20,7 +20,6 @@ import com.dian.commonlib.utils.widget.paydialog.PayKeyBoard;
 import com.dian.commonlib.utils.widget.paydialog.PayPasswordInputView;
 import com.huohuo.BuildConfig;
 import com.huohuo.R;
-import com.huohuo.app.HuoHuoApp;
 import com.huohuo.app.HuoHuoConstants;
 import com.huohuo.mvp.model.bean.User;
 

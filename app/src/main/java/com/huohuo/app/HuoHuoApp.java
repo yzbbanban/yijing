@@ -2,7 +2,6 @@ package com.huohuo.app;
 
 import com.dian.commonlib.app.App;
 import com.dian.commonlib.app.Constants;
-import com.dian.commonlib.lang.MultiLanguageUtil;
 import com.dian.commonlib.utils.MmkvUtil;
 import com.huohuo.dao.manager.DaoManager;
 import com.huohuo.im.IMWebSocket;

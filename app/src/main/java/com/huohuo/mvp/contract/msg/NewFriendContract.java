@@ -2,17 +2,9 @@ package com.huohuo.mvp.contract.msg;
 
 import com.dian.commonlib.base.IPresenter;
 import com.dian.commonlib.base.IView;
-import com.dian.commonlib.net.HttpResult;
-import com.huohuo.dao.table.Friend;
 import com.huohuo.dao.table.FriendApply;
 
-import java.util.HashMap;
 import java.util.List;
-
-import io.reactivex.Observable;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
-import retrofit2.http.Query;
 
 /**
  * Created by kennysun on 2019/9/3.

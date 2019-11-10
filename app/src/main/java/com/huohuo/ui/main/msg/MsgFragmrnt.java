@@ -8,17 +8,19 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.dian.commonlib.base.BaseFragment;
 import com.dian.commonlib.utils.DeviceUtil;
-import com.dian.commonlib.utils.widget.SearchEditText;
 import com.huohuo.R;
-import com.huohuo.dao.table.ChatList;
+import com.huohuo.dao.table.NewsData;
 import com.huohuo.ui.adapter.MsgListAdapter;
-import com.huohuo.ui.main.MainActivity;
 import com.huohuo.ui.scan.CaptureActivity;
 import com.huohuo.ui.widget.banner.BannerViewPager;
+import com.huohuo.dao.table.ChatList;
+import com.huohuo.ui.main.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +43,8 @@ public class MsgFragmrnt extends BaseFragment {
     private boolean isCreated = false;
     private MsgListAdapter msgListAdapter;
 
+    private static final String NEWS = "news";
+
     @Override
     public int getLayout() {
         return R.layout.fragment_msg;
@@ -59,18 +63,31 @@ public class MsgFragmrnt extends BaseFragment {
             setHasOptionsMenu(true);
             initBanner();
             recyclerview.setLayoutManager(new LinearLayoutManager(getBaseActivity(), LinearLayoutManager.VERTICAL, false));
-            List<ChatList> lists = new ArrayList<>();
-            lists.add(new ChatList());
-            lists.add(new ChatList());
-            lists.add(new ChatList());
-            lists.add(new ChatList());
-            lists.add(new ChatList());
+            List<NewsData> lists = new ArrayList<>();
+            lists.add(new NewsData(1, "MCSI", 321, "11:21", ""));
+            lists.add(new NewsData(2, "MCSI2", 121, "11:21", ""));
+            lists.add(new NewsData(3, "MCSI2", 454, "11:21", ""));
+            lists.add(new NewsData(4, "MCSI3", 65, "11:21", ""));
+            lists.add(new NewsData(5, "MCSI4", 45, "11:21", ""));
+            lists.add(new NewsData(6, "MCSI5", 12, "11:21", ""));
+            lists.add(new NewsData(7, "MCSI5", 54, "11:21", ""));
+            lists.add(new NewsData(8, "MCSI6", 65, "11:21", ""));
+            lists.add(new NewsData(9, "MCSI7", 1, "11:21", ""));
             msgListAdapter = new MsgListAdapter(R.layout.item_chat, lists);
             recyclerview.setAdapter(msgListAdapter);
             if (!isLoad) {
                 //todo 加载数据
             }
             isLoad = true;
+            msgListAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                    NewsData news = lists.get(position);
+                    Intent intent = new Intent(getBaseActivity(), NewsDetailActivity.class);
+                    intent.putExtra(NEWS, news);
+                    startActivity(intent);
+                }
+            });
         }
     }
 
@@ -104,6 +121,7 @@ public class MsgFragmrnt extends BaseFragment {
                     }
                 });
     }
+
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);

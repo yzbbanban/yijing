@@ -2,15 +2,9 @@ package com.huohuo.mvp.contract.user;
 
 import com.dian.commonlib.base.IPresenter;
 import com.dian.commonlib.base.IView;
-import com.dian.commonlib.net.HttpResult;
 import com.huohuo.mvp.model.bean.JiYanData;
 
 import okhttp3.RequestBody;
-import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
-import retrofit2.http.Query;
 
 /**
  * Created by kennysun on 2019/8/28.

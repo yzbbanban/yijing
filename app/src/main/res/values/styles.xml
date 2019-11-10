@@ -107,6 +107,7 @@
     <style name="PrimaryCheckTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
         <!--<item name="android:button">@drawable/selector_my_primary_checkbox</item>-->
     </style>
+
     <style name="RadingStyle" parent="@android:style/Widget.RatingBar">
         <!-- 定义星星图片 -->
         <!--<item name="android:progressDrawable">@drawable/appraise_rating_bar</item>-->
@@ -115,4 +116,9 @@
         <item name="android:maxHeight">20dp</item>
     </style>
 
+    <style name="MyTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <!--<item name="android:textSize">20sp</item>-->
+        <item name="tabBackground">@drawable/tab_background</item>
+    </style>
 </resources>

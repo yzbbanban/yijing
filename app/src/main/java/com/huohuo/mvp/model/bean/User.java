@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import com.dian.commonlib.app.Constants;
 import com.dian.commonlib.utils.MmkvUtil;
 import com.huohuo.app.HuoHuoApp;
-import com.huohuo.app.HuoHuoConstants;
 
 import java.util.ArrayList;
 

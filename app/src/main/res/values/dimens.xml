@@ -53,4 +53,8 @@
     <dimen name="contract_item_h">64dp</dimen>
     <dimen name="my_qr_size">130dp</dimen>
 
+    <dimen name="padding">15dp</dimen>
+    <dimen name="yi_type">100dp</dimen>
+
+
 </resources>

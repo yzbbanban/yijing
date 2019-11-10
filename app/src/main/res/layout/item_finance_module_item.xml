@@ -10,25 +10,38 @@
     android:orientation="vertical"
     android:padding="@dimen/marginViewLot">
 
-    <ImageView
-        android:id="@+id/ivModuleIcon"
-        android:layout_width="@dimen/mine_avatar_size"
-        android:layout_height="@dimen/mine_avatar_size"
-        android:layout_marginTop="4dp"
-        android:src="@color/colorDivider"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="@dimen/my_qr_size"
+        android:layout_height="@dimen/my_qr_size"
+        android:padding="5dp"
+        app:cardCornerRadius="@dimen/marginViewALot">
+
+        <ImageView
+            android:id="@+id/ivModuleIcon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/contact_default_avatar"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.v7.widget.CardView>
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
 
-        <ImageView
+        <TextView
+            android:id="@+id/tvModuleOrder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/asset_safe_lable" />
+            android:background="@drawable/order1"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="@color/colorWhiteTextImportant" />
 
         <TextView
             android:id="@+id/tvModuleText"

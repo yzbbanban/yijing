@@ -93,7 +93,7 @@
                         android:layout_width="@dimen/mine_icon"
                         android:layout_height="@dimen/mine_icon"
                         android:layout_marginBottom="8dp"
-                        android:background="@drawable/finance_normal"
+                        android:background="@drawable/jifen"
                         app:layout_constraintBottom_toTopOf="@+id/tvLCCount"
                         app:layout_constraintEnd_toEndOf="@+id/tvLCCount"
                         app:layout_constraintStart_toStartOf="@+id/tvLCCount" />
@@ -116,7 +116,7 @@
                         android:layout_width="@dimen/mine_icon"
                         android:layout_height="@dimen/mine_icon"
                         android:layout_marginBottom="8dp"
-                        android:background="@drawable/finance_normal"
+                        android:background="@drawable/actime"
                         app:layout_constraintBottom_toTopOf="@+id/tvYDCoinCount"
                         app:layout_constraintEnd_toEndOf="@+id/tvYDCoinCount"
                         app:layout_constraintStart_toStartOf="@+id/tvYDCoinCount" />
@@ -158,7 +158,7 @@
                 android:layout_width="@dimen/mine_icon"
                 android:layout_height="@dimen/mine_icon"
                 android:layout_marginLeft="@dimen/marginScreenLarge"
-                android:src="@drawable/ic_mine_account_safe"
+                android:src="@drawable/myac"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -209,7 +209,7 @@
                 android:layout_width="@dimen/mine_icon"
                 android:layout_height="@dimen/mine_icon"
                 android:layout_marginLeft="@dimen/marginScreenLarge"
-                android:src="@drawable/ic_mine_hd"
+                android:src="@drawable/aboutus"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -256,7 +256,7 @@
                 android:layout_width="@dimen/mine_icon"
                 android:layout_height="@dimen/mine_icon"
                 android:layout_marginLeft="@dimen/marginScreenLarge"
-                android:src="@drawable/module_del"
+                android:src="@drawable/logout"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

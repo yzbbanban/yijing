@@ -1,9 +1,6 @@
 package com.huohuo.ui.asset;
 
-import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -15,10 +12,8 @@ import com.dian.commonlib.base.BaseFragmentAdapter;
 import com.huohuo.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by kennysun on 2019/9/5.

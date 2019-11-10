@@ -20,7 +20,7 @@ public class HuoHuoConstants {
     public static final String TYPE = "type";
     public static final String COINID = "coinid";
     public static final String COINADDRESS = "coinaddress";
-    public static final String PIC_PATH = "com.btw.fileprovider";       //拍照的存储路径
+    public static final String PIC_PATH = "com.yj.fileprovider";       //拍照的存储路径
     public static final String LOCAL_LOCK = "localLock";        //本地指纹验证
 
     //login

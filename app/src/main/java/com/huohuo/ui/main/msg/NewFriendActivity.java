@@ -1,7 +1,6 @@
 package com.huohuo.ui.main.msg;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.dian.commonlib.base.BaseLoadActivity;
 import com.dian.commonlib.utils.RxPermissionsCallbackUtil;
 import com.dian.commonlib.utils.RxPermissionsUtil;
@@ -18,17 +16,15 @@ import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.dian.commonlib.utils.widget.SearchEditText;
 import com.huohuo.R;
 import com.huohuo.app.HuoHuoConstants;
+import com.huohuo.ui.adapter.NewFriendAdapter;
 import com.huohuo.dao.table.FriendApply;
 import com.huohuo.mvp.contract.msg.NewFriendContract;
 import com.huohuo.mvp.presenter.msg.NewFriendPresenter;
-import com.huohuo.ui.adapter.NewFriendAdapter;
-import com.huohuo.ui.adapter.SearchUserAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**

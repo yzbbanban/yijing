@@ -2,10 +2,8 @@ package com.huohuo.dao.manager;
 
 import com.dian.commonlib.utils.LogUtil;
 import com.dian.commonlib.utils.SchedulerUtil;
-import com.huohuo.dao.FriendDao;
-import com.huohuo.dao.GroupDao;
 import com.huohuo.dao.listener.GroupChangeListener;
-import com.huohuo.dao.table.Friend;
+import com.huohuo.dao.GroupDao;
 import com.huohuo.dao.table.Group;
 
 import org.greenrobot.greendao.query.QueryBuilder;

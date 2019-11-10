@@ -7,11 +7,11 @@ import com.dian.commonlib.utils.SchedulerUtil;
 import com.google.gson.Gson;
 import com.huohuo.app.HuoHuoConstants;
 import com.huohuo.base.HuoHuoBasePresenter;
+import com.huohuo.net.HuoHuoErrorStatus;
 import com.huohuo.dao.manager.DaoManager;
 import com.huohuo.dao.table.Friend;
 import com.huohuo.mvp.contract.msg.FriendContract;
 import com.huohuo.mvp.model.bean.ContractsBean;
-import com.huohuo.net.HuoHuoErrorStatus;
 
 import java.util.ArrayList;
 import java.util.Collections;

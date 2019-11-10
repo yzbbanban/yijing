@@ -18,14 +18,10 @@ package com.huohuo.ui.viewimage;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
-import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
 import com.dian.commonlib.base.BaseActivity;
-import com.dian.commonlib.base.BaseLoadActivity;
-import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.huohuo.R;
 
 import java.io.File;

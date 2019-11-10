@@ -1,11 +1,9 @@
 package com.huohuo.ui.main.msg;
 
 import android.graphics.drawable.Drawable;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.view.View;
@@ -13,21 +11,17 @@ import android.view.View;
 import com.dian.commonlib.base.BaseLoadActivity;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.dian.commonlib.utils.widget.OnDrawableListener;
-import com.dian.commonlib.utils.widget.OnTextChangeListener;
 import com.dian.commonlib.utils.widget.SearchEditText;
 import com.huohuo.R;
+import com.huohuo.ui.adapter.SearchUserAdapter;
 import com.huohuo.dao.table.Friend;
 import com.huohuo.mvp.contract.msg.SearchUserContract;
-import com.huohuo.mvp.presenter.msg.SearchFriendPresenter;
 import com.huohuo.mvp.presenter.msg.SearchUserPresenter;
-import com.huohuo.ui.adapter.SearchFriendAdapter;
-import com.huohuo.ui.adapter.SearchUserAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * 搜索用户  全网搜索

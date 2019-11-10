@@ -4,13 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 金融中的各个模块
- * Created by kennysun on 2019/8/30.
  */
-
 public class ModuleBean {
     private String title;
+    private Integer type;
     public List<ModuleItemBean> moduleItems;
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
 
     public String getTitle() {
         return title;
@@ -21,18 +27,19 @@ public class ModuleBean {
     }
 
     public List<ModuleItemBean> getModuleItems() {
-        List<ModuleItemBean> list = new ArrayList<>();
-        list.add(new ModuleItemBean());
-        list.add(new ModuleItemBean());
-        list.add(new ModuleItemBean());
-        list.add(new ModuleItemBean());
-        list.add(new ModuleItemBean());
-        list.add(new ModuleItemBean());
-        this.moduleItems = list;
         return moduleItems;
     }
 
     public void setModuleItems(List<ModuleItemBean> moduleItems) {
         this.moduleItems = moduleItems;
+    }
+
+    @Override
+    public String toString() {
+        return "ModuleBean{" +
+                "title='" + title + '\'' +
+                ", type=" + type +
+                ", moduleItems=" + moduleItems +
+                '}';
     }
 }

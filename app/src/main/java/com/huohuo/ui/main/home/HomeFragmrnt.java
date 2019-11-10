@@ -20,16 +20,16 @@ import com.dian.commonlib.utils.RxPermissionsUtil;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.huohuo.R;
 import com.huohuo.app.HuoHuoConstants;
-import com.huohuo.mvp.model.bean.HomeRecomBean;
-import com.huohuo.mvp.model.bean.ModuleBean;
-import com.huohuo.mvp.model.bean.ModuleItemBean;
 import com.huohuo.ui.adapter.HomeModuleAdapter;
 import com.huohuo.ui.adapter.HomeRecomAdapter;
 import com.huohuo.ui.asset.AllAssetActvity;
-import com.huohuo.ui.main.MainActivity;
-import com.huohuo.ui.main.msg.FriendActivity;
 import com.huohuo.ui.scan.CaptureActivity;
 import com.huohuo.ui.widget.NumberTextView;
+import com.huohuo.mvp.model.bean.HomeRecomBean;
+import com.huohuo.mvp.model.bean.ModuleBean;
+import com.huohuo.mvp.model.bean.ModuleItemBean;
+import com.huohuo.ui.main.MainActivity;
+import com.huohuo.ui.main.msg.FriendActivity;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.util.DensityUtil;
 
@@ -258,7 +258,7 @@ public class HomeFragmrnt extends BaseRefreshFragment {
                 break;
             case R.id.tvTotalAsset:
                 //总资产
-                startActivity(new Intent(getBaseActivity(),AllAssetActvity.class));
+                startActivity(new Intent(getBaseActivity(), AllAssetActvity.class));
                 break;
         }
     }
