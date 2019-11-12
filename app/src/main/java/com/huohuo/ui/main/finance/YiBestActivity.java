@@ -1,6 +1,8 @@
 package com.huohuo.ui.main.finance;
 
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -21,7 +23,8 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class YiFcActivity extends BaseLoadActivity {
+public class YiBestActivity extends BaseLoadActivity {
+
 
     @BindView(R.id.ivLeft)
     ImageView ivLeft;
@@ -33,7 +36,7 @@ public class YiFcActivity extends BaseLoadActivity {
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_yi_fc;
+        return R.layout.activity_yi_best;
     }
 
     @Override
@@ -44,7 +47,7 @@ public class YiFcActivity extends BaseLoadActivity {
     @Override
     public void initViewAndData() {
         super.initViewAndData();
-        tvTitle.setText("义警风采");
+        tvTitle.setText("优秀义警");
         ivLeft.setVisibility(View.VISIBLE);
         ivLeft.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +68,7 @@ public class YiFcActivity extends BaseLoadActivity {
         recyclerview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         List<ModuleBean> list = new ArrayList<>();
         ModuleBean m1 = new ModuleBean();
-        m1.setTitle("12月18日安全巡逻");
+        m1.setTitle("第三期优秀义警");
         m1.setType(1);
         List<ModuleItemBean> mList = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
@@ -78,7 +81,7 @@ public class YiFcActivity extends BaseLoadActivity {
         m1.setModuleItems(mList);
         list.add(m1);
         ModuleBean m2 = new ModuleBean();
-        m2.setTitle("12月17日安全巡逻");
+        m2.setTitle("第二期优秀义警");
         m2.setType(2);
         List<ModuleItemBean> mList2 = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
@@ -95,13 +98,12 @@ public class YiFcActivity extends BaseLoadActivity {
         yiFcModuleAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                ToastUtil.show(YiFcActivity.this, "+++" + list.get(position));
-                Intent intent = new Intent(YiFcActivity.this, YiFcDetailActivity.class);
+                ToastUtil.show(YiBestActivity.this, "+++" + list.get(position));
+                Intent intent = new Intent(YiBestActivity.this, YiFcDetailActivity.class);
                 startActivity(intent);
             }
         });
 
     }
-
 
 }

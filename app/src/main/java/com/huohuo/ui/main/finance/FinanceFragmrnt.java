@@ -147,9 +147,17 @@ public class FinanceFragmrnt extends BaseLoadFragment {
         financeModuleAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                ToastUtil.show(getBaseActivity(), "+++" + list.get(position));
-                Intent intent = new Intent(getBaseActivity(), ScoreActivity.class);
-                startActivity(intent);
+                switch (position) {
+                    case 0:
+                        Intent intent = new Intent(getBaseActivity(), ScoreActivity.class);
+                        startActivity(intent);
+                        break;
+                    default:
+                        intent = new Intent(getBaseActivity(), YiBestActivity.class);
+                        startActivity(intent);
+                        break;
+                }
+
             }
         });
 

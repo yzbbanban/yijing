@@ -1,5 +1,6 @@
 package com.huohuo.ui.main.finance;
 
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -10,12 +11,14 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.dian.commonlib.base.BaseLoadActivity;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.huohuo.R;
-import com.huohuo.ui.adapter.GroupAdapter;
+import com.huohuo.dao.table.YiFcDetail;
 import com.huohuo.ui.adapter.YiFcDetailAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class YiFcDetailActivity extends BaseLoadActivity {
 
@@ -26,10 +29,9 @@ public class YiFcDetailActivity extends BaseLoadActivity {
     TextView tvYiFcTitle;
     @BindView(R.id.recyclerview)
     RecyclerView recyclerview;
-    @BindView(R.id.multipleStatusView)
-    MultipleStatusView multipleStatusView;
 
     YiFcDetailAdapter yiFcDetailAdapter;
+
 
     @Override
     public void retry() {
@@ -57,13 +59,30 @@ public class YiFcDetailActivity extends BaseLoadActivity {
             }
         });
         tvYiFcTitle.setText("12月 18 日巡逻");
-        yiFcDetailAdapter = new YiFcDetailAdapter(R.layout.item_yi_fc_detail, new ArrayList<>());
+        List<YiFcDetail> list = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            YiFcDetail yiFcDetail = new YiFcDetail();
+            yiFcDetail.setId(i + 1);
+            yiFcDetail.setTitle("这是啥" + i);
+            yiFcDetail.setUrl("");
+            list.add(yiFcDetail);
+        }
+        yiFcDetailAdapter = new YiFcDetailAdapter(R.layout.item_yi_fc_detail, list, 1);
         recyclerview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerview.setAdapter(yiFcDetailAdapter);
         yiFcDetailAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+
+
             }
         });
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
     }
 }

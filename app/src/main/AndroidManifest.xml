@@ -35,7 +35,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".ui.main.finance.YiApplyActivity"></activity>
+        <activity android:name=".ui.main.finance.YiBestActivity"></activity>
+        <activity android:name=".ui.main.finance.YiApplyActivity" />
         <activity android:name=".ui.main.finance.YiFcDetailActivity" />
         <activity android:name=".ui.main.finance.YiFcActivity" />
         <activity android:name=".ui.main.finance.ScoreActivity" />

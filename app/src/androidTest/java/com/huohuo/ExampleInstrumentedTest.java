@@ -1,4 +1,4 @@
-package com.huohuo;
+package com.yj;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

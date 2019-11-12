@@ -19,6 +19,7 @@
     <!--文字颜色-->
     <color name="colorBlackTextImportant">#000000</color>
     <color name="colorBlackTextI">#636363</color>
+    <color name="colorBlackText">#A3A3A3</color>
     <color name="colorBlackTextNormal">#dd000000</color>
     <color name="colorBlackTextSub">#88000000</color>
     <color name="colorBlackTextHint">#66000000</color>

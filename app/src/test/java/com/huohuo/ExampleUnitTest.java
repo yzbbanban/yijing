@@ -1,4 +1,4 @@
-package com.huohuo;
+package com.yj;
 
 import com.dian.commonlib.utils.LogUtil;
 import com.hd.eos.util.ec.EosPrivateKey;

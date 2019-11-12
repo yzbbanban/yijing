@@ -17,6 +17,7 @@
         android:background="@drawable/order1"
         android:gravity="center"
         android:text="1"
+        android:textColor="@color/colorWhiteTextImportant"
         app:layout_constraintBottom_toBottomOf="@+id/ivImage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/ivImage" />

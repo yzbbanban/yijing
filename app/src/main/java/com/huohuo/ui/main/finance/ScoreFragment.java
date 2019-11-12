@@ -47,6 +47,7 @@ public class ScoreFragment extends BaseFragment {
             scoreYj.setRemark(i + "awrfe");
             scoreYj.setTime("rggytyh" + i);
             scoreYj.setPhotoUrl("");
+            scoreYj.setName("joiewfnrsoi" + i);
             list.add(scoreYj);
         }
 

@@ -26,12 +26,28 @@ public class ScoreYjAdapter extends BaseQuickAdapter<ScoreYj, BaseMyViewHolder> 
         helper.setText(R.id.tvName, ""+item.getName());
         helper.setText(R.id.tvDetailRemark, ""+item.getRemark());
         helper.setText(R.id.tvDetailTime, "活动时间："+item.getTime());
-        helper.setText(R.id.tvIndex, ""+item.getIndex());
         String groupHead = item.getPhotoUrl();//自定义头像
         if (TextUtils.isEmpty(groupHead)) {
             helper.loadImage(R.id.ivImage, R.drawable.group_icon);
         } else {
             helper.loadRoundImage(R.id.ivImage, BuildConfig.API_IMG_HOST + groupHead);
+        }
+
+        int index = item.getIndex() == null ? 4 : item.getIndex();
+        helper.setText(R.id.tvIndex, "" + index);
+        switch (index) {
+            case 1:
+                helper.setBackgroundRes(R.id.tvIndex, R.drawable.order1);
+                break;
+            case 2:
+                helper.setBackgroundRes(R.id.tvIndex, R.drawable.order2);
+                break;
+            case 3:
+                helper.setBackgroundRes(R.id.tvIndex, R.drawable.order3);
+                break;
+            default:
+                helper.setBackgroundRes(R.id.tvIndex, R.drawable.orderother);
+                break;
         }
 
     }

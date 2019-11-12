@@ -31,8 +31,8 @@ public class YiFcModuleAdapter extends BaseQuickAdapter<ModuleBean, BaseMyViewHo
 
     @Override
     protected void convert(BaseMyViewHolder helper, ModuleBean item) {
-        RecyclerView recyclerview = helper.getView(R.id.recyclerview);
-        helper.setText(R.id.tvTitle, item.getTitle());
+        RecyclerView recyclerview = helper.getView(R.id.rvYiFc);
+        helper.setText(R.id.tvYiFcTitle, item.getTitle());
         recyclerview.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false));
         FinanceModuleItemAdapter financeModuleItemAdapter;
         financeModuleItemAdapter = new FinanceModuleItemAdapter(R.layout.item_finance_module_type, item.getModuleItems());

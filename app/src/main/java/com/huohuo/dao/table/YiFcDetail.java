@@ -8,6 +8,12 @@ public class YiFcDetail {
 
     private String url;
 
+    private Integer index;
+
+    private String image;
+
+    private String detail;
+
     public Integer getId() {
         return id;
     }
@@ -32,12 +38,39 @@ public class YiFcDetail {
         this.url = url;
     }
 
+    public Integer getIndex() {
+        return index;
+    }
+
+    public void setIndex(Integer index) {
+        this.index = index;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
     @Override
     public String toString() {
         return "YiFcDetail{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", url='" + url + '\'' +
+                ", index=" + index +
+                ", image='" + image + '\'' +
+                ", detail='" + detail + '\'' +
                 '}';
     }
 }
