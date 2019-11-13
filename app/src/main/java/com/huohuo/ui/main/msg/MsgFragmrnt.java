@@ -131,29 +131,29 @@ public class MsgFragmrnt extends BaseFragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        menu.clear();
-        inflater.inflate(R.menu.menu_msg_toolbar, menu);
+//        menu.clear();
+//        inflater.inflate(R.menu.menu_msg_toolbar, menu);
     }
 
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.contacts:
-                startActivity(new Intent(getBaseActivity(), FriendActivity.class));
-                break;
-            case R.id.create_group_chat:
-                break;
-            case R.id.message_add_friend:
-                break;
-            case R.id.message_saoyisao:
-                startActivity(new Intent(getBaseActivity(), CaptureActivity.class));
-                break;
-            case R.id.message_shoubi:
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.contacts:
+//                startActivity(new Intent(getBaseActivity(), FriendActivity.class));
+//                break;
+//            case R.id.create_group_chat:
+//                break;
+//            case R.id.message_add_friend:
+//                break;
+//            case R.id.message_saoyisao:
+//                startActivity(new Intent(getBaseActivity(), CaptureActivity.class));
+//                break;
+//            case R.id.message_shoubi:
+//                break;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 
 
 }
