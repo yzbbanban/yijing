@@ -14,44 +14,37 @@ import com.huohuo.mvp.model.bean.ModuleItemBean;
 
 import java.util.List;
 
-import butterknife.BindView;
-
 /**
  * Created by kennysun on 2019/9/2.
  */
 
-public class FinanceModuleItemAdapter extends BaseQuickAdapter<ModuleItemBean, BaseMyViewHolder> {
-    public FinanceModuleItemAdapter(int layoutResId, @Nullable List<ModuleItemBean> data) {
+public class YjModuleItemAdapter extends BaseQuickAdapter<ModuleItemBean, BaseMyViewHolder> {
+    public YjModuleItemAdapter(int layoutResId, @Nullable List<ModuleItemBean> data) {
         super(layoutResId, data);
     }
 
     @Override
     protected void convert(BaseMyViewHolder helper, ModuleItemBean item) {
         Log.i(TAG, "convert: " + item);
-
-        ImageView imageView = helper.getView(R.id.ivModuleIcon);
-        if (item.getPhotoUrl() == null || item.getPhotoUrl().length() == 0) {
-            GlideEngine.load(imageView, R.drawable.contact_default_avatar);
-        } else {
-            GlideEngine.load(imageView, item.getPhotoUrl());
-        }
+        TextView tv = helper.getView(R.id.tvModuleOrder);
+        tv.setVisibility(View.GONE);
+        TextView textView = helper.getView(R.id.tvModuleText);
+        textView.setVisibility(View.GONE);
         int index = item.getIndex() == null ? 4 : item.getIndex();
-        helper.setText(R.id.tvModuleText, item.getName());
         helper.setText(R.id.tvModuleOrder, "" + index);
         switch (index) {
             case 1:
-                helper.setBackgroundRes(R.id.tvModuleOrder, R.drawable.order1);
+                helper.setImageResource(R.id.ivModuleIcon, R.drawable.ls);
                 break;
             case 2:
-                helper.setBackgroundRes(R.id.tvModuleOrder, R.drawable.order2);
+                helper.setImageResource(R.id.ivModuleIcon, R.drawable.fx);
                 break;
             case 3:
-                helper.setBackgroundRes(R.id.tvModuleOrder, R.drawable.order3);
+                helper.setImageResource(R.id.ivModuleIcon, R.drawable.bg);
                 break;
             default:
-                helper.setBackgroundRes(R.id.tvModuleOrder, R.drawable.orderother);
+                helper.setBackgroundRes(R.id.ivModuleIcon, R.drawable.orderother);
                 break;
         }
-
     }
 }

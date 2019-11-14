@@ -1,6 +1,8 @@
 package com.huohuo.ui.main.finance;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -31,6 +33,8 @@ public class YiFcDetailActivity extends BaseLoadActivity {
     RecyclerView recyclerview;
 
     YiFcDetailAdapter yiFcDetailAdapter;
+    @BindView(R.id.tvRight)
+    TextView tvRight;
 
 
     @Override
@@ -58,7 +62,21 @@ public class YiFcDetailActivity extends BaseLoadActivity {
                 finish();
             }
         });
-        tvYiFcTitle.setText("12月 18 日巡逻");
+        Intent intent = getIntent();
+        String title = intent.getStringExtra("TITLE");
+        tvYiFcTitle.setText(title);
+        tvRight.setVisibility(View.VISIBLE);
+        tvRight.setText("队伍介绍");
+        tvRight.setTextColor(getResources().getColor(R.color.colorAccent));
+        tvRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(YiFcDetailActivity.this, TeamIntroActivity.class);
+                startActivity(in);
+            }
+        });
+
+
         List<YiFcDetail> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             YiFcDetail yiFcDetail = new YiFcDetail();
@@ -68,7 +86,7 @@ public class YiFcDetailActivity extends BaseLoadActivity {
             list.add(yiFcDetail);
         }
         yiFcDetailAdapter = new YiFcDetailAdapter(R.layout.item_yi_fc_detail, list, 1);
-        recyclerview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        recyclerview.setLayoutManager(new GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false));
         recyclerview.setAdapter(yiFcDetailAdapter);
         yiFcDetailAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
@@ -79,10 +97,4 @@ public class YiFcDetailActivity extends BaseLoadActivity {
         });
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 }

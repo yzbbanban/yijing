@@ -117,14 +117,15 @@ public class FinanceFragmrnt extends BaseLoadFragment {
         recyclerview.setLayoutManager(new LinearLayoutManager(getBaseActivity(), LinearLayoutManager.VERTICAL, false));
         List<ModuleBean> list = new ArrayList<>();
         ModuleBean m1 = new ModuleBean();
-        m1.setTitle("义警排名");
+        m1.setTitle("义警队伍");
         m1.setType(1);
         List<ModuleItemBean> mList = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 3; i++) {
             ModuleItemBean itemBean = new ModuleItemBean();
             itemBean.setIndex(i + 1);
             itemBean.setName("JA" + i);
             itemBean.setPhotoUrl("");
+            itemBean.setRes(1);
             mList.add(itemBean);
         }
         m1.setModuleItems(mList);
@@ -138,6 +139,7 @@ public class FinanceFragmrnt extends BaseLoadFragment {
             itemBean.setIndex(i + 1);
             itemBean.setName("IAD" + i);
             itemBean.setPhotoUrl("");
+            itemBean.setRes(2);
             mList2.add(itemBean);
         }
         m2.setModuleItems(mList2);
@@ -149,13 +151,14 @@ public class FinanceFragmrnt extends BaseLoadFragment {
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 switch (position) {
                     case 0:
-                        Intent intent = new Intent(getBaseActivity(), ScoreActivity.class);
+                        Intent intent = new Intent(getBaseActivity(), YiBestActivity.class);
                         startActivity(intent);
                         break;
                     default:
-                        intent = new Intent(getBaseActivity(), YiBestActivity.class);
+                        intent = new Intent(getBaseActivity(), ScoreActivity.class);
                         startActivity(intent);
                         break;
+
                 }
 
             }

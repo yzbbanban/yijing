@@ -2,6 +2,7 @@ package com.huohuo.ui.adapter;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -36,13 +37,14 @@ public class FinanceModuleAdapter extends BaseQuickAdapter<ModuleBean, BaseMyVie
     protected void convert(BaseMyViewHolder helper, ModuleBean item) {
         RecyclerView recyclerview = helper.getView(R.id.recyclerview);
         helper.setText(R.id.tvTitle, item.getTitle());
-        recyclerview.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false));
-        FinanceModuleItemAdapter financeModuleItemAdapter;
         if (item.getType() == 1) {
-            financeModuleItemAdapter = new FinanceModuleItemAdapter(R.layout.item_finance_module_type, item.getModuleItems());
+            recyclerview.setLayoutManager(new GridLayoutManager(mContext, 3, LinearLayoutManager.VERTICAL, false));
+            YjModuleItemAdapter financeModuleItemAdapter = new YjModuleItemAdapter(R.layout.item_finance_module_type, item.getModuleItems());
+            recyclerview.setAdapter(financeModuleItemAdapter);
         } else {
-            financeModuleItemAdapter = new FinanceModuleItemAdapter(R.layout.item_finance_module_item, item.getModuleItems());
+            recyclerview.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false));
+            FinanceModuleItemAdapter financeModuleItemAdapter = new FinanceModuleItemAdapter(R.layout.item_finance_module_item, item.getModuleItems());
+            recyclerview.setAdapter(financeModuleItemAdapter);
         }
-        recyclerview.setAdapter(financeModuleItemAdapter);
     }
 }

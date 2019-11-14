@@ -68,7 +68,7 @@ public class YiBestActivity extends BaseLoadActivity {
         recyclerview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         List<ModuleBean> list = new ArrayList<>();
         ModuleBean m1 = new ModuleBean();
-        m1.setTitle("第三期优秀义警");
+        m1.setTitle("邻里守望");
         m1.setType(1);
         List<ModuleItemBean> mList = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
@@ -81,7 +81,7 @@ public class YiBestActivity extends BaseLoadActivity {
         m1.setModuleItems(mList);
         list.add(m1);
         ModuleBean m2 = new ModuleBean();
-        m2.setTitle("第二期优秀义警");
+        m2.setTitle("法制宣传");
         m2.setType(2);
         List<ModuleItemBean> mList2 = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
@@ -93,6 +93,20 @@ public class YiBestActivity extends BaseLoadActivity {
         }
         m2.setModuleItems(mList2);
         list.add(m2);
+
+        ModuleBean m3 = new ModuleBean();
+        m3.setTitle("扶贫关爱");
+        m3.setType(2);
+        List<ModuleItemBean> mList3 = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            ModuleItemBean itemBean = new ModuleItemBean();
+            itemBean.setIndex(i + 1);
+            itemBean.setName("IAD" + i);
+            itemBean.setPhotoUrl("");
+            mList3.add(itemBean);
+        }
+        m3.setModuleItems(mList3);
+        list.add(m3);
         yiFcModuleAdapter = new YiFcModuleAdapter(R.layout.item_yifc_module, list);
         recyclerview.setAdapter(yiFcModuleAdapter);
         yiFcModuleAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
@@ -100,6 +114,7 @@ public class YiBestActivity extends BaseLoadActivity {
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 ToastUtil.show(YiBestActivity.this, "+++" + list.get(position));
                 Intent intent = new Intent(YiBestActivity.this, YiFcDetailActivity.class);
+                intent.putExtra("TITLE", list.get(position).getTitle());
                 startActivity(intent);
             }
         });

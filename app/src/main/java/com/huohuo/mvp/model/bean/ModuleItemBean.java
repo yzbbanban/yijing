@@ -12,6 +12,8 @@ public class ModuleItemBean {
 
     private Integer index;
 
+    private Integer res;
+
     public String getName() {
         return name;
     }
@@ -36,12 +38,21 @@ public class ModuleItemBean {
         this.index = index;
     }
 
+    public Integer getRes() {
+        return res;
+    }
+
+    public void setRes(Integer res) {
+        this.res = res;
+    }
+
     @Override
     public String toString() {
         return "ModuleItemBean{" +
                 "name='" + name + '\'' +
                 ", photoUrl='" + photoUrl + '\'' +
                 ", index=" + index +
+                ", res=" + res +
                 '}';
     }
 }
