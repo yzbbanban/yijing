@@ -82,11 +82,4 @@ public class AcDetailActivity extends BaseLoadActivity {
     public int getLayoutId() {
         return R.layout.activity_ac_detail;
     }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 }

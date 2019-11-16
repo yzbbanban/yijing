@@ -87,6 +87,7 @@ public class MainActivity extends BaseLoadActivity implements MainContract.View 
 
     public void updateToolBar(int title) {
         setToolbarConfig(toolbar, title, -1);
+        toolbar.setBackgroundDrawable(null);
     }
 
     @Override
