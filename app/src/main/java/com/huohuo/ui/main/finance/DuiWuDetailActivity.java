@@ -20,7 +20,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class YiFcDetailActivity extends BaseLoadActivity {
+public class DuiWuDetailActivity extends BaseLoadActivity {
 
 
     @BindView(R.id.ivLeft)
@@ -63,6 +63,17 @@ public class YiFcDetailActivity extends BaseLoadActivity {
         Intent intent = getIntent();
         String title = intent.getStringExtra("TITLE");
         tvYiFcTitle.setText(title);
+        tvRight.setVisibility(View.VISIBLE);
+        tvRight.setText("队伍介绍");
+        tvRight.setTextColor(getResources().getColor(R.color.colorAccent));
+        tvRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(DuiWuDetailActivity.this, TeamIntroActivity.class);
+                startActivity(in);
+            }
+        });
+
 
         List<YiFcDetail> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
@@ -73,7 +84,7 @@ public class YiFcDetailActivity extends BaseLoadActivity {
             list.add(yiFcDetail);
         }
         yiFcDetailAdapter = new YiFcDetailAdapter(R.layout.item_yi_fc_detail, list);
-        recyclerview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        recyclerview.setLayoutManager(new GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false));
         recyclerview.setAdapter(yiFcDetailAdapter);
         yiFcDetailAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override

@@ -294,5 +294,7 @@
                 app:layout_constraintRight_toRightOf="parent" />
         </android.support.constraint.ConstraintLayout>
 
+        <ImageView
+
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

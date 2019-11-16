@@ -65,7 +65,7 @@ public class YiFcActivity extends BaseLoadActivity {
         recyclerview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         List<ModuleBean> list = new ArrayList<>();
         ModuleBean m1 = new ModuleBean();
-        m1.setTitle("12月18日安全巡逻");
+        m1.setTitle("12月18日平安法制社区行演出");
         m1.setType(1);
         List<ModuleItemBean> mList = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
@@ -97,6 +97,7 @@ public class YiFcActivity extends BaseLoadActivity {
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 ToastUtil.show(YiFcActivity.this, "+++" + list.get(position));
                 Intent intent = new Intent(YiFcActivity.this, YiFcDetailActivity.class);
+                intent.putExtra("TITLE", list.get(position).getTitle());
                 startActivity(intent);
             }
         });

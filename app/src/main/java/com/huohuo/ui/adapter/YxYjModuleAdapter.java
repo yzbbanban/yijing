@@ -16,15 +16,15 @@ import java.util.List;
  * Created by kennysun on 2019/9/2.
  */
 
-public class YiFcModuleAdapter extends BaseQuickAdapter<ModuleBean, BaseMyViewHolder> {
+public class YxYjModuleAdapter extends BaseQuickAdapter<ModuleBean, BaseMyViewHolder> {
 
     private Context context;
 
-    public YiFcModuleAdapter(int layoutResId, @Nullable List<ModuleBean> data) {
+    public YxYjModuleAdapter(int layoutResId, @Nullable List<ModuleBean> data) {
         super(layoutResId, data);
     }
 
-    public YiFcModuleAdapter(int layoutResId, @Nullable List<ModuleBean> data, Context context) {
+    public YxYjModuleAdapter(int layoutResId, @Nullable List<ModuleBean> data, Context context) {
         super(layoutResId, data);
         this.context = context;
     }
@@ -34,8 +34,8 @@ public class YiFcModuleAdapter extends BaseQuickAdapter<ModuleBean, BaseMyViewHo
         RecyclerView recyclerview = helper.getView(R.id.rvYiFc);
         helper.setText(R.id.tvYiFcTitle, item.getTitle());
         recyclerview.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false));
-        YjFcModuleItemAdapter yjFcModuleItemAdapter;
-        yjFcModuleItemAdapter = new YjFcModuleItemAdapter(R.layout.item_yjfc_module_type, item.getModuleItems());
-        recyclerview.setAdapter(yjFcModuleItemAdapter);
+        YxYjModuleItemAdapter yxYjModuleItemAdapter;
+        yxYjModuleItemAdapter = new YxYjModuleItemAdapter(R.layout.item_yxyj_module_type, item.getModuleItems());
+        recyclerview.setAdapter(yxYjModuleItemAdapter);
     }
 }

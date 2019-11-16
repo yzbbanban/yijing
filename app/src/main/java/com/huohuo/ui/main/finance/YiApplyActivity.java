@@ -76,7 +76,7 @@ public class YiApplyActivity extends BaseLoadActivity {
     @Override
     public void initViewAndData() {
         super.initViewAndData();
-        tvTitle.setText("优秀义警");
+        tvTitle.setText("义警申请");
         ivLeft.setVisibility(View.VISIBLE);
         ivLeft.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -39,6 +39,7 @@
         <activity android:name=".ui.main.finance.YiBestActivity" />
         <activity android:name=".ui.main.finance.YiApplyActivity" />
         <activity android:name=".ui.main.finance.YiFcDetailActivity" />
+        <activity android:name=".ui.main.finance.DuiWuDetailActivity" />
         <activity android:name=".ui.main.finance.YiFcActivity" />
         <activity android:name=".ui.main.finance.ScoreActivity" />
         <activity android:name=".ui.main.mine.AcDetailActivity" />

@@ -1,8 +1,6 @@
 package com.huohuo.ui.main.finance;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -16,7 +14,7 @@ import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.huohuo.R;
 import com.huohuo.mvp.model.bean.ModuleBean;
 import com.huohuo.mvp.model.bean.ModuleItemBean;
-import com.huohuo.ui.adapter.YiFcModuleAdapter;
+import com.huohuo.ui.adapter.YxYjModuleAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +30,7 @@ public class YiBestActivity extends BaseLoadActivity {
     TextView tvTitle;
     @BindView(R.id.recyclerview)
     RecyclerView recyclerview;
-    private YiFcModuleAdapter yiFcModuleAdapter;
+    private YxYjModuleAdapter yiFcModuleAdapter;
 
     @Override
     public int getLayoutId() {
@@ -107,13 +105,13 @@ public class YiBestActivity extends BaseLoadActivity {
         }
         m3.setModuleItems(mList3);
         list.add(m3);
-        yiFcModuleAdapter = new YiFcModuleAdapter(R.layout.item_yifc_module, list);
+        yiFcModuleAdapter = new YxYjModuleAdapter(R.layout.item_yifc_module, list);
         recyclerview.setAdapter(yiFcModuleAdapter);
         yiFcModuleAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 ToastUtil.show(YiBestActivity.this, "+++" + list.get(position));
-                Intent intent = new Intent(YiBestActivity.this, YiFcDetailActivity.class);
+                Intent intent = new Intent(YiBestActivity.this, DuiWuDetailActivity.class);
                 intent.putExtra("TITLE", list.get(position).getTitle());
                 startActivity(intent);
             }

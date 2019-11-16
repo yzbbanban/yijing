@@ -131,7 +131,7 @@ public class FinanceFragmrnt extends BaseLoadFragment {
         m1.setModuleItems(mList);
         list.add(m1);
         ModuleBean m2 = new ModuleBean();
-        m2.setTitle("优秀义警");
+        m2.setTitle("义警排名");
         m2.setType(2);
         List<ModuleItemBean> mList2 = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
