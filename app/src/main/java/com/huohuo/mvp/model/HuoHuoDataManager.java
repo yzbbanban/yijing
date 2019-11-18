@@ -2,6 +2,7 @@ package com.huohuo.mvp.model;
 
 import com.dian.commonlib.net.DataManager;
 import com.dian.commonlib.net.HttpResult;
+import com.huohuo.mvp.model.bean.UserInfo;
 import com.huohuo.mvp.model.bean.AboutBean;
 import com.huohuo.mvp.model.bean.ContractsBean;
 import com.huohuo.mvp.model.bean.CountryCodeBean;
@@ -259,6 +260,18 @@ public class HuoHuoDataManager extends DataManager<HuoHuoApi> {
      */
     public Observable<HttpResult<TokenBean>> codeLogin(String countryCode, String mobile, String valiRegisterCode) {
         return mApi.codeLogin(countryCode, mobile, valiRegisterCode);
+    }
+
+    /**
+     * 验证码登录
+     *
+     * @param account
+     * @param password
+     * @param code
+     * @return
+     */
+    public Observable<HttpResult<UserInfo>> userLogin(String account, String password, String code) {
+        return mApi.userLogin(account, password, code);
     }
 
     /**

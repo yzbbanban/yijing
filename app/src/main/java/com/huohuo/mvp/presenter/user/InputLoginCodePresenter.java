@@ -2,14 +2,13 @@ package com.huohuo.mvp.presenter.user;
 
 import com.dian.commonlib.net.RxHttpCallback;
 import com.dian.commonlib.utils.AppUtil;
-import com.dian.commonlib.utils.SignUtil;
 import com.dian.commonlib.utils.ToastUtil;
 import com.huohuo.R;
 import com.huohuo.base.HuoHuoBasePresenter;
+import com.huohuo.mvp.model.bean.UserInfo;
 import com.huohuo.net.HuoHuoErrorStatus;
 import com.huohuo.mvp.contract.user.InputLoginCodeContract;
 import com.huohuo.mvp.model.bean.JiYanData;
-import com.huohuo.mvp.model.bean.TokenBean;
 
 import okhttp3.RequestBody;
 
@@ -33,12 +32,11 @@ public class InputLoginCodePresenter extends HuoHuoBasePresenter<InputLoginCodeC
             ToastUtil.show(mContext, R.string.code_not_empty);
             return;
         }
-        doRequestToMain(dataManager.codeLogin(phoneCode, account, code))
-                .subscribeWith(new RxHttpCallback<TokenBean>(this) {
+        doRequestToMain(dataManager.userLogin(phoneCode, account, code))
+                .subscribeWith(new RxHttpCallback<UserInfo>(this) {
                     @Override
-                    public void onData(TokenBean data) {
-                        AppUtil.setToken(data.getToken());
-                        SignUtil.saveSecret(data.getSecret());
+                    public void onData(UserInfo data) {
+                        AppUtil.setToken(data.getUserinfo().getToken());
                         getMvpView().loginSuccess();
                     }
 

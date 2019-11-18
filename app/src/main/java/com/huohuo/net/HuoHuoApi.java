@@ -2,9 +2,11 @@ package com.huohuo.net;
 
 import com.dian.commonlib.app.Constants;
 import com.dian.commonlib.net.HttpResult;
+import com.huohuo.dao.table.ActivityList;
 import com.huohuo.dao.table.Friend;
 import com.huohuo.dao.table.FriendApply;
 import com.huohuo.dao.table.Group;
+import com.huohuo.mvp.model.bean.UserInfo;
 import com.huohuo.mvp.model.bean.AboutBean;
 import com.huohuo.mvp.model.bean.ContractsBean;
 import com.huohuo.mvp.model.bean.CountryCodeBean;
@@ -28,6 +30,75 @@ import retrofit2.http.Query;
  */
 
 public interface HuoHuoApi {
+
+
+
+    /**
+     * 验证码登录
+     *
+     * @param account
+     * @param password
+     * @param code
+     * @return
+     */
+    @GET(Constants.API_VERSION + "/user/login")
+    Observable<HttpResult<UserInfo>> userLogin(
+            @Query("account") String account,
+            @Query("password") String password,
+            @Query("code") String code
+    );
+
+
+    /**
+     * 义警活动列表
+     *
+     * @param page
+     * @param size
+     * @param type
+     * @return
+     */
+    @POST(Constants.API_VERSION + "/activity/list")
+    Observable<HttpResult<List<ActivityList>>> activityList(
+            @Query("token") String token,
+            @Query("page") String page,
+            @Query("size") String size,
+            @Query("type") String type
+    );
+
+
+    /**
+     * 义警活动列表
+     *
+     * @param page
+     * @param size
+     * @param type
+     * @return
+     */
+    @POST(Constants.API_VERSION + "/fengcai/list")
+    Observable<HttpResult<List<ActivityList>>> fengcaiList(
+            @Query("token") String token,
+            @Query("page") String page,
+            @Query("size") String size
+    );
+
+    /**
+     * 义警活动列表
+     *
+     * @param page
+     * @param size
+     * @param type
+     * @return
+     */
+    @POST(Constants.API_VERSION + "/mall/list")
+    Observable<HttpResult<List<ActivityList>>> mallList(
+            @Query("token") String token,
+            @Query("page") String page,
+            @Query("size") String size,
+            @Query("user_id") String user_id
+
+    );
+
+
 
     /**
      * 发送添加好友申请

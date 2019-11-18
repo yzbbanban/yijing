@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.TextView;
 
 import com.dian.commonlib.base.BaseFragment;
 import com.dian.commonlib.base.BaseFragmentAdapter;
@@ -18,18 +19,19 @@ import com.dian.commonlib.utils.widget.NotScrollViewPager;
 import com.huohuo.R;
 import com.huohuo.app.HuoHuoApp;
 import com.huohuo.app.HuoHuoConstants;
-import com.huohuo.ui.main.finance.FinanceFragmrnt;
-import com.huohuo.ui.main.mine.MineFragmrnt;
-import com.huohuo.ui.main.msg.MsgFragmrnt;
 import com.huohuo.im.SocketService;
 import com.huohuo.mvp.contract.main.MainContract;
 import com.huohuo.mvp.presenter.main.MainPresenter;
+import com.huohuo.ui.main.finance.FinanceFragmrnt;
+import com.huohuo.ui.main.mine.MineFragmrnt;
+import com.huohuo.ui.main.msg.MsgFragmrnt;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import q.rorbin.badgeview.Badge;
 import q.rorbin.badgeview.QBadgeView;
 
@@ -38,6 +40,7 @@ public class MainActivity extends BaseLoadActivity implements MainContract.View 
     NotScrollViewPager viewPager;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+
     @BindView(R.id.bottomNavigationViewEx)
     BottomNavigationViewEx bottomNavigationViewEx;
 
@@ -46,6 +49,8 @@ public class MainActivity extends BaseLoadActivity implements MainContract.View 
     MainPresenter mainPresenter;
     BaseFragmentAdapter adapter;
     Badge badgeMsgNum;
+    @BindView(R.id.tvTitle)
+    TextView tvTitle;
 
     @Override
     public void retry() {
@@ -86,8 +91,13 @@ public class MainActivity extends BaseLoadActivity implements MainContract.View 
 
 
     public void updateToolBar(int title) {
-        setToolbarConfig(toolbar, title, -1);
-        toolbar.setBackgroundDrawable(null);
+        tvTitle.setText(title);
+        toolbar.setBackgroundColor(getResources().getColor(R.color.bctm));
+        tvTitle.setTextColor(getResources().getColor(R.color.white));
+    }
+
+    public void updateToolBarColor(int color) {
+        toolbar.setBackgroundColor(getResources().getColor(color));
     }
 
     @Override
@@ -186,5 +196,12 @@ public class MainActivity extends BaseLoadActivity implements MainContract.View 
     protected void onPause() {
         super.onPause();
         unregisterReceiver(netWorkStateReceiver);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
     }
 }

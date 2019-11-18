@@ -16,7 +16,10 @@ import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.dian.commonlib.utils.widget.OnTextChangeListener;
 import com.huohuo.R;
 import com.huohuo.app.HuoHuoConstants;
+import com.huohuo.mvp.contract.user.InputLoginCodeContract;
 import com.huohuo.mvp.contract.user.LoginContract;
+import com.huohuo.mvp.model.bean.JiYanData;
+import com.huohuo.mvp.presenter.user.InputLoginCodePresenter;
 import com.huohuo.mvp.presenter.user.LoginPresenter;
 import com.huohuo.ui.main.MainActivity;
 import com.huohuo.ui.sys.PhoneCodeActivity;
@@ -28,15 +31,17 @@ import butterknife.OnClick;
  * Created by kennysun on 2019/8/8.
  */
 
-public class LoginActivity extends BaseLoadActivity implements LoginContract.View {
+public class LoginActivity extends BaseLoadActivity implements InputLoginCodeContract.View {
 
-    LoginPresenter loginPresenter;
+    InputLoginCodePresenter inputLoginCodePresenter;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.tvSign)
     TextView tvSign;
     @BindView(R.id.etPhone)
     EditText etPhone;
+    @BindView(R.id.etCode)
+    EditText etCode;
     @BindView(R.id.btnLogin)
     Button btnLogin;
     @BindView(R.id.sendSmsCode)
@@ -63,9 +68,8 @@ public class LoginActivity extends BaseLoadActivity implements LoginContract.Vie
     public void initViewAndData() {
         toolbar.setVisibility(View.GONE);
         super.initViewAndData();
-        loginPresenter = new LoginPresenter();
-        loginPresenter.attachView(this, this);
-
+        inputLoginCodePresenter = new InputLoginCodePresenter();
+        inputLoginCodePresenter.attachView(this, this);
         initEdit();
     }
 
@@ -91,17 +95,32 @@ public class LoginActivity extends BaseLoadActivity implements LoginContract.Vie
     }
 
     @Override
-    public void getCodeSuccess() {
-        ToastUtil.show(this, R.string.code_send_success);
-
+    public void loginSuccess() {
+        ToastUtil.show(this, R.string.login_success);
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
 
     }
 
     @Override
-    public void registNever() {
+    public void geeTest() {
 
     }
 
+    @Override
+    public void codeError() {
+
+    }
+
+    @Override
+    public void jiYanApi1(JiYanData data) {
+
+    }
+
+    @Override
+    public void jiYanApi2() {
+
+    }
 
     @OnClick({R.id.sendSmsCode, R.id.btnLogin})
     public void onViewClicked(View view) {
@@ -112,8 +131,10 @@ public class LoginActivity extends BaseLoadActivity implements LoginContract.Vie
                 break;
             case R.id.btnLogin:
 //                loginPresenter.getCode(phone);
-                startActivity(new Intent(this, MainActivity.class));
-                finish();
+                String phoneCode = "86";
+                String phone = etPhone.getText().toString();
+                String code = etCode.getText().toString();
+                inputLoginCodePresenter.login(phoneCode, phone, code);
                 break;
 
         }

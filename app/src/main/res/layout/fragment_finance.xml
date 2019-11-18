@@ -6,24 +6,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/backg" />
-
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <com.huohuo.ui.widget.banner.BannerViewPager
-                android:id="@+id/banner"
+            <LinearLayout
+                android:paddingTop="@dimen/toolBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:layout_editor_absoluteY="10dp" />
+                android:background="@drawable/backg">
+
+                <com.huohuo.ui.widget.banner.BannerViewPager
+                    android:id="@+id/banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:layout_editor_absoluteY="10dp" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/llMenu"
@@ -123,6 +127,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/marginScreenLagre"
                 app:layout_constraintTop_toBottomOf="@+id/llMenu" />
-        </android.support.constraint.ConstraintLayout>
+        </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </com.dian.commonlib.utils.widget.MultipleStatusView>

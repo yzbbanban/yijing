@@ -60,6 +60,7 @@ public class MsgFragmrnt extends BaseFragment {
         if (isVisibleToUser && isCreated) {
             mainActivity = (MainActivity) getActivity();
             mainActivity.updateToolBar(R.string.yj_new);
+            mainActivity.updateToolBarColor(R.color.colorAccent);
             setHasOptionsMenu(true);
             initBanner();
             recyclerview.setLayoutManager(new LinearLayoutManager(getBaseActivity(), LinearLayoutManager.VERTICAL, false));

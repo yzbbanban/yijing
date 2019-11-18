@@ -11,6 +11,7 @@
         <!--<include layout="@layout/layout_search" />-->
 
         <com.huohuo.ui.widget.banner.BannerViewPager
+            android:paddingTop="@dimen/toolBar"
             android:layout_marginTop="@dimen/marginViewNormal"
             android:id="@+id/banner"
             android:layout_width="match_parent"
