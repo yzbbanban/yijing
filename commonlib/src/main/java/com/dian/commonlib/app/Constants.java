@@ -14,6 +14,7 @@ public class Constants {
     public static long DEFAULT_TIMEOUT = 10;//默认超时时间
 
     public static String TOKEN  = "token";
+    public static String USER  = "user";
     public static String SERVICE_TIME  = "service_time";
     public static String LOCAL_TIME  = "local_time";
 

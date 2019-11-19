@@ -11,6 +11,7 @@ import com.dian.commonlib.base.BaseLoadActivity;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.huohuo.R;
 import com.huohuo.dao.table.NewsData;
+import com.huohuo.mvp.model.bean.NewsList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,7 +38,7 @@ public class NewsDetailActivity extends BaseLoadActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        NewsData newsData = (NewsData) intent.getExtras().getSerializable(NEWS);
+        NewsList.ListBean newsData = (NewsList.ListBean) intent.getExtras().getSerializable(NEWS);
         Log.i(TAG, "onNewIntent: " + newsData);
     }
 

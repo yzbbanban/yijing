@@ -13,9 +13,13 @@ import android.view.ViewGroup;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.dian.commonlib.base.BaseFragment;
+import com.dian.commonlib.utils.AppUtil;
 import com.dian.commonlib.utils.DeviceUtil;
 import com.huohuo.R;
 import com.huohuo.dao.table.NewsData;
+import com.huohuo.mvp.contract.home.NewsListContract;
+import com.huohuo.mvp.model.bean.NewsList;
+import com.huohuo.mvp.presenter.home.NewsListPresenter;
 import com.huohuo.ui.adapter.MsgListAdapter;
 import com.huohuo.ui.scan.CaptureActivity;
 import com.huohuo.ui.widget.banner.BannerViewPager;
@@ -31,7 +35,7 @@ import butterknife.BindView;
  * Created by kennysun on 2019/8/8.
  */
 
-public class MsgFragmrnt extends BaseFragment {
+public class MsgFragmrnt extends BaseFragment implements NewsListContract.View {
 
     @BindView(R.id.recyclerview)
     RecyclerView recyclerview;
@@ -43,6 +47,8 @@ public class MsgFragmrnt extends BaseFragment {
     private boolean isCreated = false;
     private MsgListAdapter msgListAdapter;
 
+    private NewsListPresenter newsListPresenter;
+
     private static final String NEWS = "news";
 
     @Override
@@ -53,6 +59,8 @@ public class MsgFragmrnt extends BaseFragment {
     @Override
     public void initViewAndData() {
         isCreated = true;
+        newsListPresenter = new NewsListPresenter();
+        newsListPresenter.attachView(this, getBaseActivity());
         lazyLoad();
     }
 
@@ -64,31 +72,7 @@ public class MsgFragmrnt extends BaseFragment {
             setHasOptionsMenu(true);
             initBanner();
             recyclerview.setLayoutManager(new LinearLayoutManager(getBaseActivity(), LinearLayoutManager.VERTICAL, false));
-            List<NewsData> lists = new ArrayList<>();
-            lists.add(new NewsData(1, "MCSI", 321, "11:21", ""));
-            lists.add(new NewsData(2, "MCSI2", 121, "11:21", ""));
-            lists.add(new NewsData(3, "MCSI2", 454, "11:21", ""));
-            lists.add(new NewsData(4, "MCSI3", 65, "11:21", ""));
-            lists.add(new NewsData(5, "MCSI4", 45, "11:21", ""));
-            lists.add(new NewsData(6, "MCSI5", 12, "11:21", ""));
-            lists.add(new NewsData(7, "MCSI5", 54, "11:21", ""));
-            lists.add(new NewsData(8, "MCSI6", 65, "11:21", ""));
-            lists.add(new NewsData(9, "MCSI7", 1, "11:21", ""));
-            msgListAdapter = new MsgListAdapter(R.layout.item_chat, lists);
-            recyclerview.setAdapter(msgListAdapter);
-            if (!isLoad) {
-                //todo 加载数据
-            }
-            isLoad = true;
-            msgListAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-                @Override
-                public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                    NewsData news = lists.get(position);
-                    Intent intent = new Intent(getBaseActivity(), NewsDetailActivity.class);
-                    intent.putExtra(NEWS, news);
-                    startActivity(intent);
-                }
-            });
+            newsListPresenter.getList(AppUtil.getToken(), "1", "10");
         }
     }
 
@@ -134,6 +118,40 @@ public class MsgFragmrnt extends BaseFragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 //        menu.clear();
 //        inflater.inflate(R.menu.menu_msg_toolbar, menu);
+    }
+
+    @Override
+    public void getNewsListSuccess(NewsList newsList) {
+        msgListAdapter = new MsgListAdapter(R.layout.item_chat, newsList.getList());
+        recyclerview.setAdapter(msgListAdapter);
+        if (!isLoad) {
+            //todo 加载数据
+        }
+        isLoad = true;
+        msgListAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                NewsList.ListBean news = newsList.getList().get(position);
+                Intent intent = new Intent(getBaseActivity(), NewsDetailActivity.class);
+                intent.putExtra(NEWS, news);
+                startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    public void showLoading(boolean show) {
+
+    }
+
+    @Override
+    public void onError(Object msg, int code) {
+
+    }
+
+    @Override
+    public void onComplete() {
+
     }
 
 

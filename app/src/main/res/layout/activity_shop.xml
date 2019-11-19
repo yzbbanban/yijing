@@ -29,13 +29,16 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/tvName"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:lines="1"
                 android:text="黄渤"
                 android:textColor="@color/colorBlackTextHint" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/tvNumber"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="积分: 60分"
                 android:textColor="@color/colorAccent" />
@@ -46,7 +49,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="152dp"
             android:background="@drawable/selector_primary_bt"
             android:gravity="center"
             android:minWidth="@dimen/sms_code_btn_w"

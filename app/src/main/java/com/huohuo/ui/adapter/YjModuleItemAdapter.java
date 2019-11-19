@@ -26,12 +26,7 @@ public class YjModuleItemAdapter extends BaseQuickAdapter<ModuleItemBean, BaseMy
     @Override
     protected void convert(BaseMyViewHolder helper, ModuleItemBean item) {
         Log.i(TAG, "convert: " + item);
-        TextView tv = helper.getView(R.id.tvModuleOrder);
-        tv.setVisibility(View.GONE);
-        TextView textView = helper.getView(R.id.tvModuleText);
-        textView.setVisibility(View.GONE);
         int index = item.getIndex() == null ? 4 : item.getIndex();
-        helper.setText(R.id.tvModuleOrder, "" + index);
         switch (index) {
             case 1:
                 helper.setImageResource(R.id.ivModuleIcon, R.drawable.ls);
@@ -43,7 +38,7 @@ public class YjModuleItemAdapter extends BaseQuickAdapter<ModuleItemBean, BaseMy
                 helper.setImageResource(R.id.ivModuleIcon, R.drawable.bg);
                 break;
             default:
-                helper.setBackgroundRes(R.id.ivModuleIcon, R.drawable.orderother);
+                helper.setBackgroundRes(R.id.ivModuleIcon, R.drawable.ls);
                 break;
         }
     }

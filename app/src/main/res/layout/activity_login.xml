@@ -49,7 +49,7 @@
             <EditText
                 android:id="@+id/etPhone"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/toolBar"
+                android:layout_height="@dimen/textHomeAsset"
                 android:layout_marginTop="@dimen/login_etaccount_margin_top"
                 android:background="@drawable/shape_login_bt_press"
                 android:gravity="center_vertical"
@@ -59,7 +59,7 @@
                 android:paddingLeft="@dimen/height_quicksidebaritem"
                 android:textColor="@color/colorWhiteTextImportant"
                 android:textColorHint="@color/colorWhiteTextImportant"
-                android:textSize="@dimen/textNormalTitle"
+                android:textSize="@dimen/textSmall"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvSign" />
 
@@ -84,7 +84,7 @@
             <EditText
                 android:id="@+id/etCode"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/toolBar"
+                android:layout_height="@dimen/textHomeAsset"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/shape_login_bt_press"
                 android:gravity="center_vertical"
@@ -93,8 +93,9 @@
                 android:maxLines="1"
                 android:paddingLeft="@dimen/height_quicksidebaritem"
                 android:paddingRight="@dimen/sms_code_btn_w"
+                android:textColor="@color/color_white"
                 android:textColorHint="@color/colorWhiteTextImportant"
-                android:textSize="@dimen/textNormalTitle"
+                android:textSize="@dimen/textSmall"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -114,12 +115,12 @@
                 android:id="@+id/btnLogin"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/bt_h"
+                android:layout_height="@dimen/textHomeAsset"
                 android:layout_marginTop="112dp"
                 android:background="@drawable/selector_login_bt"
                 android:text="@string/login"
                 android:textColor="@color/colorAccent"
-                android:textSize="@dimen/textNormalTitle"
+                android:textSize="@dimen/textSmall"
                 app:layout_constraintTop_toBottomOf="@+id/etPhone"
                 tools:layout_editor_absoluteX="16dp" />
 

@@ -2,7 +2,9 @@ package com.dian.commonlib.app;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 import android.content.Intent;
+import android.support.multidex.MultiDex;
 
 import com.dian.commonlib.base.BaseActivity;
 import com.dian.commonlib.lang.MultiLanguageUtil;
@@ -39,6 +41,12 @@ public abstract class App extends Application {
 
         //初始化语言
         MultiLanguageUtil.init(this);
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 
     /**
@@ -82,7 +90,7 @@ public abstract class App extends Application {
             Activity activity = null;
             int time = activitys.size();
             while (time > 1) {
-                activity = activitys.get(time-1);
+                activity = activitys.get(time - 1);
                 if (!activity.equals(activityOther)) {
                     activitys.remove(activity);
                     try {

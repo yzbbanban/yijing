@@ -19,7 +19,7 @@ public class HuoHuoBasePresenter<V extends IView> extends BasePresenter<HuoHuoDa
         return HuoHuoDataManager.getHuoHuoDataManager(BuildConfig.API_HOST, HuoHuoApi.class);
     }
     protected void handApiException(HttpResult<?> it) {
-        ApiException e = new ApiException(it.getMessage(), it.getCode());
+        ApiException e = new ApiException(it.getMsg(), it.getCode());
         handException(e, it.getCode());
     }
 

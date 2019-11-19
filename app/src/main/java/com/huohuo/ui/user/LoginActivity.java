@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.dian.commonlib.base.BaseLoadActivity;
+import com.dian.commonlib.utils.CountDownTimerUtil;
 import com.dian.commonlib.utils.ToastUtil;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.dian.commonlib.utils.widget.OnTextChangeListener;
@@ -22,7 +23,6 @@ import com.huohuo.mvp.model.bean.JiYanData;
 import com.huohuo.mvp.presenter.user.InputLoginCodePresenter;
 import com.huohuo.mvp.presenter.user.LoginPresenter;
 import com.huohuo.ui.main.MainActivity;
-import com.huohuo.ui.sys.PhoneCodeActivity;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -31,9 +31,10 @@ import butterknife.OnClick;
  * Created by kennysun on 2019/8/8.
  */
 
-public class LoginActivity extends BaseLoadActivity implements InputLoginCodeContract.View {
+public class LoginActivity extends BaseLoadActivity implements InputLoginCodeContract.View, LoginContract.View {
 
     InputLoginCodePresenter inputLoginCodePresenter;
+    LoginPresenter loginPresenter;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.tvSign)
@@ -46,6 +47,7 @@ public class LoginActivity extends BaseLoadActivity implements InputLoginCodeCon
     Button btnLogin;
     @BindView(R.id.sendSmsCode)
     Button sendSmsCode;
+    private CountDownTimerUtil countDownTimerUtil;
 
 
     @Override
@@ -70,6 +72,8 @@ public class LoginActivity extends BaseLoadActivity implements InputLoginCodeCon
         super.initViewAndData();
         inputLoginCodePresenter = new InputLoginCodePresenter();
         inputLoginCodePresenter.attachView(this, this);
+        loginPresenter = new LoginPresenter();
+        loginPresenter.attachView(this, this);
         initEdit();
     }
 
@@ -96,6 +100,7 @@ public class LoginActivity extends BaseLoadActivity implements InputLoginCodeCon
 
     @Override
     public void loginSuccess() {
+        //保存数据
         ToastUtil.show(this, R.string.login_success);
         startActivity(new Intent(this, MainActivity.class));
         finish();
@@ -126,13 +131,14 @@ public class LoginActivity extends BaseLoadActivity implements InputLoginCodeCon
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.sendSmsCode:
-                Intent intentCode = new Intent();
-                intentCode.setClass(this, PhoneCodeActivity.class);
+                //发送短信
+                String phone = etPhone.getText().toString();
+                loginPresenter.getCode(phone);
                 break;
             case R.id.btnLogin:
 //                loginPresenter.getCode(phone);
                 String phoneCode = "86";
-                String phone = etPhone.getText().toString();
+                phone = etPhone.getText().toString();
                 String code = etCode.getText().toString();
                 inputLoginCodePresenter.login(phoneCode, phone, code);
                 break;
@@ -159,6 +165,26 @@ public class LoginActivity extends BaseLoadActivity implements InputLoginCodeCon
         }
         super.onKeyDown(keyCoder, event);
         return false;
+    }
+
+    @Override
+    public void getCodeSuccess() {
+        ToastUtil.show(this, R.string.code_send_success);
+        countDownTimerUtil = new CountDownTimerUtil(sendSmsCode, HuoHuoConstants.CUTDOWN_TIME, 1000);
+        countDownTimerUtil.start();
+    }
+
+    @Override
+    public void registNever() {
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (countDownTimerUtil != null) {
+            countDownTimerUtil.cancel();
+        }
     }
 
 }

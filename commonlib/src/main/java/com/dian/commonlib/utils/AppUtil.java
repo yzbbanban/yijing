@@ -32,7 +32,17 @@ public class AppUtil {
         return MmkvUtil.decodeString(Constants.TOKEN,"");
     }
 
+
+    public static String getUser(){
+        return MmkvUtil.decodeString(Constants.USER,"");
+    }
+
     public static void setToken(String token){
         MmkvUtil.encodeString(Constants.TOKEN, token);
     }
+
+    public static void setUser(String user){
+        MmkvUtil.encodeString(Constants.USER, user);
+    }
+
 }

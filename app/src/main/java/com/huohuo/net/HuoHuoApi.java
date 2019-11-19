@@ -2,10 +2,15 @@ package com.huohuo.net;
 
 import com.dian.commonlib.app.Constants;
 import com.dian.commonlib.net.HttpResult;
-import com.huohuo.dao.table.ActivityList;
+import com.huohuo.mvp.model.bean.AcMyList;
+import com.huohuo.mvp.model.bean.ActivityList;
 import com.huohuo.dao.table.Friend;
 import com.huohuo.dao.table.FriendApply;
 import com.huohuo.dao.table.Group;
+import com.huohuo.mvp.model.bean.ExchangeList;
+import com.huohuo.mvp.model.bean.FengcaiList;
+import com.huohuo.mvp.model.bean.MallList;
+import com.huohuo.mvp.model.bean.NewsList;
 import com.huohuo.mvp.model.bean.UserInfo;
 import com.huohuo.mvp.model.bean.AboutBean;
 import com.huohuo.mvp.model.bean.ContractsBean;
@@ -32,20 +37,29 @@ import retrofit2.http.Query;
 public interface HuoHuoApi {
 
 
+    /**
+     * 发送短信
+     *
+     * @return
+     */
+    @GET(Constants.API_VERSION + "/sms/send")
+    Observable<HttpResult<Object>> smsSend(
+            @Query("mobile") String mobile,
+            @Query("event") String event
+    );
+
 
     /**
      * 验证码登录
      *
-     * @param account
-     * @param password
-     * @param code
+     * @param mobile
+     * @param captcha
      * @return
      */
-    @GET(Constants.API_VERSION + "/user/login")
+    @GET(Constants.API_VERSION + "/user/mobilelogin")
     Observable<HttpResult<UserInfo>> userLogin(
-            @Query("account") String account,
-            @Query("password") String password,
-            @Query("code") String code
+            @Query("mobile") String mobile,
+            @Query("captcha") String captcha
     );
 
 
@@ -58,7 +72,7 @@ public interface HuoHuoApi {
      * @return
      */
     @POST(Constants.API_VERSION + "/activity/list")
-    Observable<HttpResult<List<ActivityList>>> activityList(
+    Observable<HttpResult<ActivityList>> activityList(
             @Query("token") String token,
             @Query("page") String page,
             @Query("size") String size,
@@ -67,30 +81,31 @@ public interface HuoHuoApi {
 
 
     /**
-     * 义警活动列表
+     * 义警风采
      *
      * @param page
      * @param size
-     * @param type
+     * @param size
      * @return
      */
     @POST(Constants.API_VERSION + "/fengcai/list")
-    Observable<HttpResult<List<ActivityList>>> fengcaiList(
+    Observable<HttpResult<FengcaiList>> fengcaiList(
             @Query("token") String token,
             @Query("page") String page,
             @Query("size") String size
     );
 
     /**
-     * 义警活动列表
+     * 商城列表
      *
+     * @param token
      * @param page
      * @param size
-     * @param type
+     * @param user_id
      * @return
      */
     @POST(Constants.API_VERSION + "/mall/list")
-    Observable<HttpResult<List<ActivityList>>> mallList(
+    Observable<HttpResult<MallList>> mallList(
             @Query("token") String token,
             @Query("page") String page,
             @Query("size") String size,
@@ -98,6 +113,88 @@ public interface HuoHuoApi {
 
     );
 
+    /**
+     * 义警申请
+     *
+     * @return
+     */
+    @POST(Constants.API_VERSION + "apply/apply")
+    Observable<HttpResult<Object>> yjApply(
+            @Query("token") String token,
+            @Query("user_id") String user_id,
+            @Query("vision") String vision,
+            @Query("photoimage") String photoimage,
+            @Query("homeaddress") String homeaddress,
+            @Query("politically") String politically,
+            @Query("identifier") String identifier,
+            @Query("job") String job,
+            @Query("nickname") String nickname,
+            @Query("gender") String gender,
+            @Query("birthday") String birthday
+
+    );
+
+    /**
+     * 兑换列表
+     *
+     * @param page
+     * @param size
+     * @param size
+     * @param user_id
+     * @return
+     */
+    @POST(Constants.API_VERSION + "/exchange/list")
+    Observable<HttpResult<ExchangeList>> exchangeList(
+            @Query("token") String token,
+            @Query("page") String page,
+            @Query("size") String size,
+            @Query("user_id") String user_id
+
+    );
+
+    /**
+     * 新闻列表
+     *
+     * @param page
+     * @param size
+     * @param size
+     * @return
+     */
+    @POST(Constants.API_VERSION + "/news/list")
+    Observable<HttpResult<NewsList>> newsList(
+            @Query("token") String token,
+            @Query("page") String page,
+            @Query("size") String size
+    );
+
+    /**
+     * 新闻列表
+     *
+     * @param page
+     * @param size
+     * @param size
+     * @return
+     */
+    @POST(Constants.API_VERSION + "/activity/mylist")
+    Observable<HttpResult<AcMyList>> acMyList(
+            @Query("token") String token,
+            @Query("page") String page,
+            @Query("size") String size,
+            @Query("user_id") String user_id
+    );
+
+    /**
+     * 兑换列表
+     *
+     * @param token
+     * @param id
+     * @return
+     */
+    @POST(Constants.API_VERSION + "/news/viewinc")
+    Observable<HttpResult<List<ExchangeList>>> newsDetail(
+            @Query("token") String token,
+            @Query("id") String id
+    );
 
 
     /**
@@ -111,6 +208,7 @@ public interface HuoHuoApi {
             @Query("friendUid") String friendUid,
             @Query(value = "remark", encoded = true) String remark
     );
+
     /**
      * 获取手机联系人列表
      *

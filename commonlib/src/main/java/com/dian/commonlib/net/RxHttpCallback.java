@@ -32,7 +32,7 @@ abstract public class RxHttpCallback<T> extends DisposableObserver<HttpResult<T>
         if (tHttpResult.getCode() == ErrorStatus.SUCCESS) {
             onData(tHttpResult.getData());
         } else {
-            ApiException e = new ApiException(tHttpResult.getMessage(), tHttpResult.getCode());
+            ApiException e = new ApiException(tHttpResult.getMsg(), tHttpResult.getCode());
             onError(ExceptionHandle.handleException(e), ExceptionHandle.errorCode);
         }
     }

@@ -13,6 +13,7 @@ import com.dian.commonlib.base.BaseLoadActivity;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.huohuo.R;
 import com.huohuo.dao.table.OutsideDetail;
+import com.huohuo.ui.adapter.MyOutsideAdapter;
 import com.huohuo.ui.adapter.OutsideAdapter;
 import com.huohuo.ui.asset.AllAssetActvity;
 
@@ -34,7 +35,7 @@ public class MyAcActivity extends BaseLoadActivity {
     ImageView ivLeft;
     @BindView(R.id.tvTitle)
     TextView tvTitle;
-    private OutsideAdapter outsideAdapter;
+    private MyOutsideAdapter outsideAdapter;
 
     @Override
     public void retry() {
@@ -74,7 +75,7 @@ public class MyAcActivity extends BaseLoadActivity {
             list.add(outsideDetail);
         }
 
-        outsideAdapter = new OutsideAdapter(R.layout.item_outside, list);
+        outsideAdapter = new MyOutsideAdapter(R.layout.item_outside, list);
         rvHistoryAc.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rvHistoryAc.setAdapter(outsideAdapter);
         outsideAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {

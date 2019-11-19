@@ -20,7 +20,7 @@ public class LoginPresenter extends HuoHuoBasePresenter<LoginContract.View> impl
             ToastUtil.show(mContext, R.string.account_not_empty);
             return;
         }
-        doRequestToMain(dataManager.sendLoginSms("86", account))
+        doRequestToMain(dataManager.sendLoginSms(account, "login"))
                 .subscribeWith(new RxHttpCallback<Object>(this) {
                     @Override
                     public void onData(Object data) {
@@ -29,10 +29,10 @@ public class LoginPresenter extends HuoHuoBasePresenter<LoginContract.View> impl
 
                     @Override
                     public void onError(Object msg, int code) {
-                        if (code == HuoHuoErrorStatus.USER_NOT_EXISTS_ERROR){
+                        if (code == HuoHuoErrorStatus.USER_NOT_EXISTS_ERROR) {
                             getMvpView().registNever();
-                        }else{
-                            super.onError(msg,code);
+                        } else {
+                            super.onError(msg, code);
                         }
                     }
                 });

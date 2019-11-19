@@ -32,27 +32,18 @@ public class InputLoginCodePresenter extends HuoHuoBasePresenter<InputLoginCodeC
             ToastUtil.show(mContext, R.string.code_not_empty);
             return;
         }
-        doRequestToMain(dataManager.userLogin(phoneCode, account, code))
+        doRequestToMain(dataManager.userLogin(account, code))
                 .subscribeWith(new RxHttpCallback<UserInfo>(this) {
                     @Override
                     public void onData(UserInfo data) {
                         AppUtil.setToken(data.getUserinfo().getToken());
+                        AppUtil.setUser("" + data.getUserinfo().getUser_id());
                         getMvpView().loginSuccess();
                     }
 
                     @Override
                     public void onError(Object msg, int code) {
-                        if (code == HuoHuoErrorStatus.PERSONAL_USER_ACCOUNT_LOGIN_GEETEST_ERROR) {//登录失败，启用滑动验证
-                            //启用极验验证
-                            getMvpView().geeTest();
-                        } else if (code == HuoHuoErrorStatus.LOGIN_SUCCESS_IN_OTHER_DEVICE) {//登录成功，用户在另一个设备进行登录
-
-                        } else if (code == HuoHuoErrorStatus.USER_NOT_EXISTS_ERROR) {//手机号未注册
-                        } else if (code == HuoHuoErrorStatus.SMS_CODE_ERROR) {           //验证码错误
-                            getMvpView().codeError();
-                        } else {
-                            super.onError(msg, code);
-                        }
+                        super.onError(msg, code);
                     }
                 });
     }

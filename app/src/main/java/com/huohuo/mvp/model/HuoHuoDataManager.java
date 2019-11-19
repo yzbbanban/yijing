@@ -2,19 +2,25 @@ package com.huohuo.mvp.model;
 
 import com.dian.commonlib.net.DataManager;
 import com.dian.commonlib.net.HttpResult;
-import com.huohuo.mvp.model.bean.UserInfo;
+import com.huohuo.dao.table.Friend;
+import com.huohuo.dao.table.FriendApply;
+import com.huohuo.dao.table.Group;
 import com.huohuo.mvp.model.bean.AboutBean;
+import com.huohuo.mvp.model.bean.AcMyList;
+import com.huohuo.mvp.model.bean.ActivityList;
 import com.huohuo.mvp.model.bean.ContractsBean;
 import com.huohuo.mvp.model.bean.CountryCodeBean;
+import com.huohuo.mvp.model.bean.ExchangeList;
+import com.huohuo.mvp.model.bean.FengcaiList;
 import com.huohuo.mvp.model.bean.JiYanData;
+import com.huohuo.mvp.model.bean.MallList;
+import com.huohuo.mvp.model.bean.NewsList;
 import com.huohuo.mvp.model.bean.ScanBean;
 import com.huohuo.mvp.model.bean.SplashBean;
 import com.huohuo.mvp.model.bean.TokenBean;
 import com.huohuo.mvp.model.bean.User;
+import com.huohuo.mvp.model.bean.UserInfo;
 import com.huohuo.net.HuoHuoApi;
-import com.huohuo.dao.table.Friend;
-import com.huohuo.dao.table.FriendApply;
-import com.huohuo.dao.table.Group;
 
 import java.util.List;
 
@@ -241,12 +247,66 @@ public class HuoHuoDataManager extends DataManager<HuoHuoApi> {
     /**
      * 获取登录验证码
      *
-     * @param countryCode
      * @param mobile
+     * @param event
      * @return
      */
-    public Observable<HttpResult<Object>> sendLoginSms(String countryCode, String mobile) {
-        return mApi.sendLoginSms(countryCode, mobile);
+    public Observable<HttpResult<Object>> sendLoginSms(String mobile, String event) {
+        return mApi.smsSend(mobile, event);
+    }
+
+    /**
+     * 获取义警活动列表
+     *
+     * @return
+     */
+    public Observable<HttpResult<ActivityList>> getYjAc(String token, String page, String size, String type) {
+        return mApi.activityList(token, page, size, type);
+    }
+
+    /**
+     * 获取义警风采列表
+     *
+     * @return
+     */
+    public Observable<HttpResult<FengcaiList>> getYjFc(String token, String page, String size) {
+        return mApi.fengcaiList(token, page, size);
+    }
+
+    /**
+     * 获取商品列表
+     *
+     * @return
+     */
+    public Observable<HttpResult<MallList>> getMall(String token, String page, String size, String user_id) {
+        return mApi.mallList(token, page, size, user_id);
+    }
+
+    /**
+     * 获取义兑换列表
+     *
+     * @return
+     */
+    public Observable<HttpResult<ExchangeList>> getEx(String token, String page, String size, String user_id) {
+        return mApi.exchangeList(token, page, size, user_id);
+    }
+
+    /**
+     * 获取义兑换列表
+     *
+     * @return
+     */
+    public Observable<HttpResult<NewsList>> getNews(String token, String page, String size) {
+        return mApi.newsList(token, page, size);
+    }
+
+    /**
+     * 获取义兑换列表
+     *
+     * @return
+     */
+    public Observable<HttpResult<AcMyList>> getMyac(String token, String page, String size, String user_id) {
+        return mApi.acMyList(token, page, size, user_id);
     }
 
 
@@ -270,8 +330,8 @@ public class HuoHuoDataManager extends DataManager<HuoHuoApi> {
      * @param code
      * @return
      */
-    public Observable<HttpResult<UserInfo>> userLogin(String account, String password, String code) {
-        return mApi.userLogin(account, password, code);
+    public Observable<HttpResult<UserInfo>> userLogin(String account, String code) {
+        return mApi.userLogin(account, code);
     }
 
     /**

@@ -63,16 +63,19 @@ public class YjActivity extends BaseLoadActivity {
         OutSideFragment outSideFragment = new OutSideFragment();
         Bundle bundleMsg = new Bundle();
         bundleMsg.putString("title", "报名中");
+        bundleMsg.putString("type", "1");
         outSideFragment.setArguments(bundleMsg);
 
         OutSideFragment outSideFragment2 = new OutSideFragment();
         Bundle bundleMsg2 = new Bundle();
         bundleMsg2.putString("title", "进行中");
+        bundleMsg2.putString("type", "2");
         outSideFragment2.setArguments(bundleMsg2);
 
         OutSideFragment outSideFragment3 = new OutSideFragment();
         Bundle bundleMsg3 = new Bundle();
         bundleMsg3.putString("title", "已结束");
+        bundleMsg3.putString("type", "3");
         outSideFragment3.setArguments(bundleMsg3);
 
 

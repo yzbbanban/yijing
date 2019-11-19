@@ -204,9 +204,4 @@ public class FinanceFragmrnt extends BaseLoadFragment {
         lazyLoad();
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
 }

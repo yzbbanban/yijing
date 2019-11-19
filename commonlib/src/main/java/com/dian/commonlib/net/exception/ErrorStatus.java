@@ -8,7 +8,7 @@ public class ErrorStatus {
     /**
      * 响应成功
      */
-    public static int SUCCESS = 200;
+    public static int SUCCESS = 1;
 
     /**
      * 未知错误

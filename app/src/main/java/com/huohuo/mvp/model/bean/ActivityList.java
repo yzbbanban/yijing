@@ -1,8 +1,6 @@
-package com.huohuo.dao.table;
+package com.huohuo.mvp.model.bean;
 
-import com.huohuo.mvp.model.bean.YjActivityDetail;
-
-import java.util.*;
+import java.util.List;
 
 public class ActivityList {
 

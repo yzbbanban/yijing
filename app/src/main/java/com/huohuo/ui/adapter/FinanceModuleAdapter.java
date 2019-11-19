@@ -38,8 +38,8 @@ public class FinanceModuleAdapter extends BaseQuickAdapter<ModuleBean, BaseMyVie
         RecyclerView recyclerview = helper.getView(R.id.recyclerview);
         helper.setText(R.id.tvTitle, item.getTitle());
         if (item.getType() == 1) {
-            recyclerview.setLayoutManager(new GridLayoutManager(mContext, 3, LinearLayoutManager.VERTICAL, false));
-            YjModuleItemAdapter financeModuleItemAdapter = new YjModuleItemAdapter(R.layout.item_finance_module_type, item.getModuleItems());
+            recyclerview.setLayoutManager(new GridLayoutManager(mContext, 3, LinearLayoutManager.VERTICAL, true));
+            YjModuleItemAdapter financeModuleItemAdapter = new YjModuleItemAdapter(R.layout.item_yjdw_module_type, item.getModuleItems());
             recyclerview.setAdapter(financeModuleItemAdapter);
         } else {
             recyclerview.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false));

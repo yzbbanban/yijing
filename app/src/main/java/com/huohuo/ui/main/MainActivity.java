@@ -1,6 +1,5 @@
 package com.huohuo.ui.main;
 
-import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
@@ -18,10 +17,6 @@ import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.dian.commonlib.utils.widget.NotScrollViewPager;
 import com.huohuo.R;
 import com.huohuo.app.HuoHuoApp;
-import com.huohuo.app.HuoHuoConstants;
-import com.huohuo.im.SocketService;
-import com.huohuo.mvp.contract.main.MainContract;
-import com.huohuo.mvp.presenter.main.MainPresenter;
 import com.huohuo.ui.main.finance.FinanceFragmrnt;
 import com.huohuo.ui.main.mine.MineFragmrnt;
 import com.huohuo.ui.main.msg.MsgFragmrnt;
@@ -31,11 +26,10 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import q.rorbin.badgeview.Badge;
 import q.rorbin.badgeview.QBadgeView;
 
-public class MainActivity extends BaseLoadActivity implements MainContract.View {
+public class MainActivity extends BaseLoadActivity {
     @BindView(R.id.viewPager)
     NotScrollViewPager viewPager;
     @BindView(R.id.toolbar)
@@ -46,7 +40,6 @@ public class MainActivity extends BaseLoadActivity implements MainContract.View 
 
     String TAG = "MainActivity";
     NetWorkStateReceiver netWorkStateReceiver;
-    MainPresenter mainPresenter;
     BaseFragmentAdapter adapter;
     Badge badgeMsgNum;
     @BindView(R.id.tvTitle)
@@ -71,12 +64,6 @@ public class MainActivity extends BaseLoadActivity implements MainContract.View 
     public void initViewAndData() {
         super.initViewAndData();
         HuoHuoApp.mApp.removeOtherActivity(MainActivity.this);
-        mainPresenter = new MainPresenter();
-        mainPresenter.attachView(this, this);
-        //获取用户信息
-        mainPresenter.getUser();
-        //更新本地msg相关信息（群聊，好友）
-        mainPresenter.updateGroupAndFriendInfo();
 
         viewPager.setOffscreenPageLimit(3);
         bottomNavigationViewEx.enableAnimation(false);//设置切换时文字图标不变大
@@ -172,17 +159,6 @@ public class MainActivity extends BaseLoadActivity implements MainContract.View 
     }
 
 
-    /**
-     * 用户信息请求成功
-     */
-    @Override
-    public void getUserSuccess() {
-        //开启socket
-        Intent intent = new Intent(this, SocketService.class);
-        intent.putExtra(HuoHuoConstants.SOCKET_TYPE, HuoHuoConstants.SOCKET_INIT);
-        startService(intent);
-    }
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -198,10 +174,4 @@ public class MainActivity extends BaseLoadActivity implements MainContract.View 
         unregisterReceiver(netWorkStateReceiver);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 }
