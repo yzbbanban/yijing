@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
 
-    <com.huohuo.ui.widget.banner.BannerViewPager
+    <com.yjb.ui.widget.banner.BannerViewPager
         android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

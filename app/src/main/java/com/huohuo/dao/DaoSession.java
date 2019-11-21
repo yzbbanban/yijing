@@ -8,13 +8,13 @@ import org.greenrobot.greendao.database.Database;
 import org.greenrobot.greendao.identityscope.IdentityScopeType;
 import org.greenrobot.greendao.internal.DaoConfig;
 
-import com.huohuo.dao.table.FriendApply;
-import com.huohuo.dao.table.SystemMsg;
-import com.huohuo.dao.table.Group;
-import com.huohuo.dao.table.Friend;
-import com.huohuo.dao.table.ChatList;
-import com.huohuo.dao.table.GroupMessage;
-import com.huohuo.dao.table.ChatMessage;
+import com.yjb.dao.table.FriendApply;
+import com.yjb.dao.table.SystemMsg;
+import com.yjb.dao.table.Group;
+import com.yjb.dao.table.Friend;
+import com.yjb.dao.table.ChatList;
+import com.yjb.dao.table.GroupMessage;
+import com.yjb.dao.table.ChatMessage;
 
 import com.huohuo.dao.FriendApplyDao;
 import com.huohuo.dao.SystemMsgDao;

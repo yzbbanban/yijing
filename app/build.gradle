@@ -23,7 +23,7 @@ def API_H5_LOCAL_TEST = "\"https://data.btw.com/\""//本地测试
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.huohuo"
+        applicationId "com.yjb"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1

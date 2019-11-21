@@ -27,13 +27,13 @@
                 app:cardCornerRadius="10dp"
                 app:cardElevation="10dp"
                 app:cardUseCompatPadding="true"
-                app:contentPadding="10dp">
+                app:contentPadding="5dp">
                 <!--顶部-->
                 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                     xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/clTop"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="140dp"
                     android:background="@color/colorViewBg">
 
 
@@ -78,6 +78,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="152dp"
+                        android:layout_marginRight="10dp"
                         android:background="@drawable/selector_primary_bt"
                         android:gravity="center"
                         android:minWidth="@dimen/sms_code_btn_w"
