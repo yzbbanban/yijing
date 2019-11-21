@@ -12,6 +12,9 @@ import com.dian.commonlib.base.BaseFragmentAdapter;
 import com.dian.commonlib.base.BaseLoadActivity;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.huohuo.R;
+import com.huohuo.mvp.contract.home.YjAcListContract;
+import com.huohuo.mvp.model.bean.ActivityList;
+import com.huohuo.mvp.presenter.home.AcListPresenter;
 
 import java.util.ArrayList;
 

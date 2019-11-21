@@ -8,17 +8,22 @@ import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.dian.commonlib.base.BaseLoadActivity;
+import com.dian.commonlib.utils.AppUtil;
+import com.dian.commonlib.utils.ToastUtil;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.huohuo.R;
-import com.huohuo.dao.table.ShopRecordDetail;
+import com.huohuo.mvp.contract.home.ExchangeListContract;
+import com.huohuo.mvp.model.bean.ExchangeList;
+import com.huohuo.mvp.presenter.home.ExListPresenter;
 import com.huohuo.ui.adapter.ShopRecordAdapter;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import butterknife.BindView;
 
-public class ShopRecordActivity extends BaseLoadActivity {
+public class ShopRecordActivity extends BaseLoadActivity implements ExchangeListContract.View {
 
     @BindView(R.id.ivLeft)
     ImageView ivLeft;
@@ -28,7 +33,15 @@ public class ShopRecordActivity extends BaseLoadActivity {
     RecyclerView rvRecord;
     @BindView(R.id.multipleStatusView)
     MultipleStatusView multipleStatusView;
+    @BindView(R.id.refreshLayout)
+    SmartRefreshLayout refreshLayout;
+
     ShopRecordAdapter shopAdapter;
+
+    int page = 1;
+    int pageSize = 10;
+
+    private ExListPresenter exListPresenter;
 
     @Override
     public void initViewAndData() {
@@ -39,30 +52,30 @@ public class ShopRecordActivity extends BaseLoadActivity {
             finish();
         });
 
-        List<ShopRecordDetail> list = new ArrayList<>();
-        for (int i = 0; i < 12; i++) {
-            ShopRecordDetail shopDetail = new ShopRecordDetail();
-            shopDetail.setId(1 + i);
-            shopDetail.setPrice("15" + i);
-            shopDetail.setUrl("rggytyh" + i);
-            shopDetail.setTime("2019-11-2 9:" + i);
-            shopDetail.setStatus(1);
-            shopDetail.setName("金龙鱼调和油"+i);
-            list.add(shopDetail);
-        }
+        exListPresenter = new ExListPresenter();
+        exListPresenter.attachView(this, this);
+        exListPresenter.getList(AppUtil.getToken(), "1", "10", AppUtil.getUser());
 
-        shopAdapter = new ShopRecordAdapter(R.layout.item_shop_record, list);
-        rvRecord.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        rvRecord.setAdapter(shopAdapter);
-
-        shopAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+        refreshLayout.setEnableRefresh(true);//是否启用下拉刷新功能
+        refreshLayout.setEnableLoadMore(true);//是否启用上拉加载功能
+        refreshLayout.setOnRefreshListener(new OnRefreshListener() { //下拉刷新
             @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-
-
+            public void onRefresh(RefreshLayout refreshlayout) {
+                page = 1;
+                exListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize, AppUtil.getUser());
             }
         });
+
+        refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() { //上拉加载更多
+            @Override
+            public void onLoadMore(RefreshLayout refreshlayout) {
+                page++;
+                exListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize, AppUtil.getUser());
+            }
+        });
+
     }
+
 
     @Override
     public int getLayoutId() {
@@ -80,4 +93,25 @@ public class ShopRecordActivity extends BaseLoadActivity {
         return null;
     }
 
+    @Override
+    public void getExListSuccess(ExchangeList exchangeList) {
+        refreshLayout.finishRefresh();//结束刷新
+        refreshLayout.finishLoadMore();//结束加载
+        if (exchangeList.getList() == null || exchangeList.getList().size() == 0) {
+            page--;
+            ToastUtil.show(this, "没有数据了");
+            return;
+        }
+        shopAdapter = new ShopRecordAdapter(R.layout.item_shop_record, exchangeList.getList());
+        rvRecord.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        rvRecord.setAdapter(shopAdapter);
+
+        shopAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+
+
+            }
+        });
+    }
 }

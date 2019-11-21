@@ -17,14 +17,15 @@ import com.dian.commonlib.utils.AppUtil;
 import com.dian.commonlib.utils.ToastUtil;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.huohuo.R;
-import com.huohuo.dao.table.ShopDetail;
 import com.huohuo.mvp.contract.home.MallListContract;
 import com.huohuo.mvp.model.bean.MallList;
 import com.huohuo.mvp.presenter.home.MallListPresenter;
 import com.huohuo.ui.adapter.ShopAdapter;
 import com.huohuo.ui.dialog.MyPayDialog;
-
-import java.util.BitSet;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,10 +48,15 @@ public class ShopActivity extends BaseLoadActivity implements MallListContract.V
     TextView tvName;
     @BindView(R.id.tvNumber)
     TextView tvNumber;
+    @BindView(R.id.refreshLayout)
+    SmartRefreshLayout refreshLayout;
 
     private MallListPresenter mallListPresenter;
 
     ShopAdapter shopAdapter;
+
+    int page = 1;
+    int pageSize = 10;
 
     @Override
     public void initViewAndData() {
@@ -64,9 +70,24 @@ public class ShopActivity extends BaseLoadActivity implements MallListContract.V
         mallListPresenter = new MallListPresenter();
         mallListPresenter.attachView(this, this);
         mallListPresenter.getList(AppUtil.getToken(), "1", "10", AppUtil.getUser());
+        refreshLayout.setEnableRefresh(true);//是否启用下拉刷新功能
+        refreshLayout.setEnableLoadMore(true);//是否启用上拉加载功能
+        refreshLayout.setOnRefreshListener(new OnRefreshListener() { //下拉刷新
+            @Override
+            public void onRefresh(RefreshLayout refreshlayout) {
+                page = 1;
+                mallListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize, AppUtil.getUser());
+            }
+        });
 
+        refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() { //上拉加载更多
+            @Override
+            public void onLoadMore(RefreshLayout refreshlayout) {
+                page++;
+                mallListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize, AppUtil.getUser());
+            }
+        });
     }
-
 
     @OnClick({R.id.acbBtnRecord})
     public void onViewClicked(View view) {
@@ -94,6 +115,13 @@ public class ShopActivity extends BaseLoadActivity implements MallListContract.V
 
     @Override
     public void getMallListSuccess(MallList mallList) {
+        refreshLayout.finishRefresh();//结束刷新
+        refreshLayout.finishLoadMore();//结束加载
+        if (mallList.getList() == null || mallList.getList().size() == 0) {
+            page--;
+            ToastUtil.show(this, "没有数据了");
+            return;
+        }
         tvName.setText("" + mallList.getUser_nickname());
         tvNumber.setText("" + mallList.getUser_score());
         shopAdapter = new ShopAdapter(R.layout.item_shop, mallList.getList());
@@ -121,10 +149,4 @@ public class ShopActivity extends BaseLoadActivity implements MallListContract.V
         });
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 }

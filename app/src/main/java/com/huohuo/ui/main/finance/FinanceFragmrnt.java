@@ -13,11 +13,16 @@ import android.widget.LinearLayout;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.dian.commonlib.base.BaseLoadFragment;
+import com.dian.commonlib.utils.AppUtil;
 import com.dian.commonlib.utils.DeviceUtil;
 import com.dian.commonlib.utils.ToastUtil;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
+import com.huohuo.BuildConfig;
 import com.huohuo.R;
+import com.huohuo.mvp.contract.home.ArticleListContract;
+import com.huohuo.mvp.model.bean.ArticleList;
 import com.huohuo.mvp.model.bean.ModuleItemBean;
+import com.huohuo.mvp.presenter.home.ArticleListPresenter;
 import com.huohuo.ui.adapter.FinanceModuleAdapter;
 import com.huohuo.ui.widget.banner.BannerViewPager;
 import com.huohuo.mvp.model.bean.ModuleBean;
@@ -37,7 +42,7 @@ import butterknife.Unbinder;
  * Created by kennysun on 2019/8/8.
  */
 
-public class FinanceFragmrnt extends BaseLoadFragment {
+public class FinanceFragmrnt extends BaseLoadFragment implements ArticleListContract.View {
     @BindView(R.id.banner)
     BannerViewPager banner;
     @BindView(R.id.recyclerview)
@@ -59,6 +64,8 @@ public class FinanceFragmrnt extends BaseLoadFragment {
     private boolean isCreated = false;
     FinanceModuleAdapter financeModuleAdapter;
 
+    private ArticleListPresenter articleListPresenter;
+
     @Override
     public int getLayout() {
         return R.layout.fragment_finance;
@@ -71,7 +78,7 @@ public class FinanceFragmrnt extends BaseLoadFragment {
 
     @Override
     protected MultipleStatusView getMultipleStatusView() {
-        return multipleStatusView;
+        return null;
     }
 
     @Override
@@ -123,9 +130,6 @@ public class FinanceFragmrnt extends BaseLoadFragment {
         for (int i = 0; i < 3; i++) {
             ModuleItemBean itemBean = new ModuleItemBean();
             itemBean.setIndex(i + 1);
-            itemBean.setName("JA" + i);
-            itemBean.setPhotoUrl("");
-            itemBean.setRes(1);
             mList.add(itemBean);
         }
         m1.setModuleItems(mList);
@@ -133,6 +137,7 @@ public class FinanceFragmrnt extends BaseLoadFragment {
         ModuleBean m2 = new ModuleBean();
         m2.setTitle("义警排名");
         m2.setType(2);
+
         List<ModuleItemBean> mList2 = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             ModuleItemBean itemBean = new ModuleItemBean();
@@ -173,14 +178,30 @@ public class FinanceFragmrnt extends BaseLoadFragment {
         layoutParams.height = h;
         layoutParams.width = deviceWidth;
         banner.setLayoutParams(layoutParams);
+        articleListPresenter = new ArticleListPresenter();
+        articleListPresenter.attachView(this, getBaseActivity());
+        articleListPresenter.getList(AppUtil.getToken(), "1", "10");
+    }
 
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        this.isVisibleToUser = isVisibleToUser;
+        lazyLoad();
+    }
+
+    @Override
+    public void getAtListSuccess(ArticleList articleList) {
         List<String> list = new ArrayList<>();
-        list.add("http://img0.imgtn.bdimg.com/it/u=1352823040,1166166164&fm=27&gp=0.jpg");
-        list.add("http://img3.imgtn.bdimg.com/it/u=2293177440,3125900197&fm=27&gp=0.jpg");
-        list.add("http://img3.imgtn.bdimg.com/it/u=3967183915,4078698000&fm=27&gp=0.jpg");
-        list.add("http://img0.imgtn.bdimg.com/it/u=3184221534,2238244948&fm=27&gp=0.jpg");
-        list.add("http://img4.imgtn.bdimg.com/it/u=1794621527,1964098559&fm=27&gp=0.jpg");
-        list.add("http://img4.imgtn.bdimg.com/it/u=1243617734,335916716&fm=27&gp=0.jpg");
+        if (articleList.getList() == null || articleList.getList().size() == 0) {
+            ToastUtil.show(getBaseActivity(), "没有数据了");
+            return;
+        }
+
+        for (int i = 0, len = articleList.getList().size(); i < len; i++) {
+            ArticleList.ListBean listBean = articleList.getList().get(i);
+            list.add(BuildConfig.API_IMG_HOST + listBean.getCoverimage());
+        }
 
         banner.initBanner(list, true)//关闭3D画廊效果
                 .addPageMargin(-18, 20)//参数1page之间的间距,参数2中间item距离边界的间距
@@ -196,12 +217,4 @@ public class FinanceFragmrnt extends BaseLoadFragment {
                     }
                 });
     }
-
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        this.isVisibleToUser = isVisibleToUser;
-        lazyLoad();
-    }
-
 }

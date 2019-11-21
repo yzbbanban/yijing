@@ -4,9 +4,9 @@ ext {
             API_ONLINE_TEST       : "\"http://yhyj.chinayhdqzj.com/index2.php/\"",//线上测试
             API_LOCAL_TEST        : "\"http://yhyj.chinayhdqzj.com/index2.php/\"",//本地测试
 
-            API_IMG_MAIN          : "\"http://yhyj.chinayhdqzj.com/index2.php/\"",//线上正式
-            API_IMG_ONLINE_TEST   : "\"http://yhyj.chinayhdqzj.com/index2.php/\"",
-            API_IMG_LOCAL_TEST    : "\"http://yhyj.chinayhdqzj.com/index2.php/\"",
+            API_IMG_MAIN          : "\"http://yhyj.chinayhdqzj.com/\"",//线上正式
+            API_IMG_ONLINE_TEST   : "\"http://yhyj.chinayhdqzj.com/\"",
+            API_IMG_LOCAL_TEST    : "\"http://yhyj.chinayhdqzj.com/\"",
 
             API_SOCKET_MAIN       : "\"wss://websocket.btw.com/\"",//线上正式
             API_SOCKET_ONLINE_TEST: "\"wss://websocket.btw.com/\"",//线上测试

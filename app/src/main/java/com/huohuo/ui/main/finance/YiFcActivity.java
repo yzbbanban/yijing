@@ -9,19 +9,23 @@ import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.dian.commonlib.base.BaseLoadActivity;
+import com.dian.commonlib.utils.AppUtil;
 import com.dian.commonlib.utils.ToastUtil;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.huohuo.R;
-import com.huohuo.mvp.model.bean.ModuleBean;
-import com.huohuo.mvp.model.bean.ModuleItemBean;
+import com.huohuo.mvp.contract.home.YjFcListContract;
+import com.huohuo.mvp.model.bean.FengcaiList;
+import com.huohuo.mvp.presenter.home.FcListPresenter;
 import com.huohuo.ui.adapter.YiFcModuleAdapter;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.huohuo.ui.main.shop.ShopActivity;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import butterknife.BindView;
 
-public class YiFcActivity extends BaseLoadActivity {
+public class YiFcActivity extends BaseLoadActivity implements YjFcListContract.View {
 
     @BindView(R.id.ivLeft)
     ImageView ivLeft;
@@ -29,7 +33,14 @@ public class YiFcActivity extends BaseLoadActivity {
     TextView tvTitle;
     @BindView(R.id.recyclerview)
     RecyclerView recyclerview;
+    @BindView(R.id.refreshLayout)
+    SmartRefreshLayout refreshLayout;
     private YiFcModuleAdapter yiFcModuleAdapter;
+
+    private FcListPresenter fcListPresenter;
+
+    int page = 1;
+    int pageSize = 10;
 
     @Override
     public int getLayoutId() {
@@ -63,46 +74,47 @@ public class YiFcActivity extends BaseLoadActivity {
 
     private void initModule() {
         recyclerview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        List<ModuleBean> list = new ArrayList<>();
-        ModuleBean m1 = new ModuleBean();
-        m1.setTitle("12月18日平安法制社区行演出");
-        m1.setType(1);
-        List<ModuleItemBean> mList = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            ModuleItemBean itemBean = new ModuleItemBean();
-            itemBean.setIndex(i + 1);
-            itemBean.setName("JA" + i);
-            itemBean.setPhotoUrl("");
-            mList.add(itemBean);
+        fcListPresenter = new FcListPresenter();
+        fcListPresenter.attachView(this, this);
+        fcListPresenter.getList(AppUtil.getToken(), "1", "10");
+        refreshLayout.setEnableRefresh(true);//是否启用下拉刷新功能
+        refreshLayout.setEnableLoadMore(true);//是否启用上拉加载功能
+        refreshLayout.setOnRefreshListener(new OnRefreshListener() { //下拉刷新
+            @Override
+            public void onRefresh(RefreshLayout refreshlayout) {
+                page = 1;
+                fcListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize);
+            }
+        });
+
+        refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() { //上拉加载更多
+            @Override
+            public void onLoadMore(RefreshLayout refreshlayout) {
+                page++;
+                fcListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize);
+            }
+        });
+    }
+
+
+    @Override
+    public void getYjFcListSuccess(FengcaiList fengcaiList) {
+        refreshLayout.finishRefresh();//结束刷新
+        refreshLayout.finishLoadMore();//结束加载
+        if (fengcaiList.getList() == null || fengcaiList.getList().size() == 0) {
+            page--;
+            ToastUtil.show(this, "没有数据了");
+            return;
         }
-        m1.setModuleItems(mList);
-        list.add(m1);
-        ModuleBean m2 = new ModuleBean();
-        m2.setTitle("12月17日安全巡逻");
-        m2.setType(2);
-        List<ModuleItemBean> mList2 = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            ModuleItemBean itemBean = new ModuleItemBean();
-            itemBean.setIndex(i + 1);
-            itemBean.setName("IAD" + i);
-            itemBean.setPhotoUrl("");
-            mList2.add(itemBean);
-        }
-        m2.setModuleItems(mList2);
-        list.add(m2);
-        yiFcModuleAdapter = new YiFcModuleAdapter(R.layout.item_yifc_module, list);
+        yiFcModuleAdapter = new YiFcModuleAdapter(R.layout.item_yifc_module, fengcaiList.getList());
         recyclerview.setAdapter(yiFcModuleAdapter);
         yiFcModuleAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                ToastUtil.show(YiFcActivity.this, "+++" + list.get(position));
                 Intent intent = new Intent(YiFcActivity.this, YiFcDetailActivity.class);
-                intent.putExtra("TITLE", list.get(position).getTitle());
+                intent.putExtra("FENGCAI_LIST", fengcaiList.getList().get(position));
                 startActivity(intent);
             }
         });
-
     }
-
-
 }

@@ -15,16 +15,23 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.dian.commonlib.base.BaseFragment;
 import com.dian.commonlib.utils.AppUtil;
 import com.dian.commonlib.utils.DeviceUtil;
+import com.dian.commonlib.utils.ToastUtil;
+import com.huohuo.BuildConfig;
 import com.huohuo.R;
 import com.huohuo.dao.table.NewsData;
 import com.huohuo.mvp.contract.home.NewsListContract;
 import com.huohuo.mvp.model.bean.NewsList;
 import com.huohuo.mvp.presenter.home.NewsListPresenter;
 import com.huohuo.ui.adapter.MsgListAdapter;
+import com.huohuo.ui.main.shop.ShopActivity;
 import com.huohuo.ui.scan.CaptureActivity;
 import com.huohuo.ui.widget.banner.BannerViewPager;
 import com.huohuo.dao.table.ChatList;
 import com.huohuo.ui.main.MainActivity;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +58,12 @@ public class MsgFragmrnt extends BaseFragment implements NewsListContract.View {
 
     private static final String NEWS = "news";
 
+    @BindView(R.id.refreshLayout)
+    SmartRefreshLayout refreshLayout;
+
+    int page = 1;
+    int pageSize = 10;
+
     @Override
     public int getLayout() {
         return R.layout.fragment_msg;
@@ -61,6 +74,23 @@ public class MsgFragmrnt extends BaseFragment implements NewsListContract.View {
         isCreated = true;
         newsListPresenter = new NewsListPresenter();
         newsListPresenter.attachView(this, getBaseActivity());
+        refreshLayout.setEnableRefresh(true);//是否启用下拉刷新功能
+        refreshLayout.setEnableLoadMore(true);//是否启用上拉加载功能
+        refreshLayout.setOnRefreshListener(new OnRefreshListener() { //下拉刷新
+            @Override
+            public void onRefresh(RefreshLayout refreshlayout) {
+                page = 1;
+                newsListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize);
+            }
+        });
+
+        refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() { //上拉加载更多
+            @Override
+            public void onLoadMore(RefreshLayout refreshlayout) {
+                page++;
+                newsListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize);
+            }
+        });
         lazyLoad();
     }
 
@@ -83,28 +113,6 @@ public class MsgFragmrnt extends BaseFragment implements NewsListContract.View {
         layoutParams.height = h;
         layoutParams.width = deviceWidth;
         banner.setLayoutParams(layoutParams);
-
-        List<String> list = new ArrayList<>();
-        list.add("http://img0.imgtn.bdimg.com/it/u=1352823040,1166166164&fm=27&gp=0.jpg");
-        list.add("http://img3.imgtn.bdimg.com/it/u=2293177440,3125900197&fm=27&gp=0.jpg");
-        list.add("http://img3.imgtn.bdimg.com/it/u=3967183915,4078698000&fm=27&gp=0.jpg");
-        list.add("http://img0.imgtn.bdimg.com/it/u=3184221534,2238244948&fm=27&gp=0.jpg");
-        list.add("http://img4.imgtn.bdimg.com/it/u=1794621527,1964098559&fm=27&gp=0.jpg");
-        list.add("http://img4.imgtn.bdimg.com/it/u=1243617734,335916716&fm=27&gp=0.jpg");
-
-        banner.initBanner(list, true)//关闭3D画廊效果
-                .addPageMargin(-18, 20)//参数1page之间的间距,参数2中间item距离边界的间距
-                .addPoint(6)//添加指示器
-                .addStartTimer(5)//自动轮播5秒间隔
-                .addPointBottom(6)
-                .addRoundCorners(5)//圆角
-                .finishConfig()//这句必须加
-                .addBannerListener(new BannerViewPager.OnClickBannerListener() {
-                    @Override
-                    public void onBannerClick(int position) {
-                        Log.i("test", "--------------00x2");
-                    }
-                });
     }
 
     @Override
@@ -122,6 +130,39 @@ public class MsgFragmrnt extends BaseFragment implements NewsListContract.View {
 
     @Override
     public void getNewsListSuccess(NewsList newsList) {
+
+        if (page == 1) {
+            List<String> list = new ArrayList<>();
+            int len = newsList.getList().size();
+            if (len > 3) {
+                len = 3;
+            }
+            for (int i = 0; i < len; i++) {
+                NewsList.ListBean news = newsList.getList().get(i);
+                list.add(BuildConfig.API_IMG_HOST + news.getCoverimage());
+            }
+            banner.initBanner(list, true)//关闭3D画廊效果
+                    .addPageMargin(-18, 20)//参数1page之间的间距,参数2中间item距离边界的间距
+                    .addPoint(6)//添加指示器
+                    .addStartTimer(5)//自动轮播5秒间隔
+                    .addPointBottom(6)
+                    .addRoundCorners(5)//圆角
+                    .finishConfig()//这句必须加
+                    .addBannerListener(new BannerViewPager.OnClickBannerListener() {
+                        @Override
+                        public void onBannerClick(int position) {
+                            Log.i("test", "--------------00x2");
+                        }
+                    });
+        }
+
+        refreshLayout.finishRefresh();//结束刷新
+        refreshLayout.finishLoadMore();//结束加载
+        if (newsList.getList() == null || newsList.getList().size() == 0) {
+            page--;
+            ToastUtil.show(getBaseActivity(), "没有数据了");
+            return;
+        }
         msgListAdapter = new MsgListAdapter(R.layout.item_chat, newsList.getList());
         recyclerview.setAdapter(msgListAdapter);
         if (!isLoad) {

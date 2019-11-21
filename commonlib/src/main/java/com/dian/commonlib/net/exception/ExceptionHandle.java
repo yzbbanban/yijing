@@ -35,7 +35,7 @@ public class ExceptionHandle {
         } else if (e instanceof JsonParseException
                 || e instanceof JSONException
                 || e instanceof ParseException
-                ) {   //均视为解析错误
+        ) {   //均视为解析错误
             errorMsg = R.string.data_parsing_exception;
             errorCode = ErrorStatus.UNKNOWN_ERROR;
         } else if (e instanceof ApiException) {//服务器返回的错误信息
@@ -60,9 +60,15 @@ public class ExceptionHandle {
                     errorCode = ErrorStatus.UNKNOWN_ERROR;
                 }
             } else {
-                ErrorBody errorBody = new Gson().fromJson(errorBodyStr, ErrorBody.class);
-                errorMsg = errorBody.message;
-                errorCode = errorBody.code;
+                try {
+                    ErrorBody errorBody = new Gson().fromJson(errorBodyStr, ErrorBody.class);
+                    errorMsg = errorBody.message;
+                    errorCode = errorBody.code;
+                } catch (Exception el) {
+                    errorMsg = R.string.not_know_error;
+                    errorCode = ErrorStatus.UNKNOWN_ERROR;
+                }
+
             }
         } else if (e instanceof UnknownHostException) {
             errorMsg = R.string.network_connection_exception;

@@ -10,12 +10,21 @@ import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.dian.commonlib.base.BaseLoadActivity;
+import com.dian.commonlib.utils.AppUtil;
+import com.dian.commonlib.utils.ToastUtil;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.huohuo.R;
 import com.huohuo.dao.table.OutsideDetail;
+import com.huohuo.mvp.contract.home.MyAcListContract;
+import com.huohuo.mvp.model.bean.AcMyList;
+import com.huohuo.mvp.presenter.home.MyAcListPresenter;
 import com.huohuo.ui.adapter.MyOutsideAdapter;
 import com.huohuo.ui.adapter.OutsideAdapter;
 import com.huohuo.ui.asset.AllAssetActvity;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +33,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MyAcActivity extends BaseLoadActivity {
+public class MyAcActivity extends BaseLoadActivity implements MyAcListContract.View {
 
 
     @BindView(R.id.rv_history_ac)
@@ -36,6 +45,14 @@ public class MyAcActivity extends BaseLoadActivity {
     @BindView(R.id.tvTitle)
     TextView tvTitle;
     private MyOutsideAdapter outsideAdapter;
+
+    @BindView(R.id.refreshLayout)
+    SmartRefreshLayout refreshLayout;
+
+    private MyAcListPresenter myAcListPresenter;
+
+    int page = 1;
+    int pageSize = 10;
 
     @Override
     public void retry() {
@@ -63,19 +80,41 @@ public class MyAcActivity extends BaseLoadActivity {
                 finish();
             }
         });
-        List<OutsideDetail> list = new ArrayList<>();
-        for (int i = 0; i < 12; i++) {
-            OutsideDetail outsideDetail = new OutsideDetail();
-            outsideDetail.setAddress("jimjim" + i);
-            outsideDetail.setId(1 + i);
-            outsideDetail.setLimitTime("adawa" + i);
-            outsideDetail.setTime("rggytyh" + i);
-            outsideDetail.setTitle("11月" + i + "日小区巡查检查");
-            outsideDetail.setImage("");
-            list.add(outsideDetail);
+        myAcListPresenter = new MyAcListPresenter();
+        myAcListPresenter.attachView(this, this);
+
+        myAcListPresenter.getList(AppUtil.getToken(), "1", "10", AppUtil.getUser());
+
+        refreshLayout.setEnableRefresh(true);//是否启用下拉刷新功能
+        refreshLayout.setEnableLoadMore(true);//是否启用上拉加载功能
+        refreshLayout.setOnRefreshListener(new OnRefreshListener() { //下拉刷新
+            @Override
+            public void onRefresh(RefreshLayout refreshlayout) {
+                page = 1;
+                myAcListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize, AppUtil.getUser());
+            }
+        });
+
+        refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() { //上拉加载更多
+            @Override
+            public void onLoadMore(RefreshLayout refreshlayout) {
+                page++;
+                myAcListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize, AppUtil.getUser());
+            }
+        });
+    }
+
+    @Override
+    public void getMyAcSuccess(AcMyList acMyList) {
+        refreshLayout.finishRefresh();//结束刷新
+        refreshLayout.finishLoadMore();//结束加载
+        if (acMyList.getList() == null || acMyList.getList().size() == 0) {
+            page--;
+            ToastUtil.show(this, "没有数据了");
+            return;
         }
 
-        outsideAdapter = new MyOutsideAdapter(R.layout.item_outside, list);
+        outsideAdapter = new MyOutsideAdapter(R.layout.item_outside, acMyList.getList());
         rvHistoryAc.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rvHistoryAc.setAdapter(outsideAdapter);
         outsideAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
@@ -87,13 +126,6 @@ public class MyAcActivity extends BaseLoadActivity {
 
             }
         });
-    }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
     }
-
 }

@@ -1,12 +1,14 @@
 package com.huohuo.mvp.model.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class FengcaiList {
+public class FengcaiList implements Serializable {
+
 
     /**
      * total : 2
-     * list : [{"id":1,"title":"标题","createtime":1573536040,"updatetime":1573536040,"deletetime":null,"fengcai_set":null},{"id":2,"title":"测试","createtime":1573536041,"updatetime":1573536041,"deletetime":null,"fengcai_set":[{"phototitle":"1","photoimages":"/uploads/20191113/bd6d9ac651b18508b7d4138d0cf8b6a2.jpg"},{"phototitle":"3","photoimages":"/uploads/20191112/be2f99a8d22ed2dcc8ebcffdf4922a89.jpg"},{"phototitle":"","photoimages":"/uploads/20191112/dd33fe0f8d711fe1f41e2ee01b194bd8.jpg"},{"phototitle":"","photoimages":"/assets/img/qrcode.png"}]}]
+     * list : [{"id":2,"title":"测试","createtime":1573536041,"updatetime":1573536041,"deletetime":null,"fengcai_set":[{"phototitle":"1","photoimages":"/uploads/20191113/bd6d9ac651b18508b7d4138d0cf8b6a2.jpg"},{"phototitle":"3","photoimages":"/uploads/20191112/be2f99a8d22ed2dcc8ebcffdf4922a89.jpg"},{"phototitle":"","photoimages":"/uploads/20191112/dd33fe0f8d711fe1f41e2ee01b194bd8.jpg"},{"phototitle":"","photoimages":"/assets/img/qrcode.png"}]}]
      */
 
     private int total;
@@ -28,14 +30,14 @@ public class FengcaiList {
         this.list = list;
     }
 
-    public static class ListBean {
+    public static class ListBean implements Serializable {
         /**
-         * id : 1
-         * title : 标题
-         * createtime : 1573536040
-         * updatetime : 1573536040
+         * id : 2
+         * title : 测试
+         * createtime : 1573536041
+         * updatetime : 1573536041
          * deletetime : null
-         * fengcai_set : null
+         * fengcai_set : [{"phototitle":"1","photoimages":"/uploads/20191113/bd6d9ac651b18508b7d4138d0cf8b6a2.jpg"},{"phototitle":"3","photoimages":"/uploads/20191112/be2f99a8d22ed2dcc8ebcffdf4922a89.jpg"},{"phototitle":"","photoimages":"/uploads/20191112/dd33fe0f8d711fe1f41e2ee01b194bd8.jpg"},{"phototitle":"","photoimages":"/assets/img/qrcode.png"}]
          */
 
         private int id;
@@ -43,7 +45,7 @@ public class FengcaiList {
         private int createtime;
         private int updatetime;
         private Object deletetime;
-        private Object fengcai_set;
+        private List<FengcaiSetBean> fengcai_set;
 
         public int getId() {
             return id;
@@ -85,12 +87,46 @@ public class FengcaiList {
             this.deletetime = deletetime;
         }
 
-        public Object getFengcai_set() {
+        public List<FengcaiSetBean> getFengcai_set() {
             return fengcai_set;
         }
 
-        public void setFengcai_set(Object fengcai_set) {
+        public void setFengcai_set(List<FengcaiSetBean> fengcai_set) {
             this.fengcai_set = fengcai_set;
+        }
+
+        public static class FengcaiSetBean implements Serializable {
+            /**
+             * phototitle : 1
+             * photoimages : /uploads/20191113/bd6d9ac651b18508b7d4138d0cf8b6a2.jpg
+             */
+
+            private String phototitle;
+            private String photoimages;
+
+            public String getPhototitle() {
+                return phototitle;
+            }
+
+            public void setPhototitle(String phototitle) {
+                this.phototitle = phototitle;
+            }
+
+            public String getPhotoimages() {
+                return photoimages;
+            }
+
+            public void setPhotoimages(String photoimages) {
+                this.photoimages = photoimages;
+            }
+
+            @Override
+            public String toString() {
+                return "FengcaiSetBean{" +
+                        "phototitle='" + phototitle + '\'' +
+                        ", photoimages='" + photoimages + '\'' +
+                        '}';
+            }
         }
 
         @Override

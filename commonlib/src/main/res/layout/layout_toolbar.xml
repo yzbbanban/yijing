@@ -7,6 +7,7 @@
         android:layout_height="@dimen/toolBar"
         android:background="@color/colorViewBg"
         android:elevation="@dimen/marginViewALittle"
+        app:elevation="1dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,17 +21,17 @@
 
             <TextView
                 android:id="@+id/tvLeft"
-                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawablePadding="@dimen/marginViewALittle"
+                android:gravity="center"
                 android:textColor="@color/colorBlackTextImportant"
                 android:textSize="@dimen/textNormalTitle" />
 
             <ImageView
                 android:id="@+id/ivLeft"
-                android:layout_width="@dimen/toolBar"
-                android:layout_height="@dimen/toolBar"
+                android:layout_width="@dimen/toorbar_bt_h"
+                android:layout_height="@dimen/toorbar_bt_h"
                 android:padding="@dimen/marginViewSmall"
                 android:src="@drawable/ic_action_back"
                 android:visibility="gone"
@@ -38,8 +39,8 @@
 
             <ImageView
                 android:id="@+id/ivLeft1"
-                android:layout_width="@dimen/toolBar"
-                android:layout_height="@dimen/toolBar"
+                android:layout_width="@dimen/toorbar_bt_h"
+                android:layout_height="@dimen/toorbar_bt_h"
                 android:padding="@dimen/marginViewSmall"
                 android:src="@drawable/ic_clear"
                 android:visibility="gone"
@@ -70,9 +71,9 @@
 
             <TextView
                 android:id="@+id/tvRight"
-                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:textColor="@color/colorWhiteTextImportant"
                 android:textSize="@dimen/textNormalTitle" />
 
@@ -87,6 +88,5 @@
                 android:textSize="@dimen/textSmall"
                 android:visibility="gone" />
         </android.support.constraint.ConstraintLayout>
-
     </android.support.v7.widget.Toolbar>
 </merge>

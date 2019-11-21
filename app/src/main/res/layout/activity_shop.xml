@@ -60,23 +60,30 @@
 
     </LinearLayout>
 
-    <com.dian.commonlib.utils.widget.MultipleStatusView
-        android:id="@+id/multipleStatusView"
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:id="@+id/refreshLayout"
+        android:layout_height="wrap_content">
 
-        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+        <com.dian.commonlib.utils.widget.MultipleStatusView
+            android:id="@+id/multipleStatusView"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerview"
+            <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/marginScreenLarge"
-                app:layout_constraintTop_toBottomOf="@+id/etSearch" />
-        </android.support.constraint.ConstraintLayout>
-    </com.dian.commonlib.utils.widget.MultipleStatusView>
+                android:layout_height="match_parent">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginScreenLarge"
+                    app:layout_constraintTop_toBottomOf="@+id/etSearch" />
+            </android.support.constraint.ConstraintLayout>
+        </com.dian.commonlib.utils.widget.MultipleStatusView>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
 
 </LinearLayout>

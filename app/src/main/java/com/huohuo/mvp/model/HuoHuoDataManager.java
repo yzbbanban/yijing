@@ -8,6 +8,7 @@ import com.huohuo.dao.table.Group;
 import com.huohuo.mvp.model.bean.AboutBean;
 import com.huohuo.mvp.model.bean.AcMyList;
 import com.huohuo.mvp.model.bean.ActivityList;
+import com.huohuo.mvp.model.bean.ArticleList;
 import com.huohuo.mvp.model.bean.ContractsBean;
 import com.huohuo.mvp.model.bean.CountryCodeBean;
 import com.huohuo.mvp.model.bean.ExchangeList;
@@ -22,10 +23,12 @@ import com.huohuo.mvp.model.bean.User;
 import com.huohuo.mvp.model.bean.UserInfo;
 import com.huohuo.net.HuoHuoApi;
 
+import java.io.File;
 import java.util.List;
 
 import io.reactivex.Observable;
 import okhttp3.RequestBody;
+import retrofit2.http.Query;
 
 /**
  * Created by kennysun on 2019/8/26.
@@ -309,6 +312,74 @@ public class HuoHuoDataManager extends DataManager<HuoHuoApi> {
         return mApi.acMyList(token, page, size, user_id);
     }
 
+    /**
+     * 获取轮播新闻接口列表
+     *
+     * @return
+     */
+    public Observable<HttpResult<ArticleList>> articleLlist(String token, String page, String size) {
+        return mApi.articleLlist(token, page, size);
+    }
+
+    /**
+     * 获取轮播新闻接口列表
+     *
+     * @return
+     */
+    public Observable<HttpResult<String>> yjApply(String token,
+                                                  String user_id,
+                                                  String vision,
+                                                  String photoimage,
+                                                  String homeaddress,
+                                                  String politically,
+                                                  String identifier,
+                                                  String job,
+                                                  String nickname,
+                                                  String gender,
+                                                  String birthday) {
+        return mApi.yjApply(token, user_id, vision, photoimage, homeaddress,
+                politically, identifier, job, nickname, gender, birthday);
+    }
+
+    /**
+     * 新闻详情自增
+     *
+     * @return
+     */
+    public Observable<HttpResult<Object>> newsDetailIncr(String token, String id) {
+        return mApi.newsDetailIncr(token, id);
+    }
+
+    /**
+     * 新闻详情自增
+     *
+     * @return
+     */
+    public Observable<HttpResult<String>> upload(String token, RequestBody file) {
+        return mApi.commonUpload(token, file);
+    }
+
+    /**
+     * 签退
+     *
+     * @return
+     */
+    public Observable<HttpResult<String>> activitySignOut(String token, String fakeid, String activity_id) {
+        return mApi.activitySignOut(token, fakeid, activity_id);
+    }
+
+    /**
+     * 签到
+     *
+     * @return
+     */
+    public Observable<HttpResult<String>> activitySignUp(String token,
+                                                         String activity_id,
+                                                         String user_id,
+                                                         String teammgt_id) {
+        return mApi.activitySignUp(token, activity_id, user_id, teammgt_id);
+    }
+
 
     /**
      * 验证码登录
@@ -326,7 +397,6 @@ public class HuoHuoDataManager extends DataManager<HuoHuoApi> {
      * 验证码登录
      *
      * @param account
-     * @param password
      * @param code
      * @return
      */

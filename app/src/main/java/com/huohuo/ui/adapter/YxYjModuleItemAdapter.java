@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.dian.commonlib.base.BaseMyViewHolder;
 import com.dian.commonlib.glide.GlideEngine;
+import com.huohuo.BuildConfig;
 import com.huohuo.R;
 import com.huohuo.mvp.model.bean.ModuleItemBean;
 
@@ -29,7 +30,7 @@ public class YxYjModuleItemAdapter extends BaseQuickAdapter<ModuleItemBean, Base
         if (item.getPhotoUrl() == null || item.getPhotoUrl().length() == 0) {
             GlideEngine.load(imageView, R.drawable.contact_default_avatar);
         } else {
-            GlideEngine.load(imageView, item.getPhotoUrl());
+            GlideEngine.load(imageView, BuildConfig.API_IMG_HOST + item.getPhotoUrl());
         }
         helper.setText(R.id.tvName, item.getName());
     }

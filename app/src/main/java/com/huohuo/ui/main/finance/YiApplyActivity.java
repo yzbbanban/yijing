@@ -17,19 +17,28 @@ import com.codbking.widget.DatePickDialog;
 import com.codbking.widget.OnSureLisener;
 import com.codbking.widget.bean.DateType;
 import com.dian.commonlib.base.BaseLoadActivity;
+import com.dian.commonlib.utils.AppUtil;
 import com.dian.commonlib.utils.ToastUtil;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.huohuo.R;
+import com.huohuo.mvp.contract.home.CommonUploadContract;
+import com.huohuo.mvp.contract.home.YjApplyContract;
+import com.huohuo.mvp.presenter.home.CommonUploadPresenter;
+import com.huohuo.mvp.presenter.home.YjApplyPresenter;
 import com.lljjcoder.citypickerview.widget.CityPicker;
 import com.wildma.pictureselector.PictureSelector;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 
-public class YiApplyActivity extends BaseLoadActivity {
+public class YiApplyActivity extends BaseLoadActivity implements YjApplyContract.View, CommonUploadContract.View {
 
 
     @BindView(R.id.ivLeft)
@@ -58,6 +67,12 @@ public class YiApplyActivity extends BaseLoadActivity {
     TextView tvHome;
     private CityPicker cityPicker;
 
+    private YjApplyPresenter yjApplyPresenter;
+
+    private CommonUploadPresenter commonUploadPresenter;
+
+    private String imageUrl = "";
+
     @Override
     public void retry() {
 
@@ -84,6 +99,10 @@ public class YiApplyActivity extends BaseLoadActivity {
                 finish();
             }
         });
+        yjApplyPresenter = new YjApplyPresenter();
+        commonUploadPresenter = new CommonUploadPresenter();
+        yjApplyPresenter.attachView(this, this);
+        commonUploadPresenter.attachView(this, this);
 
         tvRight.setVisibility(View.VISIBLE);
         tvRight.setText("提交");
@@ -91,7 +110,23 @@ public class YiApplyActivity extends BaseLoadActivity {
         tvRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ToastUtil.show(YiApplyActivity.this, "提交了");
+
+                String vision = tvRemark.getText().toString();
+                String photoimage = imageUrl;
+                if (imageUrl == null) {
+                    ToastUtil.show(YiApplyActivity.this, "请先上传图片");
+                    return;
+                }
+                String homeaddress = tvHome.getText().toString();
+                String politically = tvZZ.getText().toString();
+                String identifier = tvIdentity.getText().toString();
+                String job = tvWork.getText().toString();
+                String nickname = tvName.getText().toString();
+                String gender = tvGender.getText().toString();
+                String birthday = tvDate.getText().toString();
+                yjApplyPresenter.getList(AppUtil.getToken(), AppUtil.getUser(), vision, photoimage,
+                        homeaddress, politically, identifier, job, nickname, gender, birthday);
+
             }
         });
 
@@ -103,6 +138,7 @@ public class YiApplyActivity extends BaseLoadActivity {
                         .selectPicture(false, 200, 200, 1, 1);
             }
         });
+
 
         tvDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -232,8 +268,34 @@ public class YiApplyActivity extends BaseLoadActivity {
                         .diskCacheStrategy(DiskCacheStrategy.NONE)
                         .skipMemoryCache(true);
                 Glide.with(this).load(picturePath).apply(requestOptions).into(ivPhoto);
+                //上传图片
+                File file = new File(picturePath);
+                RequestBody requestFile =
+                        RequestBody.create(MediaType.parse("application/otcet-stream"), file);
+
+                MultipartBody.Part body =
+                        MultipartBody.Part.createFormData("aFile", file.getName(), requestFile);
+
+                String descriptionString = "This is a description";
+                RequestBody description =
+                        RequestBody.create(
+                                MediaType.parse("multipart/form-data"), descriptionString);
+
+                commonUploadPresenter.getList(AppUtil.getToken(), description);
+
             }
         }
     }
 
+    @Override
+    public void getApplySuccess(String o) {
+        ToastUtil.show(YiApplyActivity.this, "提交了");
+        imageUrl = null;
+    }
+
+    @Override
+    public void getUpload(String o) {
+        imageUrl = o;
+        ToastUtil.show(YiApplyActivity.this, "上传图片成功");
+    }
 }

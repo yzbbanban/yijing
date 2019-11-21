@@ -13,6 +13,7 @@ import com.dian.commonlib.base.BaseLoadActivity;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.huohuo.R;
 import com.huohuo.dao.table.YiFcDetail;
+import com.huohuo.mvp.model.bean.FengcaiList;
 import com.huohuo.ui.adapter.YiFcDetailAdapter;
 
 import java.util.ArrayList;
@@ -34,10 +35,18 @@ public class YiFcDetailActivity extends BaseLoadActivity {
     @BindView(R.id.tvRight)
     TextView tvRight;
 
+    FengcaiList.ListBean listBean;
 
     @Override
     public void retry() {
 
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+
+        listBean = (FengcaiList.ListBean) intent.getSerializableExtra("FENGCAI_LIST");
     }
 
     @Override
@@ -60,18 +69,11 @@ public class YiFcDetailActivity extends BaseLoadActivity {
                 finish();
             }
         });
-        Intent intent = getIntent();
-        String title = intent.getStringExtra("TITLE");
-        tvYiFcTitle.setText(title);
 
-        List<YiFcDetail> list = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            YiFcDetail yiFcDetail = new YiFcDetail();
-            yiFcDetail.setId(i + 1);
-            yiFcDetail.setTitle("这是啥" + i);
-            yiFcDetail.setUrl("");
-            list.add(yiFcDetail);
-        }
+        tvYiFcTitle.setText(listBean.getTitle());
+
+        List<FengcaiList.ListBean.FengcaiSetBean> list = listBean.getFengcai_set();
+
         yiFcDetailAdapter = new YiFcDetailAdapter(R.layout.item_yi_fc_detail, list);
         recyclerview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerview.setAdapter(yiFcDetailAdapter);

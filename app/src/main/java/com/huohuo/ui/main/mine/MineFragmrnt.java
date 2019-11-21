@@ -2,28 +2,23 @@ package com.huohuo.ui.main.mine;
 
 
 import android.content.Intent;
-import android.os.Bundle;
+import android.content.SharedPreferences;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatRatingBar;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dian.commonlib.base.BaseFragment;
+import com.dian.commonlib.utils.AppUtil;
 import com.huohuo.R;
 import com.huohuo.ui.adapter.MsgListAdapter;
-import com.huohuo.ui.asset.AllAssetActvity;
 import com.huohuo.ui.main.MainActivity;
 import com.huohuo.ui.user.LoginActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
@@ -74,7 +69,6 @@ public class MineFragmrnt extends BaseFragment {
     ImageView ivLangNext;
     @BindView(R.id.clLogOut)
     ConstraintLayout clLogOut;
-    Unbinder unbinder;
     private MainActivity mainActivity;
     private boolean isVisibleToUser;
     private boolean isLoad = false;
@@ -99,9 +93,17 @@ public class MineFragmrnt extends BaseFragment {
                 startActivity(new Intent(getBaseActivity(), MyAcActivity.class));
                 break;
             case R.id.clAboutUs:
-                
+
                 break;
             case R.id.clLogOut:
+                AppUtil.setToken("");
+                AppUtil.setUser("");
+                SharedPreferences.Editor editor = getBaseActivity()
+                        .getSharedPreferences("userinfo", getBaseActivity().MODE_PRIVATE)
+                        .edit();
+                editor.putString("token", null);
+                editor.putString("user", null);
+                editor.commit();
                 startActivity(new Intent(getBaseActivity(), LoginActivity.class));
                 break;
         }
@@ -132,17 +134,5 @@ public class MineFragmrnt extends BaseFragment {
 //        inflater.inflate(R.menu.menu_mine_toolbar, menu);
 //    }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        unbinder = ButterKnife.bind(this, rootView);
-        return rootView;
-    }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
 }

@@ -1,33 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.dian.commonlib.utils.widget.MultipleStatusView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <android.support.constraint.ConstraintLayout
+
+    <com.huohuo.ui.widget.banner.BannerViewPager
+        android:id="@+id/banner"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginViewNormal"
+        android:paddingTop="@dimen/toolBar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <!--<include layout="@layout/layout_search" />-->
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <com.huohuo.ui.widget.banner.BannerViewPager
-            android:paddingTop="@dimen/toolBar"
-            android:layout_marginTop="@dimen/marginViewNormal"
-            android:id="@+id/banner"
+        <com.dian.commonlib.utils.widget.MultipleStatusView
+            android:id="@+id/multipleStatusView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:layout_height="match_parent">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/marginViewSmall"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/banner" />
-    </android.support.constraint.ConstraintLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/marginViewSmall"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/banner" />
+        </com.dian.commonlib.utils.widget.MultipleStatusView>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
-
-</com.dian.commonlib.utils.widget.MultipleStatusView>
+</LinearLayout>

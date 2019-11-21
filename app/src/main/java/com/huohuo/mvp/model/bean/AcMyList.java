@@ -55,8 +55,8 @@ public class AcMyList {
         private int id;
         private int user_id;
         private int teammgt_id;
-        private int createtime;
-        private int updatetime;
+        private long createtime;
+        private long updatetime;
         private Object deletetime;
         private String status;
         private int activity_id;
@@ -65,10 +65,10 @@ public class AcMyList {
         private String content;
         private String coverimage;
         private String requirementdata;
-        private int activitystarttime;
-        private int activitystoptime;
-        private int activitystopapplytime;
-        private int activityno;
+        private long activitystarttime;
+        private long activitystoptime;
+        private long activitystopapplytime;
+        private long activityno;
         private String address;
         private String status_text;
         private String createtime_text;
@@ -97,19 +97,19 @@ public class AcMyList {
             this.teammgt_id = teammgt_id;
         }
 
-        public int getCreatetime() {
+        public long getCreatetime() {
             return createtime;
         }
 
-        public void setCreatetime(int createtime) {
+        public void setCreatetime(long createtime) {
             this.createtime = createtime;
         }
 
-        public int getUpdatetime() {
+        public long getUpdatetime() {
             return updatetime;
         }
 
-        public void setUpdatetime(int updatetime) {
+        public void setUpdatetime(long updatetime) {
             this.updatetime = updatetime;
         }
 
@@ -177,35 +177,35 @@ public class AcMyList {
             this.requirementdata = requirementdata;
         }
 
-        public int getActivitystarttime() {
+        public long getActivitystarttime() {
             return activitystarttime;
         }
 
-        public void setActivitystarttime(int activitystarttime) {
+        public void setActivitystarttime(long activitystarttime) {
             this.activitystarttime = activitystarttime;
         }
 
-        public int getActivitystoptime() {
+        public long getActivitystoptime() {
             return activitystoptime;
         }
 
-        public void setActivitystoptime(int activitystoptime) {
+        public void setActivitystoptime(long activitystoptime) {
             this.activitystoptime = activitystoptime;
         }
 
-        public int getActivitystopapplytime() {
+        public long getActivitystopapplytime() {
             return activitystopapplytime;
         }
 
-        public void setActivitystopapplytime(int activitystopapplytime) {
+        public void setActivitystopapplytime(long activitystopapplytime) {
             this.activitystopapplytime = activitystopapplytime;
         }
 
-        public int getActivityno() {
+        public long getActivityno() {
             return activityno;
         }
 
-        public void setActivityno(int activityno) {
+        public void setActivityno(long activityno) {
             this.activityno = activityno;
         }
 

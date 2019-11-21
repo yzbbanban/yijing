@@ -13,7 +13,7 @@ import com.dian.commonlib.base.BaseLoadActivity;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.huohuo.R;
 import com.huohuo.dao.table.YiFcDetail;
-import com.huohuo.ui.adapter.YiFcDetailAdapter;
+import com.huohuo.ui.adapter.DuiWuAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ public class DuiWuDetailActivity extends BaseLoadActivity {
     @BindView(R.id.recyclerview)
     RecyclerView recyclerview;
 
-    YiFcDetailAdapter yiFcDetailAdapter;
+    DuiWuAdapter duiWuAdapter;
     @BindView(R.id.tvRight)
     TextView tvRight;
 
@@ -83,10 +83,10 @@ public class DuiWuDetailActivity extends BaseLoadActivity {
             yiFcDetail.setUrl("");
             list.add(yiFcDetail);
         }
-        yiFcDetailAdapter = new YiFcDetailAdapter(R.layout.item_yi_fc_detail, list);
+        duiWuAdapter = new DuiWuAdapter(R.layout.item_yi_fc_detail, list);
         recyclerview.setLayoutManager(new GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false));
-        recyclerview.setAdapter(yiFcDetailAdapter);
-        yiFcDetailAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+        recyclerview.setAdapter(duiWuAdapter);
+        duiWuAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
 

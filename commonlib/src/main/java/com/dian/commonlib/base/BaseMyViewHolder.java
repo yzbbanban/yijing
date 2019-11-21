@@ -54,15 +54,15 @@ public class BaseMyViewHolder extends BaseViewHolder {
      * @param imgUrl
      * @return
      */
-    public BaseMyViewHolder loadRadioImage(int resId, String imgUrl,int radio) {
+    public BaseMyViewHolder loadRadioImage(int resId, String imgUrl, int radio) {
         ImageView imageView = getView(resId);
-        GlideEngine.loadRadio(imageView, imgUrl,radio);
+        GlideEngine.loadRadio(imageView, imgUrl, radio);
         return this;
     }
 
-    public BaseMyViewHolder loadRadioImage(int resId, int imgResId,int radio) {
+    public BaseMyViewHolder loadRadioImage(int resId, int imgResId, int radio) {
         ImageView imageView = getView(resId);
-        GlideEngine.loadRadio(imageView, imgResId,radio);
+        GlideEngine.loadRadio(imageView, imgResId, radio);
         return this;
     }
 

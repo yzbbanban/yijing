@@ -8,6 +8,7 @@ import com.dian.commonlib.base.BaseMyViewHolder;
 import com.huohuo.BuildConfig;
 import com.huohuo.R;
 import com.huohuo.dao.table.ShopRecordDetail;
+import com.huohuo.mvp.model.bean.ExchangeList;
 
 import java.util.List;
 
@@ -15,19 +16,19 @@ import java.util.List;
  * Created by kennysun on 2019/9/5.
  */
 
-public class ShopRecordAdapter extends BaseQuickAdapter<ShopRecordDetail, BaseMyViewHolder> {
-    public ShopRecordAdapter(int layoutResId, @Nullable List<ShopRecordDetail> data) {
+public class ShopRecordAdapter extends BaseQuickAdapter<ExchangeList.ListBean, BaseMyViewHolder> {
+    public ShopRecordAdapter(int layoutResId, @Nullable List<ExchangeList.ListBean> data) {
         super(layoutResId, data);
     }
 
     @Override
-    protected void convert(BaseMyViewHolder helper, ShopRecordDetail item) {
-        helper.setText(R.id.tvShopRecordPay, "分值: " + item.getPrice());
-        helper.setText(R.id.tvShopRecordStatus, item.getStatus() == 1 ? "未领取" : "已领取");
-        helper.setText(R.id.tvShopRecordTime, "兑换时间:" + item.getTime());
-        helper.setText(R.id.tvShopRecordTitle, item.getName());
+    protected void convert(BaseMyViewHolder helper, ExchangeList.ListBean item) {
+        helper.setText(R.id.tvShopRecordPay, "分值: " + item.getRemark());
+        helper.setText(R.id.tvShopRecordStatus, "" + item.getStatus_text());
+        helper.setText(R.id.tvShopRecordTime, "兑换时间:" + item.getCreatetime_text());
+        helper.setText(R.id.tvShopRecordTitle, "" + item.getMall_id());
 
-        String groupHead = item.getUrl();//自定义头像
+        String groupHead = item.getMallid_text().getProductimage();//自定义头像
         if (TextUtils.isEmpty(groupHead)) {
             helper.loadImage(R.id.ivShopRecordImage, R.drawable.group_icon);
         } else {

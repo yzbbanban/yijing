@@ -7,6 +7,7 @@ import com.huohuo.mvp.model.bean.ActivityList;
 import com.huohuo.dao.table.Friend;
 import com.huohuo.dao.table.FriendApply;
 import com.huohuo.dao.table.Group;
+import com.huohuo.mvp.model.bean.ArticleList;
 import com.huohuo.mvp.model.bean.ExchangeList;
 import com.huohuo.mvp.model.bean.FengcaiList;
 import com.huohuo.mvp.model.bean.MallList;
@@ -21,13 +22,17 @@ import com.huohuo.mvp.model.bean.SplashBean;
 import com.huohuo.mvp.model.bean.TokenBean;
 import com.huohuo.mvp.model.bean.User;
 
+import java.io.File;
 import java.util.List;
 
 import io.reactivex.Observable;
+import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 /**
@@ -96,6 +101,45 @@ public interface HuoHuoApi {
     );
 
     /**
+     * 文件上传
+     *
+     * @param token
+     * @param file
+     * @return
+     */
+    @Multipart
+    @POST(Constants.API_VERSION + "/common/upload")
+    Observable<HttpResult<String>> commonUpload(
+            @Query("token") String token,
+            @Part RequestBody file
+    );
+
+    /**
+     * 活动报名签到
+     *
+     * @return
+     */
+    @POST(Constants.API_VERSION + "/activity/signup")
+    Observable<HttpResult<String>> activitySignUp(
+            @Query("token") String token,
+            @Query("activity_id") String activity_id,
+            @Query("user_id") String user_id,
+            @Query("teammgt_id") String teammgt_id
+    );
+
+    /**
+     * 活动签退
+     *
+     * @return
+     */
+    @POST(Constants.API_VERSION + "/activity/sign")
+    Observable<HttpResult<String>> activitySignOut(
+            @Query("token") String token,
+            @Query("fakeid") String fakeid,
+            @Query("activity_id") String activity_id
+    );
+
+    /**
      * 商城列表
      *
      * @param token
@@ -119,7 +163,7 @@ public interface HuoHuoApi {
      * @return
      */
     @POST(Constants.API_VERSION + "apply/apply")
-    Observable<HttpResult<Object>> yjApply(
+    Observable<HttpResult<String>> yjApply(
             @Query("token") String token,
             @Query("user_id") String user_id,
             @Query("vision") String vision,
@@ -133,6 +177,7 @@ public interface HuoHuoApi {
             @Query("birthday") String birthday
 
     );
+
 
     /**
      * 兑换列表
@@ -184,14 +229,29 @@ public interface HuoHuoApi {
     );
 
     /**
-     * 兑换列表
+     * 轮播新闻
+     *
+     * @param page
+     * @param size
+     * @param size
+     * @return
+     */
+    @POST(Constants.API_VERSION + "/Article/list")
+    Observable<HttpResult<ArticleList>> articleLlist(
+            @Query("token") String token,
+            @Query("page") String page,
+            @Query("size") String size
+    );
+
+    /**
+     * 新闻详情自增
      *
      * @param token
      * @param id
      * @return
      */
     @POST(Constants.API_VERSION + "/news/viewinc")
-    Observable<HttpResult<List<ExchangeList>>> newsDetail(
+    Observable<HttpResult<Object>> newsDetailIncr(
             @Query("token") String token,
             @Query("id") String id
     );
