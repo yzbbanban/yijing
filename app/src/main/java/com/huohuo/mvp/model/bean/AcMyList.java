@@ -1,8 +1,9 @@
 package com.huohuo.mvp.model.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class AcMyList {
+public class AcMyList implements Serializable {
 
     /**
      * total : 2
@@ -28,7 +29,7 @@ public class AcMyList {
         this.list = list;
     }
 
-    public static class ListBean {
+    public static class ListBean implements Serializable {
         /**
          * id : 1
          * user_id : 11

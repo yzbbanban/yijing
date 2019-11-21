@@ -122,6 +122,7 @@ public class MyAcActivity extends BaseLoadActivity implements MyAcListContract.V
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Intent intent = new Intent(MyAcActivity.this, AcDetailActivity.class);
                 intent.putExtra("type", 1);
+                intent.putExtra("AC_MY_DETAIL", acMyList.getList().get(position));
                 startActivity(intent);
 
             }

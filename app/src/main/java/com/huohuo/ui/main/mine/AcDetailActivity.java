@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.dian.commonlib.base.BaseLoadActivity;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.huohuo.R;
+import com.huohuo.mvp.model.bean.AcMyList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,6 +49,8 @@ public class AcDetailActivity extends BaseLoadActivity {
 
     private Integer type;
 
+    private AcMyList.ListBean listBean;
+
     @Override
     public void initViewAndData() {
         super.initViewAndData();
@@ -59,12 +62,16 @@ public class AcDetailActivity extends BaseLoadActivity {
                 finish();
             }
         });
+        listBean = (AcMyList.ListBean) getIntent().getExtras().getSerializable("AC_MY_DETAIL");
+
+
     }
 
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         type = intent.getExtras().getInt("type", 1);
+        listBean = (AcMyList.ListBean) intent.getExtras().getSerializable("AC_MY_DETAIL");
         Log.i(TAG, "onNewIntent: " + type);
     }
 
