@@ -274,12 +274,11 @@ public class YiApplyActivity extends BaseLoadActivity implements YjApplyContract
                 MultipartBody.Part body =
                         MultipartBody.Part.createFormData("aFile", file.getName(), requestFile);
 
-                String descriptionString = "This is a description";
                 RequestBody description =
                         RequestBody.create(
-                                MediaType.parse("multipart/form-data"), descriptionString);
+                                MediaType.parse("multipart/form-data"), AppUtil.getToken());
 
-                commonUploadPresenter.getList(AppUtil.getToken(), description);
+                commonUploadPresenter.getList(description, body);
 
             }
         }

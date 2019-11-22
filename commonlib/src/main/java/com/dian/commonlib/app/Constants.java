@@ -13,10 +13,13 @@ public class Constants {
     public static String USER_SAFE_SET = "user_safe_set";
     public static long DEFAULT_TIMEOUT = 10;//默认超时时间
 
-    public static String TOKEN  = "token";
-    public static String USER  = "user";
-    public static String SERVICE_TIME  = "service_time";
-    public static String LOCAL_TIME  = "local_time";
+    public static String TOKEN = "token";
+    public static String USER = "user";
+    public static String TEAM_ID = "team_id";
+    public static String NICK_NAME = "nick_name";
+    public static String IMAGE = "image";
+    public static String SERVICE_TIME = "service_time";
+    public static String LOCAL_TIME = "local_time";
 
     public static String WEBURL = "weburl";//h5网址
     public static String WEBTITLE = "webtitle";//h5页面标题
@@ -24,8 +27,9 @@ public class Constants {
 
 
     public static final String PIC_PATH = "com.yj.fileprovider";
+
     //net
-   public enum NET_STATE {
+    public enum NET_STATE {
         CONNECT,
         DISCONNECT
     }

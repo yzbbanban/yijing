@@ -95,6 +95,7 @@ public class OutSideUnFragment extends BaseFragment implements YjAcListContract.
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Intent intent = new Intent(getBaseActivity(), AcDetailActivity.class);
                 intent.putExtra("type", 4);
+                intent.putExtra("AC_MY_DETAIL", list.get(position));
                 startActivity(intent);
 
             }

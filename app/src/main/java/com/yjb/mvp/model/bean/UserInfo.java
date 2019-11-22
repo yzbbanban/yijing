@@ -2,12 +2,21 @@ package com.yjb.mvp.model.bean;
 
 public class UserInfo {
 
-
     /**
-     * userinfo : {"id":10,"username":"15558103801","nickname":"张三","mobile":"15558103801","avatar":"/uploads/20191106/bd6d9ac651b18508b7d4138d0cf8b6a2.jpg","score":100,"token":"0f33cbcd-e03a-453e-9082-5c32d2f9f4a3","user_id":10,"createtime":1574048582,"expiretime":1576640582,"expires_in":2592000}
+     * userinfo : {"id":18,"username":"18012020804","nickname":"18012020804","mobile":"18012020804","avatar":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgaGVpZ2h0PSIxMDAiIHdpZHRoPSIxMDAiPjxyZWN0IGZpbGw9InJnYigyMTIsMTYwLDIyOSkiIHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48L3JlY3Q+PHRleHQgeD0iNTAiIHk9IjUwIiBmb250LXNpemU9IjUwIiB0ZXh0LWNvcHk9ImZhc3QiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHRleHQtcmlnaHRzPSJhZG1pbiIgYWxpZ25tZW50LWJhc2VsaW5lPSJjZW50cmFsIj4xPC90ZXh0Pjwvc3ZnPg==","score":10,"token":"4d8eb237-cf74-45bb-b271-bd00aa8731f2","user_id":18,"createtime":1574350353,"expiretime":1576942353,"expires_in":2592000}
+     * yjinfo : null
      */
 
     private UserinfoBean userinfo;
+    private Yjinfo yjinfo;
+
+    public Yjinfo getYjinfo() {
+        return yjinfo;
+    }
+
+    public void setYjinfo(Yjinfo yjinfo) {
+        this.yjinfo = yjinfo;
+    }
 
     public UserinfoBean getUserinfo() {
         return userinfo;
@@ -17,18 +26,38 @@ public class UserInfo {
         this.userinfo = userinfo;
     }
 
+    public static class Yjinfo {
+
+        private int teammgt_id;
+
+        public int getTeammgt_id() {
+            return teammgt_id;
+        }
+
+        public void setTeammgt_id(int teammgt_id) {
+            this.teammgt_id = teammgt_id;
+        }
+
+        @Override
+        public String toString() {
+            return "Yjinfo{" +
+                    "teammgt_id=" + teammgt_id +
+                    '}';
+        }
+    }
+
     public static class UserinfoBean {
         /**
-         * id : 10
-         * username : 15558103801
-         * nickname : 张三
-         * mobile : 15558103801
-         * avatar : /uploads/20191106/bd6d9ac651b18508b7d4138d0cf8b6a2.jpg
-         * score : 100
-         * token : 0f33cbcd-e03a-453e-9082-5c32d2f9f4a3
-         * user_id : 10
-         * createtime : 1574048582
-         * expiretime : 1576640582
+         * id : 18
+         * username : 18012020804
+         * nickname : 18012020804
+         * mobile : 18012020804
+         * avatar : data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgaGVpZ2h0PSIxMDAiIHdpZHRoPSIxMDAiPjxyZWN0IGZpbGw9InJnYigyMTIsMTYwLDIyOSkiIHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48L3JlY3Q+PHRleHQgeD0iNTAiIHk9IjUwIiBmb250LXNpemU9IjUwIiB0ZXh0LWNvcHk9ImZhc3QiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHRleHQtcmlnaHRzPSJhZG1pbiIgYWxpZ25tZW50LWJhc2VsaW5lPSJjZW50cmFsIj4xPC90ZXh0Pjwvc3ZnPg==
+         * score : 10
+         * token : 4d8eb237-cf74-45bb-b271-bd00aa8731f2
+         * user_id : 18
+         * createtime : 1574350353
+         * expiretime : 1576942353
          * expires_in : 2592000
          */
 
@@ -154,6 +183,7 @@ public class UserInfo {
     public String toString() {
         return "UserInfo{" +
                 "userinfo=" + userinfo +
+                ", yjinfo=" + yjinfo +
                 '}';
     }
 }

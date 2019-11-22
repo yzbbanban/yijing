@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.dian.commonlib.base.BaseMyViewHolder;
 import com.dian.commonlib.glide.GlideEngine;
+import com.dian.commonlib.utils.DateFormatUtil;
 import com.yjb.BuildConfig;
 import com.yjb.R;
 import com.yjb.mvp.model.bean.NewsList;
@@ -30,7 +31,7 @@ public class MsgListAdapter extends BaseQuickAdapter<NewsList.ListBean, BaseMyVi
         } else {
             GlideEngine.load(imageView, BuildConfig.API_IMG_HOST + item.getCoverimage());
         }
-        helper.setText(R.id.tvMsgTime, "新闻今天:" + item.getCreatetime_text());
+        helper.setText(R.id.tvMsgTime, "新闻今天:" + DateFormatUtil.timeStamp2Date("" + item.getCreatetime()));
         helper.setText(R.id.tvAlreadyRead, item.getView() + "已读");
 
 

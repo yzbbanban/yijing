@@ -30,6 +30,7 @@ import com.yjb.net.HuoHuoApi;
 import java.util.List;
 
 import io.reactivex.Observable;
+import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
 /**
@@ -404,7 +405,7 @@ public class HuoHuoDataManager extends DataManager<HuoHuoApi> {
      *
      * @return
      */
-    public Observable<HttpResult<String>> upload(String token, RequestBody file) {
+    public Observable<HttpResult<String>> upload(RequestBody token, MultipartBody.Part file) {
         return mApi.commonUpload(token, file);
     }
 

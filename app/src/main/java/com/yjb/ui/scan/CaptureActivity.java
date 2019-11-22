@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.dian.commonlib.base.BaseLoadActivity;
 import com.dian.commonlib.utils.LogUtil;
 import com.dian.commonlib.utils.MyMatisseUtil;
+import com.dian.commonlib.utils.ToastUtil;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;

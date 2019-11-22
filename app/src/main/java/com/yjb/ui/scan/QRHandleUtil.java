@@ -33,7 +33,7 @@ public class QRHandleUtil {
     private ScanPresenter scanPresenter;
     List<CoinAddressBean> resultList;//识别出来的地址列表
 
-    public QRHandleUtil(Activity activity, ScanPresenter scanPresenter,String pagetype, String coinId) {
+    public QRHandleUtil(Activity activity, ScanPresenter scanPresenter, String pagetype, String coinId) {
         this.activity = activity;
         this.scanPresenter = scanPresenter;
         this.pagetype = pagetype;
@@ -45,57 +45,12 @@ public class QRHandleUtil {
         LogUtil.d("text===" + text);
         needYZAddress = text;
         Log.e("aaa", "str==" + text);
-        if (text.contains(HuoHuoConstants.BTW_TYPE) && text.contains(HuoHuoConstants.ADD_FRIEND)) {//判断是否是加好友
-            try {
-                JSONObject jsonObject = new JSONObject(text);
-                String type = jsonObject.getString(HuoHuoConstants.BTW_TYPE);
-                if (HuoHuoConstants.ADD_FRIEND.equals(type)) {//添加好友
-                    String userId = jsonObject.getString(HuoHuoConstants.USER_ID);
-                    Log.e("aaa", "userId==" + userId);
-                    scanPresenter.decodingUserid(userId);
-                }
-            } catch (JSONException e) {
-                ToastUtil.show(activity, R.string.cant_analysis_qrcode);
-                e.printStackTrace();
-            }
-        } else {
-            //不是加好友,则将字符串传到后台分辨类型
-            if (HuoHuoConstants.MEMO.equals(pagetype)) {
-                //扫备注不需要向后台验证字符串
-                Intent intent = new Intent();
-                intent.putExtra(HuoHuoConstants.MEMO, text);
-                activity.setResult(activity.RESULT_OK, intent);
-                activity.finish();
-            } else {
-                //todo 先判断是否是json字符串
-                needYZAddress = text;
-                if (!text.contains("{")) {
-                    if (HuoHuoConstants.ZHUAN_ZHANG.equals(pagetype)) {
-                        //在转币页面点击扫一扫进来的
-                        scanPresenter.getTransSend(text);
-                    } else {
-                        //直接点击首页的扫一扫进来的
-                        scanPresenter.getCoinAddressType(text);
-                    }
-                } else {
-                    if (HuoHuoConstants.ZHUAN_ZHANG.equals(pagetype)) {
-                        //不能识别出来的地址
-                        CoinAddressBean coinAddress = new CoinAddressBean();
-                        coinAddress.setAddress(needYZAddress);
-                        coinAddress.setType(-1);
-                        Intent intent = new Intent();
-                        intent.putExtra(HuoHuoConstants.COINADDRESS, coinAddress);
-                        activity.setResult(activity.RESULT_OK, intent);
-                        activity.finish();
 
-                    } else {
-                        showShibieFail(activity.getResources().getString(R.string.shibie_fail));
-                    }
-                }
+        Intent intent = new Intent();
+        intent.putExtra(HuoHuoConstants.MEMO, text);
+        activity.setResult(20000, intent);
+        activity.finish();
 
-            }
-
-        }
     }
 
 

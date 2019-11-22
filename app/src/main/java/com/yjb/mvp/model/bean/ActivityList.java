@@ -1,8 +1,9 @@
 package com.yjb.mvp.model.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ActivityList {
+public class ActivityList implements Serializable {
 
 
     /**
@@ -29,7 +30,7 @@ public class ActivityList {
         this.list = list;
     }
 
-    public static class ListBean {
+    public static class ListBean implements Serializable {
         /**
          * id : 1
          * activitytype_id : 2
@@ -234,7 +235,7 @@ public class ActivityList {
             this.userid_text = userid_text;
         }
 
-        public static class UseridTextBean {
+        public static class UseridTextBean implements Serializable{
             /**
              * nickname :
              * mobile :

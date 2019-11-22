@@ -29,6 +29,7 @@ import com.yjb.mvp.model.bean.YjTeam;
 import java.util.List;
 
 import io.reactivex.Observable;
+import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -169,8 +170,8 @@ public interface HuoHuoApi {
     @Multipart
     @POST(Constants.API_VERSION + "/common/upload")
     Observable<HttpResult<String>> commonUpload(
-            @Part("token") String token,
-            @Part RequestBody file
+            @Part("token") RequestBody token,
+            @Part MultipartBody.Part file
     );
 
     /**
@@ -378,7 +379,7 @@ public interface HuoHuoApi {
      * @param code
      * @return
      */
-    @POST("v1/scan/transSend ")
+    @POST("v1/scan/transSend")
     Observable<HttpResult<ScanBean>> getTransSend(
             @Query("code") String code
     );

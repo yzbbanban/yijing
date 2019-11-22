@@ -4,6 +4,7 @@ import com.dian.commonlib.net.RxHttpCallback;
 import com.yjb.base.HuoHuoBasePresenter;
 import com.yjb.mvp.contract.home.CommonUploadContract;
 
+import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
 
@@ -14,9 +15,8 @@ import okhttp3.RequestBody;
 public class CommonUploadPresenter extends HuoHuoBasePresenter<CommonUploadContract.View> implements CommonUploadContract.Presenter {
 
     @Override
-    public void getList(String token,
-                        RequestBody file) {
-        if (token.isEmpty() || file == null) {
+    public void getList(RequestBody token, MultipartBody.Part file) {
+        if (token == null || file == null) {
             return;
         }
         doRequestToMain(dataManager.upload(token, file))

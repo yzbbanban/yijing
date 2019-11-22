@@ -54,7 +54,7 @@ public class OutSideIngFragment extends BaseFragment implements YjAcListContract
         //进行中
         acListPresenter = new AcListPresenter();
         acListPresenter.attachView(this, getBaseActivity());
-        acListPresenter.getList(AppUtil.getToken(), "1", "10", "2");
+        acListPresenter.getList(AppUtil.getToken(), "1", "10", AppUtil.getUser());
         refreshLayout.setEnableRefresh(true);//是否启用下拉刷新功能
         refreshLayout.setEnableLoadMore(true);//是否启用上拉加载功能
         refreshLayout.setOnRefreshListener(new OnRefreshListener() { //下拉刷新
@@ -95,6 +95,7 @@ public class OutSideIngFragment extends BaseFragment implements YjAcListContract
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Intent intent = new Intent(getBaseActivity(), AcDetailActivity.class);
                 intent.putExtra("type", 3);
+                intent.putExtra("AC_MY_DETAIL", list.get(position));
                 startActivity(intent);
 
             }

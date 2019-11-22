@@ -33,7 +33,7 @@ public class YxYjModuleAdapter extends BaseQuickAdapter<YjTeam.ListBean, BaseMyV
     @Override
     protected void convert(BaseMyViewHolder helper, YjTeam.ListBean item) {
         RecyclerView recyclerview = helper.getView(R.id.rvYiFc);
-        helper.setText(R.id.tvYiFcTitle, item.getSlogan());
+        helper.setText(R.id.tvYiFcTitle, item.getTeamname());
         recyclerview.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false));
         YxYjModuleItemAdapter yxYjModuleItemAdapter;
         yxYjModuleItemAdapter = new YxYjModuleItemAdapter(R.layout.item_yxyj_module_type, item.getYjSet());

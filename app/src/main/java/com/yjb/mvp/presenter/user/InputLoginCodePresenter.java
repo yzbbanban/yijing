@@ -37,6 +37,13 @@ public class InputLoginCodePresenter extends HuoHuoBasePresenter<InputLoginCodeC
                     public void onData(UserInfo data) {
                         AppUtil.setToken(data.getUserinfo().getToken());
                         AppUtil.setUser("" + data.getUserinfo().getUser_id());
+                        AppUtil.setImage(data.getUserinfo().getAvatar());
+                        AppUtil.setNickName(data.getUserinfo().getNickname());
+                        if (data.getYjinfo() == null) {
+                            AppUtil.setTeamId("");
+                        } else {
+                            AppUtil.setTeamId("" + data.getYjinfo().getTeammgt_id());
+                        }
                         getMvpView().loginSuccess();
                     }
 

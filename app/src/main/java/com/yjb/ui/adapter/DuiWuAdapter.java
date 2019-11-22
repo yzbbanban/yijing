@@ -29,7 +29,7 @@ public class DuiWuAdapter extends BaseQuickAdapter<YjTeam.ListBean.YjSetBean, Ba
         if (TextUtils.isEmpty(groupHead)) {
             helper.loadImage(R.id.ivAvatar, R.drawable.group_icon);
         } else {
-            helper.loadRoundImage(R.id.ivAvatar, BuildConfig.API_IMG_HOST + groupHead);
+            helper.loadImage(R.id.ivAvatar, BuildConfig.API_IMG_HOST + groupHead);
         }
 
     }

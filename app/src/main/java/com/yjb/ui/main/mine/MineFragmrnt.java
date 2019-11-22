@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.dian.commonlib.app.App;
 import com.dian.commonlib.base.BaseFragment;
 import com.dian.commonlib.glide.GlideEngine;
 import com.dian.commonlib.utils.AppUtil;
@@ -137,12 +138,18 @@ public class MineFragmrnt extends BaseFragment implements JFinfoContract.View {
     @Override
     public void getJFInfoSuccess(JFInfo msg) {
         if (msg == null) {
-            return;
+            //使用默认
+            tvLCCount.setText("0分");
+            tvYDCoinCount.setText("0小时");
+            GlideEngine.loadRound(ivAvatar, BuildConfig.API_IMG_HOST + AppUtil.getImage());
+            tvNickName.setText("" + AppUtil.getNickName());
+
+        } else {
+            tvLCCount.setText("" + msg.getScore() + "分");
+            tvYDCoinCount.setText("" + msg.getWorktime() + "小时");
+            GlideEngine.loadRound(ivAvatar, BuildConfig.API_IMG_HOST + msg.getPhotoimage());
+            tvNickName.setText("" + msg.getNickname());
         }
-        tvLCCount.setText("" + msg.getScore() + "分");
-        tvYDCoinCount.setText("" + msg.getWorktime() + "小时");
-        GlideEngine.loadRound(ivAvatar, BuildConfig.API_IMG_HOST + msg.getPhotoimage());
-        tvNickName.setText("" + msg.getNickname());
 
     }
 
