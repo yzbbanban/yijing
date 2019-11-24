@@ -20,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorWhiteTextImportant"
+            android:scaleType="center"
             android:src="@drawable/contact_default_avatar"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -57,48 +58,48 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/marginViewSmall"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:ellipsize="end"
         android:maxLines="1"
         android:text="活动地点："
         android:textColor="@color/colorBlackTextNormal"
         android:textSize="@dimen/textNormal"
-        app:layout_constraintBottom_toTopOf="@+id/tvDetailLimitTime"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toRightOf="@+id/cardView"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetailTime" />
 
     <TextView
         android:id="@+id/tvDetailTime"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/marginViewSmall"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="30dp"
         android:ellipsize="end"
         android:maxLines="1"
         android:text="活动时间："
         android:textColor="@color/colorBlackTextNormal"
         android:textSize="@dimen/textSmall"
-        app:layout_constraintBottom_toTopOf="@+id/tvDetailAddress"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toRightOf="@+id/cardView"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
     <TextView
         android:id="@+id/tvDetailLimitTime"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/marginViewSmall"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:ellipsize="end"
         android:maxLines="1"
         android:text="报名截止："
         android:textColor="@color/colorBlackTextNormal"
         android:textSize="@dimen/textSmall"
-        app:layout_constraintBottom_toBottomOf="@+id/cardView"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toRightOf="@+id/cardView"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetailAddress" />
 
     <ImageView
         android:layout_width="@dimen/dp_20"

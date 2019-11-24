@@ -27,5 +27,6 @@
     <color name="colorWhiteTextNormal">#ddffffff</color>
     <color name="colorWhiteTextSub">#99ffffff</color>
     <color name="colorWhiteTextHint">#66ffffff</color>
+    <color name="colorTM">#00FFFFFF</color>
 
 </resources>

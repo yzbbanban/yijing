@@ -9,8 +9,8 @@
 
     <TextView
         android:id="@+id/tvPayTitle"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="@dimen/dp_200"
+        android:layout_height="@dimen/dp_50"
         android:layout_weight="2"
         android:gravity="center"
         android:text="兑换：" />

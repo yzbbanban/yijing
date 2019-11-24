@@ -68,42 +68,29 @@ public class NewsDetailActivity extends BaseLoadActivity implements NewsViewIncC
         tvNewsType.setText("");
         tvNewsTime.setText("时间：" + DateFormatUtil.timeStamp2Date("" + newsData.getCreatetime()));
         tvNewsRead.setText(newsData.getView() + "已读");
-        WebSettings webSettings = BBCCWebview.getSettings();
-
-        /*与js交互*/
-        webSettings.setJavaScriptEnabled(true);
-
-        /*自适应屏幕*/
-        webSettings.setUseWideViewPort(true); //将图片调整到适合webview的大小
-        webSettings.setLoadWithOverviewMode(true); // 缩放至屏幕的大小
-
-        /*细节操作*/
-        webSettings.setBuiltInZoomControls(true);
-        webSettings.setJavaScriptCanOpenWindowsAutomatically(true); //支持js弹窗
-
 
         BBCCWebview.setWebViewClient(new WebViewClient());
 
-        /**
-         * 存储的html格式
-         */
-        String NOTICE_FORMAT = "" +
-                "<!DOCTYPE html>" +
-                "<html>" +
-                "<head>" +
-                "<meta charset=\"UTF-8\"> " +
-                "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">" +
-                "</head>" +
-                "<body>" +
-                "%s" +
-                "</body>" +
-                "</html> ";
 
-        String ht = String.format(NOTICE_FORMAT, newsData.getContent());
+        String ht = getHtmlData(newsData.getContent());
 
-        BBCCWebview.loadData(Html.fromHtml(ht).toString(), "text/html", "UTF-8");
+        BBCCWebview.loadDataWithBaseURL(null, ht, "text/html", "UTF-8", null);
 
     }
+
+    /**
+     * 加载html标签
+     *
+     * @param bodyHTML
+     * @return
+     */
+    private String getHtmlData(String bodyHTML) {
+        String head = "<head>" +
+                "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">" +
+                "</head>";
+        return "<html>" + head + "<body>" + bodyHTML + "</body></html>";
+    }
+
 
     @Override
     public int getLayoutId() {

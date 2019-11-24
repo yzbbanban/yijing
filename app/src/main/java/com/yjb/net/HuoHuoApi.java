@@ -109,6 +109,31 @@ public interface HuoHuoApi {
     );
 
     /**
+     * 兑换
+     *
+     * @return
+     */
+    @POST(Constants.API_VERSION + "/exchange/pay")
+    Observable<HttpResult<String>> exchangeAPay(
+            @Query("token") String token,
+            @Query("user_id") String user_id,
+            @Query("id") String id,
+            @Query("integral") String integral
+    );
+
+    /**
+     * 获取签到状态
+     *
+     * @return
+     */
+    @POST(Constants.API_VERSION + "/activity/getsignstatus")
+    Observable<HttpResult<String>> getSignStatus(
+            @Query("token") String token,
+            @Query("activity_id") String activity_id,
+            @Query("user_id") String user_id
+    );
+
+    /**
      * 月排行
      *
      * @return

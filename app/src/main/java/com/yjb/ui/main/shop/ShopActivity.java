@@ -16,8 +16,10 @@ import com.dian.commonlib.utils.AppUtil;
 import com.dian.commonlib.utils.ToastUtil;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.yjb.R;
+import com.yjb.mvp.contract.home.ExchangePayContract;
 import com.yjb.mvp.contract.home.MallListContract;
 import com.yjb.mvp.model.bean.MallList;
+import com.yjb.mvp.presenter.home.ExchangePayPresenter;
 import com.yjb.mvp.presenter.home.MallListPresenter;
 import com.yjb.ui.adapter.ShopAdapter;
 import com.yjb.ui.dialog.MyPayDialog;
@@ -29,7 +31,7 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class ShopActivity extends BaseLoadActivity implements MallListContract.View {
+public class ShopActivity extends BaseLoadActivity implements MallListContract.View, ExchangePayContract.View {
     private static final String TAG = "ShopActivity";
 
     @BindView(R.id.ivLeft)
@@ -51,6 +53,8 @@ public class ShopActivity extends BaseLoadActivity implements MallListContract.V
 
     private MallListPresenter mallListPresenter;
 
+    private ExchangePayPresenter exchangePayPresenter;
+
     ShopAdapter shopAdapter;
 
     int page = 1;
@@ -66,7 +70,10 @@ public class ShopActivity extends BaseLoadActivity implements MallListContract.V
         });
 
         mallListPresenter = new MallListPresenter();
+        exchangePayPresenter = new ExchangePayPresenter();
         mallListPresenter.attachView(this, this);
+        exchangePayPresenter.attachView(this, this);
+
         mallListPresenter.getList(AppUtil.getToken(), "1", "10", AppUtil.getUser());
         refreshLayout.setEnableRefresh(true);//是否启用下拉刷新功能
         refreshLayout.setEnableLoadMore(true);//是否启用上拉加载功能
@@ -140,11 +147,16 @@ public class ShopActivity extends BaseLoadActivity implements MallListContract.V
                 Log.i(TAG, "onItemChildClick: " + mallList.getList().get(position).getStatus());
                 if (view.getId() == R.id.acbBtnPay) {
                     MallList.ListBean pay = mallList.getList().get(position);
-                    new MyPayDialog(ShopActivity.this).setPayId(pay.getName(), pay.getId()).show();
+                    new MyPayDialog(ShopActivity.this, exchangePayPresenter)
+                            .setPayId("兑换" + pay.getName() + "消耗" + pay.getIntegral() + "积分", pay.getId(), "" + pay.getIntegral()).show();
 
                 }
             }
         });
     }
 
+    @Override
+    public void getPaySuccess(String msg) {
+        ToastUtil.show(this, "兑换成功");
+    }
 }

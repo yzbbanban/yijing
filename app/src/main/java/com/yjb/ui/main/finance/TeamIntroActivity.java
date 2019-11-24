@@ -1,8 +1,6 @@
 package com.yjb.ui.main.finance;
 
-import android.text.Html;
 import android.view.View;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
@@ -52,19 +50,6 @@ public class TeamIntroActivity extends BaseLoadActivity {
             }
         });
         String content = getIntent().getStringExtra("CONTENT");
-        WebSettings webSettings = BBCCWebview.getSettings();
-
-        /*与js交互*/
-        webSettings.setJavaScriptEnabled(true);
-
-        /*自适应屏幕*/
-        webSettings.setUseWideViewPort(true); //将图片调整到适合webview的大小
-        webSettings.setLoadWithOverviewMode(true); // 缩放至屏幕的大小
-
-        /*细节操作*/
-        webSettings.setBuiltInZoomControls(true);
-        webSettings.setJavaScriptCanOpenWindowsAutomatically(true); //支持js弹窗
-
 
         BBCCWebview.setWebViewClient(new WebViewClient());
 
@@ -87,6 +72,7 @@ public class TeamIntroActivity extends BaseLoadActivity {
         /**
          * 将文本HTML显示在webview中
          */
-        BBCCWebview.loadData(Html.fromHtml("" + ht).toString(), "text/html", "UTF-8");
+        BBCCWebview.loadDataWithBaseURL(null, ht, "text/html", "UTF-8", null);
+
     }
 }

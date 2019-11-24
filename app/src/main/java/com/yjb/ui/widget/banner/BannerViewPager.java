@@ -209,6 +209,7 @@ public class BannerViewPager extends RelativeLayout implements ViewPager.OnPageC
             } else {
                 imageView.setImageResource(resId_piont);
             }
+            imageView.setScaleType(ImageView.ScaleType.CENTER);
             mImageView[i] = imageView;
             mLineIndicator.addView(imageView);
         }

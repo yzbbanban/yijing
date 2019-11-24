@@ -32,6 +32,7 @@ import java.util.List;
 import io.reactivex.Observable;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import retrofit2.http.Query;
 
 /**
  * Created by kennysun on 2019/8/26.
@@ -324,6 +325,30 @@ public class HuoHuoDataManager extends DataManager<HuoHuoApi> {
      */
     public Observable<HttpResult<JFInfo>> jFinfo(String token, String user_id) {
         return mApi.jFinfo(token, user_id);
+    }
+
+    /**
+     * 获取签到状态
+     * 未签到,已签到,未签退,已签退
+     *
+     * @return
+     */
+    public Observable<HttpResult<String>> getSignStatuInfo(String token, String activity_id, String user_id) {
+        return mApi.getSignStatus(token, activity_id, user_id);
+    }
+
+    /**
+     * 兑换
+     *
+     * @return
+     */
+    public Observable<HttpResult<String>> exchangeAPay(
+            String token,
+            String user_id,
+            String id,
+            String score) {
+        return mApi.exchangeAPay(token, id, user_id, score);
+
     }
 
     /**

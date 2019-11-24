@@ -15,6 +15,8 @@ public class JFInfo {
     private String photoimage;
     private int worktime;
     private String status_text;
+    private String star;
+    private String title;
 
     public String getNickname() {
         return nickname;
@@ -56,6 +58,22 @@ public class JFInfo {
         this.status_text = status_text;
     }
 
+    public String getStar() {
+        return star;
+    }
+
+    public void setStar(String star) {
+        this.star = star;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     @Override
     public String toString() {
         return "JFInfo{" +
@@ -64,6 +82,8 @@ public class JFInfo {
                 ", photoimage='" + photoimage + '\'' +
                 ", worktime=" + worktime +
                 ", status_text='" + status_text + '\'' +
+                ", star='" + star + '\'' +
+                ", title='" + title + '\'' +
                 '}';
     }
 }

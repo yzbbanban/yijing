@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.dian.commonlib.app.App;
 import com.dian.commonlib.base.BaseFragment;
 import com.dian.commonlib.glide.GlideEngine;
 import com.dian.commonlib.utils.AppUtil;
@@ -38,8 +37,8 @@ public class MineFragmrnt extends BaseFragment implements JFinfoContract.View {
     TextView tvNickName;
     @BindView(R.id.rbPingFen)
     AppCompatRatingBar rbPingFen;
-    @BindView(R.id.sendSmsCode)
-    AppCompatButton sendSmsCode;
+    @BindView(R.id.btnTitle)
+    AppCompatButton btnTitle;
     @BindView(R.id.tvLCCount)
     TextView tvLCCount;
     @BindView(R.id.tvYDCoinCount)
@@ -143,12 +142,15 @@ public class MineFragmrnt extends BaseFragment implements JFinfoContract.View {
             tvYDCoinCount.setText("0小时");
             GlideEngine.loadRound(ivAvatar, BuildConfig.API_IMG_HOST + AppUtil.getImage());
             tvNickName.setText("" + AppUtil.getNickName());
-
+            rbPingFen.setRating(0.0f);
+            btnTitle.setText("暂无称号");
         } else {
             tvLCCount.setText("" + msg.getScore() + "分");
             tvYDCoinCount.setText("" + msg.getWorktime() + "小时");
             GlideEngine.loadRound(ivAvatar, BuildConfig.API_IMG_HOST + msg.getPhotoimage());
             tvNickName.setText("" + msg.getNickname());
+            rbPingFen.setRating(Float.parseFloat(msg.getStar()));
+            btnTitle.setText("" + msg.getTitle());
         }
 
     }
@@ -160,6 +162,12 @@ public class MineFragmrnt extends BaseFragment implements JFinfoContract.View {
 
     @Override
     public void onError(Object msg, int code) {
+        tvLCCount.setText("0分");
+        tvYDCoinCount.setText("0小时");
+        GlideEngine.loadRound(ivAvatar, BuildConfig.API_IMG_HOST + AppUtil.getImage());
+        tvNickName.setText("" + AppUtil.getNickName());
+        rbPingFen.setRating(0.0f);
+        btnTitle.setText("暂无称号");
 
     }
 

@@ -54,14 +54,14 @@ public class OutSideIngFragment extends BaseFragment implements YjAcListContract
         //进行中
         acListPresenter = new AcListPresenter();
         acListPresenter.attachView(this, getBaseActivity());
-        acListPresenter.getList(AppUtil.getToken(), "1", "10", AppUtil.getUser());
+        acListPresenter.getList(AppUtil.getToken(), "1", "10", "2");
         refreshLayout.setEnableRefresh(true);//是否启用下拉刷新功能
         refreshLayout.setEnableLoadMore(true);//是否启用上拉加载功能
         refreshLayout.setOnRefreshListener(new OnRefreshListener() { //下拉刷新
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
                 page = 1;
-                acListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize, AppUtil.getUser());
+                acListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize, "2");
             }
         });
 
@@ -69,7 +69,7 @@ public class OutSideIngFragment extends BaseFragment implements YjAcListContract
             @Override
             public void onLoadMore(RefreshLayout refreshlayout) {
                 page++;
-                acListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize, AppUtil.getUser());
+                acListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize, "2");
             }
         });
     }

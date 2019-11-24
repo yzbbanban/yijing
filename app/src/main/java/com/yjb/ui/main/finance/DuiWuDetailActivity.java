@@ -75,7 +75,7 @@ public class DuiWuDetailActivity extends BaseLoadActivity {
                 startActivity(in);
             }
         });
-        tvYiFcTitle.setText(bean.getSlogan());
+        tvYiFcTitle.setText(bean.getTeamname());
 
         duiWuAdapter = new DuiWuAdapter(R.layout.item_yi_fc_detail, bean.getYjSet());
         recyclerview.setLayoutManager(new GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false));

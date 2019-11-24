@@ -21,7 +21,8 @@
             <ImageView
                 android:id="@+id/ivAvatar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/dp_200"
+                android:scaleType="center"
                 android:src="@drawable/contact_default_avatar" />
 
             <LinearLayout
@@ -62,10 +63,10 @@
                     android:layout_marginTop="10dp"
                     android:background="@color/colorBlackTextI"></View>
 
-                <TextView
-                    android:id="@+id/tcAcDetailIntroduce"
+                <WebView
+                    android:id="@+id/wvAcDetailIntroduce"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="帮助居民扫地哇"
                     android:textColor="@color/colorBlackTextImportant" />
@@ -108,7 +109,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="活动人数"
+                    android:text="活动人数："
                     android:textColor="@color/colorBlackTextI" />
 
                 <View
@@ -122,7 +123,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="活动时间"
+                    android:text="活动时间："
                     android:textColor="@color/colorBlackTextI" />
 
                 <View
@@ -136,7 +137,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="活动地址"
+                    android:text="活动地址："
                     android:textColor="@color/colorBlackTextI" />
 
                 <View
@@ -150,7 +151,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="负责人"
+                    android:text="负责人："
                     android:textColor="@color/colorBlackTextI" />
 
                 <View
@@ -164,7 +165,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="电话"
+                    android:text="电话："
                     android:textColor="@color/colorBlackTextI" />
 
                 <View
@@ -178,7 +179,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="备注"
+                    android:text="备注："
                     android:textColor="@color/colorBlackTextI" />
 
                 <View

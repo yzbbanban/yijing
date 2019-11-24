@@ -17,6 +17,7 @@
         android:padding="10dp">
 
         <ImageView
+            android:id="@+id/ivPhoto"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/contact_default_avatar" />
@@ -29,12 +30,14 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tvNickName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="黄渤"
                 android:textColor="@color/colorBlackTextHint" />
 
             <TextView
+                android:id="@+id/tvScore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="积分: 60分"

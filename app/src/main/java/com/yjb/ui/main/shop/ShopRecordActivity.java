@@ -1,5 +1,6 @@
 package com.yjb.ui.main.shop;
 
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -8,20 +9,23 @@ import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.dian.commonlib.base.BaseLoadActivity;
+import com.dian.commonlib.glide.GlideEngine;
 import com.dian.commonlib.utils.AppUtil;
 import com.dian.commonlib.utils.ToastUtil;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
+import com.yjb.BuildConfig;
 import com.yjb.R;
 import com.yjb.mvp.contract.home.ExchangeListContract;
 import com.yjb.mvp.model.bean.ExchangeList;
 import com.yjb.mvp.presenter.home.ExListPresenter;
 import com.yjb.ui.adapter.ShopRecordAdapter;
-import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class ShopRecordActivity extends BaseLoadActivity implements ExchangeListContract.View {
 
@@ -40,6 +44,12 @@ public class ShopRecordActivity extends BaseLoadActivity implements ExchangeList
 
     int page = 1;
     int pageSize = 10;
+    @BindView(R.id.ivPhoto)
+    ImageView ivPhoto;
+    @BindView(R.id.tvNickName)
+    TextView tvNickName;
+    @BindView(R.id.tvScore)
+    TextView tvScore;
 
     private ExListPresenter exListPresenter;
 
@@ -102,6 +112,9 @@ public class ShopRecordActivity extends BaseLoadActivity implements ExchangeList
             ToastUtil.show(this, "没有数据了");
             return;
         }
+        tvNickName.setText("" + exchangeList.getUser_nickname());
+        tvScore.setText("" + exchangeList.getUser_score());
+        GlideEngine.load(ivPhoto, BuildConfig.API_IMG_HOST + AppUtil.getImage());
         shopAdapter = new ShopRecordAdapter(R.layout.item_shop_record, exchangeList.getList());
         rvRecord.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rvRecord.setAdapter(shopAdapter);
@@ -113,5 +126,12 @@ public class ShopRecordActivity extends BaseLoadActivity implements ExchangeList
 
             }
         });
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
     }
 }

@@ -5,8 +5,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.dian.commonlib.base.BaseDialog;
+import com.dian.commonlib.utils.AppUtil;
 import com.dian.commonlib.utils.ToastUtil;
 import com.yjb.R;
+import com.yjb.mvp.presenter.home.ExchangePayPresenter;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -25,20 +27,30 @@ public class MyPayDialog extends BaseDialog {
     TextView tvPayCancel;
 
     private String payInfo;
+    private String score;
 
     private Integer id;
 
     private Context context;
 
-    public MyPayDialog setPayId(String payInfo, Integer id) {
+    private ExchangePayPresenter exchangePayPresenter;
+
+    public MyPayDialog setPayId(String payInfo, Integer id, String score) {
         this.payInfo = payInfo;
         this.id = id;
+        this.score = score;
         return this;
     }
 
     public MyPayDialog(Context context) {
         super(context);
         this.context = context;
+    }
+
+    public MyPayDialog(Context context, ExchangePayPresenter exchangePayPresenter) {
+        super(context);
+        this.context = context;
+        this.exchangePayPresenter = exchangePayPresenter;
     }
 
     @Override
@@ -57,7 +69,8 @@ public class MyPayDialog extends BaseDialog {
 
         switch (view.getId()) {
             case R.id.tvPay:
-                ToastUtil.show(context, "支付了");
+                ToastUtil.show(context, "兑换中");
+                exchangePayPresenter.getList(AppUtil.getToken(), AppUtil.getUser(), "" + id, score);
                 dismiss();
                 break;
             case R.id.tvPayCancel:
