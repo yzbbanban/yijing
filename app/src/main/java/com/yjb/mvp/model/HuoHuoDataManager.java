@@ -22,6 +22,7 @@ import com.yjb.mvp.model.bean.RankList;
 import com.yjb.mvp.model.bean.ScanBean;
 import com.yjb.mvp.model.bean.SplashBean;
 import com.yjb.mvp.model.bean.TokenBean;
+import com.yjb.mvp.model.bean.UploadBean;
 import com.yjb.mvp.model.bean.User;
 import com.yjb.mvp.model.bean.UserInfo;
 import com.yjb.mvp.model.bean.YjTeam;
@@ -430,7 +431,7 @@ public class HuoHuoDataManager extends DataManager<HuoHuoApi> {
      *
      * @return
      */
-    public Observable<HttpResult<String>> upload(RequestBody token, MultipartBody.Part file) {
+    public Observable<HttpResult<UploadBean>> upload(RequestBody token, MultipartBody.Part file) {
         return mApi.commonUpload(token, file);
     }
 

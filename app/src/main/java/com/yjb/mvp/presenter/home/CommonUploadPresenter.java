@@ -3,6 +3,7 @@ package com.yjb.mvp.presenter.home;
 import com.dian.commonlib.net.RxHttpCallback;
 import com.yjb.base.HuoHuoBasePresenter;
 import com.yjb.mvp.contract.home.CommonUploadContract;
+import com.yjb.mvp.model.bean.UploadBean;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -20,9 +21,9 @@ public class CommonUploadPresenter extends HuoHuoBasePresenter<CommonUploadContr
             return;
         }
         doRequestToMain(dataManager.upload(token, file))
-                .subscribeWith(new RxHttpCallback<String>(this) {
+                .subscribeWith(new RxHttpCallback<UploadBean>(this) {
                     @Override
-                    public void onData(String data) {
+                    public void onData(UploadBean data) {
                         getMvpView().getUpload(data);
                     }
 

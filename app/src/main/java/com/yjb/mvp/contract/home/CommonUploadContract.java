@@ -3,6 +3,7 @@ package com.yjb.mvp.contract.home;
 
 import com.dian.commonlib.base.IPresenter;
 import com.dian.commonlib.base.IView;
+import com.yjb.mvp.model.bean.UploadBean;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -12,7 +13,7 @@ import okhttp3.RequestBody;
  */
 public interface CommonUploadContract {
     interface View extends IView {
-        void getUpload(String o);
+        void getUpload(UploadBean o);
     }
 
     interface Presenter extends IPresenter<View> {

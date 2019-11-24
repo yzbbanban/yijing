@@ -15,6 +15,7 @@ import com.yjb.mvp.model.bean.JFInfo;
 import com.yjb.mvp.model.bean.MallList;
 import com.yjb.mvp.model.bean.NewsList;
 import com.yjb.mvp.model.bean.RankList;
+import com.yjb.mvp.model.bean.UploadBean;
 import com.yjb.mvp.model.bean.UserInfo;
 import com.yjb.mvp.model.bean.AboutBean;
 import com.yjb.mvp.model.bean.ContractsBean;
@@ -194,7 +195,7 @@ public interface HuoHuoApi {
      */
     @Multipart
     @POST(Constants.API_VERSION + "/common/upload")
-    Observable<HttpResult<String>> commonUpload(
+    Observable<HttpResult<UploadBean>> commonUpload(
             @Part("token") RequestBody token,
             @Part MultipartBody.Part file
     );
@@ -247,7 +248,7 @@ public interface HuoHuoApi {
      *
      * @return
      */
-    @POST(Constants.API_VERSION + "apply/apply")
+    @POST(Constants.API_VERSION + "/apply/apply")
     Observable<HttpResult<String>> yjApply(
             @Query("token") String token,
             @Query("user_id") String user_id,

@@ -17,11 +17,13 @@ import com.codbking.widget.OnSureLisener;
 import com.codbking.widget.bean.DateType;
 import com.dian.commonlib.base.BaseLoadActivity;
 import com.dian.commonlib.utils.AppUtil;
+import com.dian.commonlib.utils.BitmapUtil;
 import com.dian.commonlib.utils.ToastUtil;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.yjb.R;
 import com.yjb.mvp.contract.home.CommonUploadContract;
 import com.yjb.mvp.contract.home.YjApplyContract;
+import com.yjb.mvp.model.bean.UploadBean;
 import com.yjb.mvp.presenter.home.CommonUploadPresenter;
 import com.yjb.mvp.presenter.home.YjApplyPresenter;
 import com.lljjcoder.citypickerview.widget.CityPicker;
@@ -265,14 +267,16 @@ public class YiApplyActivity extends BaseLoadActivity implements YjApplyContract
                         .centerInsideTransform()
                         .diskCacheStrategy(DiskCacheStrategy.NONE)
                         .skipMemoryCache(true);
+                picturePath = BitmapUtil.compressImage(picturePath);
+
                 Glide.with(this).load(picturePath).apply(requestOptions).into(ivPhoto);
                 //上传图片
                 File file = new File(picturePath);
                 RequestBody requestFile =
-                        RequestBody.create(MediaType.parse("application/otcet-stream"), file);
+                        RequestBody.create(MediaType.parse("multipart/form-data"), file);
 
                 MultipartBody.Part body =
-                        MultipartBody.Part.createFormData("aFile", file.getName(), requestFile);
+                        MultipartBody.Part.createFormData("file", file.getName(), requestFile);
 
                 RequestBody description =
                         RequestBody.create(
@@ -291,8 +295,8 @@ public class YiApplyActivity extends BaseLoadActivity implements YjApplyContract
     }
 
     @Override
-    public void getUpload(String o) {
-        imageUrl = o;
+    public void getUpload(UploadBean o) {
+        imageUrl = o.getUrl();
         ToastUtil.show(YiApplyActivity.this, "上传图片成功");
     }
 }
