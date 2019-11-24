@@ -17,11 +17,11 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.yjb.R;
 import com.yjb.mvp.contract.home.YjAcListContract;
 import com.yjb.mvp.model.bean.ActivityList;
-import com.yjb.mvp.model.bean.YjActivityDetail;
 import com.yjb.mvp.presenter.home.AcListPresenter;
 import com.yjb.ui.adapter.OutsideAdapter;
 import com.yjb.ui.main.mine.AcDetailActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -44,6 +44,8 @@ public class OutSideUnFragment extends BaseFragment implements YjAcListContract.
     int page = 1;
     int pageSize = 10;
 
+    private int type;
+
     @Override
     public int getLayout() {
         return R.layout.fragment_out_side;
@@ -61,6 +63,7 @@ public class OutSideUnFragment extends BaseFragment implements YjAcListContract.
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
                 page = 1;
+                type = 1;
                 acListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize, "3");
             }
         });
@@ -69,11 +72,13 @@ public class OutSideUnFragment extends BaseFragment implements YjAcListContract.
             @Override
             public void onLoadMore(RefreshLayout refreshlayout) {
                 page++;
+                type = 2;
                 acListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize, "3");
             }
         });
     }
 
+    private List<ActivityList.ListBean> listBean = new ArrayList<>();
 
     @Override
     public void getAcYjListSuccess(ActivityList activityList) {
@@ -85,9 +90,11 @@ public class OutSideUnFragment extends BaseFragment implements YjAcListContract.
             ToastUtil.show(getBaseActivity(), "没有数据了");
             return;
         }
-
-        List<ActivityList.ListBean> list = activityList.getList();
-        outsideAdapter = new OutsideAdapter(R.layout.item_outside, list);
+        if (type == 1) {
+            listBean = new ArrayList<>();
+        }
+        listBean.addAll(activityList.getList());
+        outsideAdapter = new OutsideAdapter(R.layout.item_outside, listBean);
         rvOutside.setLayoutManager(new LinearLayoutManager(getBaseActivity(), LinearLayoutManager.VERTICAL, false));
         rvOutside.setAdapter(outsideAdapter);
         outsideAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
@@ -95,7 +102,7 @@ public class OutSideUnFragment extends BaseFragment implements YjAcListContract.
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Intent intent = new Intent(getBaseActivity(), AcDetailActivity.class);
                 intent.putExtra("type", 4);
-                intent.putExtra("AC_MY_DETAIL", list.get(position));
+                intent.putExtra("AC_MY_DETAIL", listBean.get(position));
                 startActivity(intent);
 
             }

@@ -59,6 +59,8 @@ public class MsgFragmrnt extends BaseFragment implements NewsListContract.View {
     int page = 1;
     int pageSize = 10;
 
+    private int type;
+
     @Override
     public int getLayout() {
         return R.layout.fragment_msg;
@@ -75,6 +77,7 @@ public class MsgFragmrnt extends BaseFragment implements NewsListContract.View {
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
                 page = 1;
+                type = 1;
                 newsListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize);
             }
         });
@@ -83,6 +86,7 @@ public class MsgFragmrnt extends BaseFragment implements NewsListContract.View {
             @Override
             public void onLoadMore(RefreshLayout refreshlayout) {
                 page++;
+                type = 2;
                 newsListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize);
             }
         });
@@ -123,6 +127,8 @@ public class MsgFragmrnt extends BaseFragment implements NewsListContract.View {
 //        inflater.inflate(R.menu.menu_msg_toolbar, menu);
     }
 
+    private List<NewsList.ListBean> listBean = new ArrayList<>();
+
     @Override
     public void getNewsListSuccess(NewsList newsList) {
 
@@ -158,7 +164,11 @@ public class MsgFragmrnt extends BaseFragment implements NewsListContract.View {
             ToastUtil.show(getBaseActivity(), "没有数据了");
             return;
         }
-        msgListAdapter = new MsgListAdapter(R.layout.item_chat, newsList.getList());
+        if (type == 1) {
+            listBean = new ArrayList<>();
+        }
+        listBean.addAll(newsList.getList());
+        msgListAdapter = new MsgListAdapter(R.layout.item_chat, listBean);
         recyclerview.setAdapter(msgListAdapter);
         if (!isLoad) {
             //todo 加载数据
@@ -167,7 +177,7 @@ public class MsgFragmrnt extends BaseFragment implements NewsListContract.View {
         msgListAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                NewsList.ListBean news = newsList.getList().get(position);
+                NewsList.ListBean news = listBean.get(position);
                 Intent intent = new Intent(getBaseActivity(), NewsDetailActivity.class);
                 intent.putExtra(NEWS, news);
                 startActivity(intent);

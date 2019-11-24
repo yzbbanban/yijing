@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/marginScreenLagre"
-    android:layout_marginTop="@dimen/marginViewLittle"
-    android:layout_marginLeft="@dimen/marginScreenMoreLagre"
-    android:layout_marginRight="@dimen/marginScreenMoreLagre"
+    android:padding="@dimen/dp_10"
     android:elevation="@dimen/marginViewNormal"
     app:cardCornerRadius="@dimen/marginViewLittle">
 
@@ -20,6 +17,7 @@
             android:layout_width="@dimen/finance_lable_w"
             android:layout_height="@dimen/finance_lable_h"
             android:src="@color/colorAccent"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="@+id/recyclerview"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -61,4 +59,4 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/view" />
     </android.support.constraint.ConstraintLayout>
-</android.support.v7.widget.CardView>
+</RelativeLayout>

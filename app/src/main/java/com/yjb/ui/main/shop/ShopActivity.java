@@ -31,6 +31,8 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+import java.util.*;
+
 public class ShopActivity extends BaseLoadActivity implements MallListContract.View, ExchangePayContract.View {
     private static final String TAG = "ShopActivity";
 
@@ -60,6 +62,8 @@ public class ShopActivity extends BaseLoadActivity implements MallListContract.V
     int page = 1;
     int pageSize = 10;
 
+    private int type;
+
     @Override
     public void initViewAndData() {
         super.initViewAndData();
@@ -81,6 +85,7 @@ public class ShopActivity extends BaseLoadActivity implements MallListContract.V
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
                 page = 1;
+                type = 1;
                 mallListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize, AppUtil.getUser());
             }
         });
@@ -89,6 +94,7 @@ public class ShopActivity extends BaseLoadActivity implements MallListContract.V
             @Override
             public void onLoadMore(RefreshLayout refreshlayout) {
                 page++;
+                type = 2;
                 mallListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize, AppUtil.getUser());
             }
         });
@@ -118,6 +124,8 @@ public class ShopActivity extends BaseLoadActivity implements MallListContract.V
         return R.layout.activity_shop;
     }
 
+    private List<MallList.ListBean> listBean = new ArrayList<>();
+
     @Override
     public void getMallListSuccess(MallList mallList) {
         refreshLayout.finishRefresh();//结束刷新
@@ -127,9 +135,13 @@ public class ShopActivity extends BaseLoadActivity implements MallListContract.V
             ToastUtil.show(this, "没有数据了");
             return;
         }
+        if (type == 1) {
+            listBean = new ArrayList<>();
+        }
+        listBean.addAll(mallList.getList());
         tvName.setText("" + mallList.getUser_nickname());
         tvNumber.setText("" + mallList.getUser_score());
-        shopAdapter = new ShopAdapter(R.layout.item_shop, mallList.getList());
+        shopAdapter = new ShopAdapter(R.layout.item_shop, listBean);
         recyclerview.setLayoutManager(new GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false));
         recyclerview.setAdapter(shopAdapter);
 
@@ -144,9 +156,9 @@ public class ShopActivity extends BaseLoadActivity implements MallListContract.V
         shopAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-                Log.i(TAG, "onItemChildClick: " + mallList.getList().get(position).getStatus());
+                Log.i(TAG, "onItemChildClick: " + listBean.get(position).getStatus());
                 if (view.getId() == R.id.acbBtnPay) {
-                    MallList.ListBean pay = mallList.getList().get(position);
+                    MallList.ListBean pay = listBean.get(position);
                     new MyPayDialog(ShopActivity.this, exchangePayPresenter)
                             .setPayId("兑换" + pay.getName() + "消耗" + pay.getIntegral() + "积分", pay.getId(), "" + pay.getIntegral()).show();
 

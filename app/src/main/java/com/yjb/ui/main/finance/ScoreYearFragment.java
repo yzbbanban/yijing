@@ -19,6 +19,9 @@ import com.yjb.mvp.model.bean.RankList;
 import com.yjb.mvp.presenter.home.RankListPresenter;
 import com.yjb.ui.adapter.ScoreYjAdapter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 
 public class ScoreYearFragment extends BaseFragment implements RankListContract.View {
@@ -30,10 +33,11 @@ public class ScoreYearFragment extends BaseFragment implements RankListContract.
     @BindView(R.id.refreshLayout)
     SmartRefreshLayout refreshLayout;
     private ScoreYjAdapter scoreYjAdapter;
-    String type = "1";
     private RankListPresenter rankListPresenter;
     int page = 1;
     int pageSize = 10;
+
+    private int type;
 
     @Override
     public int getLayout() {
@@ -51,6 +55,7 @@ public class ScoreYearFragment extends BaseFragment implements RankListContract.
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
                 page = 1;
+                type = 1;
                 rankListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize, 2);
             }
         });
@@ -59,11 +64,13 @@ public class ScoreYearFragment extends BaseFragment implements RankListContract.
             @Override
             public void onLoadMore(RefreshLayout refreshlayout) {
                 page++;
+                type = 2;
                 rankListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize, 2);
             }
         });
     }
 
+    private List<RankList.ListBean> listBean = new ArrayList<>();
 
     @Override
     public void getRankListSuccess(RankList msg) {
@@ -77,8 +84,11 @@ public class ScoreYearFragment extends BaseFragment implements RankListContract.
         for (int i = 0, len = msg.getList().size(); i < len; i++) {
             msg.getList().get(i).setIndex(i + 1);
         }
-
-        scoreYjAdapter = new ScoreYjAdapter(R.layout.item_score, msg.getList());
+        if (type == 1) {
+            listBean = new ArrayList<>();
+        }
+        listBean.addAll(msg.getList());
+        scoreYjAdapter = new ScoreYjAdapter(R.layout.item_score, listBean);
         rvOutside.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         rvOutside.setAdapter(scoreYjAdapter);
         scoreYjAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {

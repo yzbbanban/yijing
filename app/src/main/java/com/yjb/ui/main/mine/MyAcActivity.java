@@ -22,6 +22,8 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
+import java.util.*;
+
 import butterknife.BindView;
 
 public class MyAcActivity extends BaseLoadActivity implements MyAcListContract.View {
@@ -44,6 +46,7 @@ public class MyAcActivity extends BaseLoadActivity implements MyAcListContract.V
 
     int page = 1;
     int pageSize = 10;
+    private int type;
 
     @Override
     public void retry() {
@@ -82,6 +85,7 @@ public class MyAcActivity extends BaseLoadActivity implements MyAcListContract.V
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
                 page = 1;
+                type = 1;
                 myAcListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize, AppUtil.getUser());
             }
         });
@@ -90,10 +94,13 @@ public class MyAcActivity extends BaseLoadActivity implements MyAcListContract.V
             @Override
             public void onLoadMore(RefreshLayout refreshlayout) {
                 page++;
+                type = 2;
                 myAcListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize, AppUtil.getUser());
             }
         });
     }
+
+    private List<AcMyList.ListBean> listBean = new ArrayList<>();
 
     @Override
     public void getMyAcSuccess(AcMyList acMyList) {
@@ -104,8 +111,11 @@ public class MyAcActivity extends BaseLoadActivity implements MyAcListContract.V
             ToastUtil.show(this, "没有数据了");
             return;
         }
-
-        outsideAdapter = new MyOutsideAdapter(R.layout.item_outside, acMyList.getList());
+        if (type == 1) {
+            listBean = new ArrayList<>();
+        }
+        listBean.addAll(acMyList.getList());
+        outsideAdapter = new MyOutsideAdapter(R.layout.item_outside, listBean);
         rvHistoryAc.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rvHistoryAc.setAdapter(outsideAdapter);
         outsideAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
@@ -113,7 +123,7 @@ public class MyAcActivity extends BaseLoadActivity implements MyAcListContract.V
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Intent intent = new Intent(MyAcActivity.this, AcDetailActivity.class);
                 intent.putExtra("type", 1);
-                intent.putExtra("AC_MY_DETAIL", acMyList.getList().get(position));
+                intent.putExtra("AC_MY_DETAIL", listBean.get(position));
                 startActivity(intent);
 
             }

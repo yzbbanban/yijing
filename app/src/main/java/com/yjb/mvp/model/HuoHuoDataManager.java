@@ -348,7 +348,7 @@ public class HuoHuoDataManager extends DataManager<HuoHuoApi> {
             String user_id,
             String id,
             String score) {
-        return mApi.exchangeAPay(token, id, user_id, score);
+        return mApi.exchangeAPay(token, user_id, id, score);
 
     }
 

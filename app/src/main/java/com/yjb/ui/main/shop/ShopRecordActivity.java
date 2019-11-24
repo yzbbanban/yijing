@@ -1,6 +1,5 @@
 package com.yjb.ui.main.shop;
 
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -24,8 +23,10 @@ import com.yjb.mvp.model.bean.ExchangeList;
 import com.yjb.mvp.presenter.home.ExListPresenter;
 import com.yjb.ui.adapter.ShopRecordAdapter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class ShopRecordActivity extends BaseLoadActivity implements ExchangeListContract.View {
 
@@ -53,6 +54,8 @@ public class ShopRecordActivity extends BaseLoadActivity implements ExchangeList
 
     private ExListPresenter exListPresenter;
 
+    private int type;
+
     @Override
     public void initViewAndData() {
         super.initViewAndData();
@@ -72,6 +75,7 @@ public class ShopRecordActivity extends BaseLoadActivity implements ExchangeList
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
                 page = 1;
+                type = 1;
                 exListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize, AppUtil.getUser());
             }
         });
@@ -80,6 +84,7 @@ public class ShopRecordActivity extends BaseLoadActivity implements ExchangeList
             @Override
             public void onLoadMore(RefreshLayout refreshlayout) {
                 page++;
+                type = 2;
                 exListPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize, AppUtil.getUser());
             }
         });
@@ -103,6 +108,8 @@ public class ShopRecordActivity extends BaseLoadActivity implements ExchangeList
         return null;
     }
 
+    private List<ExchangeList.ListBean> listBean = new ArrayList<>();
+
     @Override
     public void getExListSuccess(ExchangeList exchangeList) {
         refreshLayout.finishRefresh();//结束刷新
@@ -112,10 +119,14 @@ public class ShopRecordActivity extends BaseLoadActivity implements ExchangeList
             ToastUtil.show(this, "没有数据了");
             return;
         }
+        if (type == 1) {
+            listBean = new ArrayList<>();
+        }
+        listBean.addAll(exchangeList.getList());
         tvNickName.setText("" + exchangeList.getUser_nickname());
         tvScore.setText("" + exchangeList.getUser_score());
         GlideEngine.load(ivPhoto, BuildConfig.API_IMG_HOST + AppUtil.getImage());
-        shopAdapter = new ShopRecordAdapter(R.layout.item_shop_record, exchangeList.getList());
+        shopAdapter = new ShopRecordAdapter(R.layout.item_shop_record, listBean);
         rvRecord.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rvRecord.setAdapter(shopAdapter);
 
@@ -128,10 +139,4 @@ public class ShopRecordActivity extends BaseLoadActivity implements ExchangeList
         });
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 }

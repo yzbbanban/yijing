@@ -48,6 +48,8 @@ public class YiBestActivity extends BaseLoadActivity implements YjTeamContract.V
     int page = 1;
     int pageSize = 10;
 
+    private int type;
+
     @Override
     public int getLayoutId() {
         return R.layout.activity_yi_best;
@@ -89,6 +91,7 @@ public class YiBestActivity extends BaseLoadActivity implements YjTeamContract.V
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
                 page = 1;
+                type = 1;
                 yjTeamPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize);
             }
         });
@@ -97,12 +100,15 @@ public class YiBestActivity extends BaseLoadActivity implements YjTeamContract.V
             @Override
             public void onLoadMore(RefreshLayout refreshlayout) {
                 page++;
+                type = 2;
                 yjTeamPresenter.getList(AppUtil.getToken(), "" + page, "" + pageSize);
             }
         });
 
 
     }
+
+    private List<YjTeam.ListBean> listBean = new ArrayList<>();
 
     @Override
     public void getYjTeamSuccess(YjTeam data) {
@@ -113,16 +119,19 @@ public class YiBestActivity extends BaseLoadActivity implements YjTeamContract.V
             ToastUtil.show(this, "没有数据了");
             return;
         }
-
+        if (type == 1) {
+            listBean = new ArrayList<>();
+        }
+        listBean.addAll(data.getList());
         recyclerview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
-        yiFcModuleAdapter = new YxYjModuleAdapter(R.layout.item_yifc_module, data.getList());
+        yiFcModuleAdapter = new YxYjModuleAdapter(R.layout.item_yifc_module, listBean);
         recyclerview.setAdapter(yiFcModuleAdapter);
         yiFcModuleAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Intent intent = new Intent(YiBestActivity.this, DuiWuDetailActivity.class);
-                intent.putExtra("TITLE", data.getList().get(position));
+                intent.putExtra("TITLE", listBean.get(position));
                 startActivity(intent);
             }
         });
