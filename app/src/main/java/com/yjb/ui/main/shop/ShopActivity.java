@@ -1,5 +1,6 @@
 package com.yjb.ui.main.shop;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.GridLayoutManager;
@@ -21,6 +22,7 @@ import com.yjb.mvp.contract.home.MallListContract;
 import com.yjb.mvp.model.bean.MallList;
 import com.yjb.mvp.presenter.home.ExchangePayPresenter;
 import com.yjb.mvp.presenter.home.MallListPresenter;
+import com.yjb.scan.FinishListener;
 import com.yjb.ui.adapter.ShopAdapter;
 import com.yjb.ui.dialog.MyPayDialog;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -171,4 +173,19 @@ public class ShopActivity extends BaseLoadActivity implements MallListContract.V
     public void getPaySuccess(String msg) {
         ToastUtil.show(this, "兑换成功");
     }
+
+    @Override
+    public void onError(Object msg, int code) {
+//        ToastUtil.showLong(this, "" + msg);
+        displayFrameworkBugMessageAndExit("" + msg);
+    }
+
+    private void displayFrameworkBugMessageAndExit(String msg) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setTitle(getString(R.string.app_name));
+        builder.setMessage(msg);
+        builder.setPositiveButton(R.string.button_ok, null);
+        builder.show();
+    }
+
 }

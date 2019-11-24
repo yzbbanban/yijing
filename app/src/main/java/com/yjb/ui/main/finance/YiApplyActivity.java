@@ -291,12 +291,21 @@ public class YiApplyActivity extends BaseLoadActivity implements YjApplyContract
     @Override
     public void getApplySuccess(String o) {
         ToastUtil.show(YiApplyActivity.this, "提交了");
-        imageUrl = null;
+        displayFrameworkBugMessageAndExit("提交了");
     }
 
     @Override
     public void getUpload(UploadBean o) {
         imageUrl = o.getUrl();
         ToastUtil.show(YiApplyActivity.this, "上传图片成功");
+        displayFrameworkBugMessageAndExit("上传图片成功");
+    }
+
+    private void displayFrameworkBugMessageAndExit(String msg) {
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+//        builder.setTitle(getString(R.string.app_name));
+        builder.setMessage(msg);
+        builder.setPositiveButton(R.string.button_ok, null);
+        builder.show();
     }
 }

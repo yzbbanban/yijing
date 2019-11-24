@@ -68,6 +68,7 @@
                                 android:background="@mipmap/yjac" />
 
                             <TextView
+                                android:textSize="@dimen/sp_14"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="义警活动" />
@@ -88,6 +89,7 @@
                                 android:background="@mipmap/yjfc" />
 
                             <TextView
+                                android:textSize="@dimen/sp_14"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="义警风采" />
@@ -109,6 +111,7 @@
                                 android:background="@mipmap/jfsc" />
 
                             <TextView
+                                android:textSize="@dimen/sp_14"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="积分商城" />
@@ -130,6 +133,7 @@
                                 android:background="@mipmap/yjapply" />
 
                             <TextView
+                                android:textSize="@dimen/sp_14"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="义警申请" />

@@ -7,21 +7,22 @@
     android:background="@drawable/ripple_comon_selector"
     android:clickable="true"
     android:focusable="true"
-    android:orientation="vertical"
-    android:padding="@dimen/marginViewLot">
+    android:orientation="vertical">
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="@dimen/contract_item_h"
-        android:layout_height="@dimen/contract_item_h"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="@dimen/dp_100"
+        android:layout_marginRight="@dimen/dp_5"
         android:padding="5dp"
-        app:cardCornerRadius="@dimen/marginViewALot">
+        app:cardCornerRadius="@dimen/dp_5">
 
         <ImageView
             android:id="@+id/ivModuleIcon"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="4dp"
+            android:scaleType="centerInside"
             android:src="@drawable/contact_default_avatar"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"

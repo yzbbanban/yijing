@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/dp_10"
     android:elevation="@dimen/marginViewNormal"
+    android:padding="@dimen/dp_10"
     app:cardCornerRadius="@dimen/marginViewLittle">
 
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -14,7 +14,7 @@
 
         <ImageView
             android:id="@+id/ivLable"
-            android:layout_width="@dimen/finance_lable_w"
+            android:layout_width="0dp"
             android:layout_height="@dimen/finance_lable_h"
             android:src="@color/colorAccent"
             android:visibility="invisible"
@@ -25,10 +25,10 @@
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/marginViewALot"
             android:text="排名"
+            android:typeface="sans"
             android:textColor="@color/colorBlackTextNormal"
-            android:textSize="@dimen/textNormalTitle"
+            android:textSize="@dimen/dp_18"
             app:layout_constraintBottom_toBottomOf="@+id/ivLable"
             app:layout_constraintLeft_toRightOf="@+id/ivLable"
             app:layout_constraintTop_toTopOf="@+id/ivLable" />
@@ -37,7 +37,6 @@
             android:id="@+id/tvJyOrderDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
             android:text="详情 >"
             app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
             app:layout_constraintEnd_toEndOf="@+id/recyclerview"
@@ -48,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/border1"
             android:layout_marginLeft="@dimen/marginScreenMoreLagre"
-            android:background="@color/colorDivider"
+            android:background="@color/white"
             app:layout_constraintLeft_toLeftOf="@+id/tvTitle"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivLable" />

@@ -1,5 +1,6 @@
 package com.yjb.mvp.presenter.home;
 
+import com.dian.commonlib.net.HttpResult;
 import com.dian.commonlib.net.RxHttpCallback;
 import com.yjb.base.HuoHuoBasePresenter;
 import com.yjb.mvp.contract.home.AcSignOutContract;
@@ -27,6 +28,7 @@ public class AcSIgnOutPresenter extends HuoHuoBasePresenter<AcSignOutContract.Vi
                     public void onError(Object msg, int code) {
                         super.onError(msg, code);
                     }
+
                 });
     }
 

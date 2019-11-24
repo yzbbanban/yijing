@@ -27,4 +27,21 @@ public class ToastUtil {
         toast.show();
     }
 
+    public static void showLong(Context context, Object text) {
+        if (context == null) {
+            return;
+        }
+        String msg = "";
+        if (text instanceof String) {
+            msg = (String) text;
+        } else if (text instanceof Integer) {
+            msg = context.getResources().getString((int) text);
+        }
+        if (toast == null)
+            toast = Toast.makeText(context, msg, Toast.LENGTH_LONG);
+        else
+            toast.setText(msg);
+        toast.show();
+    }
+
 }

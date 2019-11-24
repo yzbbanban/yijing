@@ -3,6 +3,7 @@ package com.yjb.ui.main.mine;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -166,6 +167,17 @@ public class AcDetailActivity extends BaseLoadActivity implements AcSignUpContra
                 getDetail();
                 break;
             case 4:
+                bean = (ActivityList.ListBean) getIntent().getSerializableExtra("AC_MY_DETAIL");
+                acid = "" + bean.getId();
+                teamId = bean.getRequirementdata();
+                tvRight.setText("扫一扫");
+                tvRight.setVisibility(View.VISIBLE);
+                tvRight.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        sendAc();
+                    }
+                });
                 getDetail();
                 break;
         }
@@ -240,16 +252,19 @@ public class AcDetailActivity extends BaseLoadActivity implements AcSignUpContra
     @Override
     public void getAcSignOutSuccess(String msg) {
         ToastUtil.show(AcDetailActivity.this, "" + msg);
+        displayFrameworkBugMessageAndExit("1".equals(msg) ? "已签到" : "已签退");
     }
 
     @Override
     public void getAcSignUpSuccess(String msg) {
         ToastUtil.show(AcDetailActivity.this, "报名成功" + msg);
+        displayFrameworkBugMessageAndExit("报名成功" + msg);
     }
 
     @Override
     public void onError(Object msg, int code) {
         ToastUtil.show(AcDetailActivity.this, "" + msg);
+        displayFrameworkBugMessageAndExit("" + msg);
     }
 
     @Override
@@ -260,6 +275,9 @@ public class AcDetailActivity extends BaseLoadActivity implements AcSignUpContra
         if (UN_SIGN_UP.equals(msg) || UN_ENTER.equals(msg)) {
             message = "是否确认签到";
             btcEn = "签到";
+        } else if (SIGN_OUT.equals("msg")) {
+            ToastUtil.show(this, "已签退");
+            return;
         } else {
             message = "是否确认签退";
             btcEn = "签退";
@@ -294,5 +312,13 @@ public class AcDetailActivity extends BaseLoadActivity implements AcSignUpContra
                     }
                 });
 
+    }
+
+    private void displayFrameworkBugMessageAndExit(String msg) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setTitle(getString(R.string.app_name));
+        builder.setMessage(msg);
+        builder.setPositiveButton(R.string.button_ok, null);
+        builder.show();
     }
 }

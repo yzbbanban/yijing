@@ -25,16 +25,16 @@ public class YjModuleItemAdapter extends BaseQuickAdapter<ModuleItemBean, BaseMy
         int index = item.getIndex() == null ? 4 : item.getIndex();
         switch (index) {
             case 1:
-                helper.setImageResource(R.id.ivModuleIcon, R.drawable.ls);
+                helper.setImageResource(R.id.ivDW, R.drawable.ls);
                 break;
             case 2:
-                helper.setImageResource(R.id.ivModuleIcon, R.drawable.fx);
+                helper.setImageResource(R.id.ivDW, R.drawable.fx);
                 break;
             case 3:
-                helper.setImageResource(R.id.ivModuleIcon, R.drawable.bg);
+                helper.setImageResource(R.id.ivDW, R.drawable.bg);
                 break;
             default:
-                helper.setBackgroundRes(R.id.ivModuleIcon, R.drawable.ls);
+                helper.setBackgroundRes(R.id.ivDW, R.drawable.ls);
                 break;
         }
     }
