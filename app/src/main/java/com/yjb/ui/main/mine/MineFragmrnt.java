@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.dian.commonlib.app.App;
 import com.dian.commonlib.base.BaseFragment;
 import com.dian.commonlib.glide.GlideEngine;
 import com.dian.commonlib.utils.AppUtil;
@@ -148,6 +149,7 @@ public class MineFragmrnt extends BaseFragment implements JFinfoContract.View {
             tvLCCount.setText("" + msg.getScore() + "分");
             tvYDCoinCount.setText("" + msg.getWorktime() + "小时");
             GlideEngine.loadRound(ivAvatar, BuildConfig.API_IMG_HOST + msg.getPhotoimage());
+            AppUtil.setImage(msg.getPhotoimage());
             tvNickName.setText("" + msg.getNickname());
             rbPingFen.setRating(Float.parseFloat(msg.getStar()));
             btnTitle.setText("" + msg.getTitle());

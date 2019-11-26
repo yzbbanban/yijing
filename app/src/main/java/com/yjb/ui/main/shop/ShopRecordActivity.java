@@ -1,5 +1,6 @@
 package com.yjb.ui.main.shop;
 
+import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -46,7 +47,7 @@ public class ShopRecordActivity extends BaseLoadActivity implements ExchangeList
     int page = 1;
     int pageSize = 10;
     @BindView(R.id.ivPhoto)
-    ImageView ivPhoto;
+    AppCompatImageView ivPhoto;
     @BindView(R.id.tvNickName)
     TextView tvNickName;
     @BindView(R.id.tvScore)
@@ -125,7 +126,7 @@ public class ShopRecordActivity extends BaseLoadActivity implements ExchangeList
         listBean.addAll(exchangeList.getList());
         tvNickName.setText("" + exchangeList.getUser_nickname());
         tvScore.setText("" + exchangeList.getUser_score());
-        GlideEngine.load(ivPhoto, BuildConfig.API_IMG_HOST + AppUtil.getImage());
+        GlideEngine.loadRound(ivPhoto, BuildConfig.API_IMG_HOST + AppUtil.getImage());
         shopAdapter = new ShopRecordAdapter(R.layout.item_shop_record, listBean);
         rvRecord.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rvRecord.setAdapter(shopAdapter);

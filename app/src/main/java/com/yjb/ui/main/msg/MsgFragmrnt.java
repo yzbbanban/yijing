@@ -70,16 +70,8 @@ public class MsgFragmrnt extends BaseFragment implements NewsListContract.View {
         return R.layout.fragment_msg;
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        type = 1;
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
-
     @Override
     public void initViewAndData() {
-        type = 1;
         isCreated = true;
         newsListPresenter = new NewsListPresenter();
         newsListPresenter.attachView(this, getBaseActivity());
@@ -106,6 +98,7 @@ public class MsgFragmrnt extends BaseFragment implements NewsListContract.View {
     }
 
     public void lazyLoad() {
+        type = 1;
         if (isVisibleToUser && isCreated) {
             mainActivity = (MainActivity) getActivity();
             mainActivity.updateToolBar(R.string.yj_new);
@@ -171,14 +164,16 @@ public class MsgFragmrnt extends BaseFragment implements NewsListContract.View {
 
         refreshLayout.finishRefresh();//结束刷新
         refreshLayout.finishLoadMore();//结束加载
+        if (type == 1) {
+            listBean = new ArrayList<>();
+        }
+        type = 1;
         if (newsList.getList() == null || newsList.getList().size() == 0) {
             page--;
             ToastUtil.show(getBaseActivity(), "没有数据了");
             return;
         }
-        if (type == 1) {
-            listBean = new ArrayList<>();
-        }
+
         listBean.addAll(newsList.getList());
         msgListAdapter = new MsgListAdapter(R.layout.item_chat, listBean);
         recyclerview.setAdapter(msgListAdapter);
@@ -195,6 +190,7 @@ public class MsgFragmrnt extends BaseFragment implements NewsListContract.View {
                 startActivity(intent);
             }
         });
+
     }
 
     @Override

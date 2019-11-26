@@ -3,6 +3,7 @@ package com.yjb.ui.main.shop;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,9 +14,11 @@ import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.dian.commonlib.base.BaseLoadActivity;
+import com.dian.commonlib.glide.GlideEngine;
 import com.dian.commonlib.utils.AppUtil;
 import com.dian.commonlib.utils.ToastUtil;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
+import com.yjb.BuildConfig;
 import com.yjb.R;
 import com.yjb.mvp.contract.home.ExchangePayContract;
 import com.yjb.mvp.contract.home.MallListContract;
@@ -40,6 +43,8 @@ public class ShopActivity extends BaseLoadActivity implements MallListContract.V
 
     @BindView(R.id.ivLeft)
     ImageView ivLeft;
+    @BindView(R.id.ivPhoto)
+    AppCompatImageView ivPhoto;
     @BindView(R.id.tvTitle)
     TextView tvTitle;
     @BindView(R.id.acbBtnRecord)
@@ -132,17 +137,20 @@ public class ShopActivity extends BaseLoadActivity implements MallListContract.V
     public void getMallListSuccess(MallList mallList) {
         refreshLayout.finishRefresh();//结束刷新
         refreshLayout.finishLoadMore();//结束加载
+        if (type == 1) {
+            listBean = new ArrayList<>();
+        }
+        type = 1;
         if (mallList.getList() == null || mallList.getList().size() == 0) {
             page--;
             ToastUtil.show(this, "没有数据了");
             return;
         }
-        if (type == 1) {
-            listBean = new ArrayList<>();
-        }
+
         listBean.addAll(mallList.getList());
         tvName.setText("" + mallList.getUser_nickname());
         tvNumber.setText("" + mallList.getUser_score());
+        GlideEngine.loadRound(ivPhoto, BuildConfig.API_IMG_HOST + AppUtil.getImage());
         shopAdapter = new ShopAdapter(R.layout.item_shop, listBean);
         recyclerview.setLayoutManager(new GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false));
         recyclerview.setAdapter(shopAdapter);
