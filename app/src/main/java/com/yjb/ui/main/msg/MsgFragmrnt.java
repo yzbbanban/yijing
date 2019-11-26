@@ -2,9 +2,13 @@ package com.yjb.ui.main.msg;
 
 
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -66,8 +70,16 @@ public class MsgFragmrnt extends BaseFragment implements NewsListContract.View {
         return R.layout.fragment_msg;
     }
 
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        type = 1;
+        return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
     @Override
     public void initViewAndData() {
+        type = 1;
         isCreated = true;
         newsListPresenter = new NewsListPresenter();
         newsListPresenter.attachView(this, getBaseActivity());

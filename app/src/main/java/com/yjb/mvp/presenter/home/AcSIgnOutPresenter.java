@@ -1,6 +1,5 @@
 package com.yjb.mvp.presenter.home;
 
-import com.dian.commonlib.net.HttpResult;
 import com.dian.commonlib.net.RxHttpCallback;
 import com.yjb.base.HuoHuoBasePresenter;
 import com.yjb.mvp.contract.home.AcSignOutContract;
