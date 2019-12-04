@@ -61,7 +61,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="10dp"
-                    android:background="@color/colorBlackTextI"></View>
+                    android:background="@color/white"></View>
 
                 <WebView
                     android:id="@+id/wvAcDetailIntroduce"
@@ -75,7 +75,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="10dp"
-                    android:background="@color/colorBlackTextI"></View>
+                    android:background="@color/white"></View>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -88,7 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="10dp"
-                    android:background="@color/colorBlackTextI"></View>
+                    android:background="@color/white"></View>
 
                 <TextView
                     android:id="@+id/tcAcDetailType"
@@ -102,7 +102,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="10dp"
-                    android:background="@color/colorBlackTextI"></View>
+                    android:background="@color/white"></View>
 
                 <TextView
                     android:id="@+id/tcAcDetailCount"
@@ -116,7 +116,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="10dp"
-                    android:background="@color/colorBlackTextI"></View>
+                    android:background="@color/white"></View>
 
                 <TextView
                     android:id="@+id/tcAcDetailTime"
@@ -130,7 +130,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="10dp"
-                    android:background="@color/colorBlackTextI"></View>
+                    android:background="@color/white"></View>
 
                 <TextView
                     android:id="@+id/tcAcDetailAddress"
@@ -144,7 +144,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="10dp"
-                    android:background="@color/colorBlackTextI"></View>
+                    android:background="@color/white"></View>
 
                 <TextView
                     android:id="@+id/tcAcDetailOwner"
@@ -158,7 +158,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="10dp"
-                    android:background="@color/colorBlackTextI"></View>
+                    android:background="@color/white"></View>
 
                 <TextView
                     android:id="@+id/tcAcDetailPhone"
@@ -172,7 +172,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="10dp"
-                    android:background="@color/colorBlackTextI"></View>
+                    android:background="@color/white"></View>
 
                 <TextView
                     android:id="@+id/tcAcDetailRemark"
@@ -186,7 +186,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="10dp"
-                    android:background="@color/colorBlackTextI"></View>
+                    android:background="@color/white"></View>
             </LinearLayout>
 
         </LinearLayout>

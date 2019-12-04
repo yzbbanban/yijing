@@ -27,6 +27,9 @@ public class HomeYjRankPresenter extends HuoHuoBasePresenter<HomeYjRankContract.
 
                     @Override
                     public void onError(Object msg, int code) {
+                        if (code == 401) {
+                            getMvpView().onError(msg, code);
+                        }
                         super.onError(msg, code);
                     }
                 });

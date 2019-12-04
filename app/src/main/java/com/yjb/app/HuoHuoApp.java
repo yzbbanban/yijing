@@ -36,7 +36,7 @@ public class HuoHuoApp extends App {
                 Constants.USER_ACCOUNT
         );
         //关闭socket
-        IMWebSocket.getImWebSocket().close();
+//        IMWebSocket.getImWebSocket().close();
         //关闭数据库
         DaoManager.getDaoManager().closeConnection();
     }

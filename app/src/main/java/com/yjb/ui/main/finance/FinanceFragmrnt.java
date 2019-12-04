@@ -2,6 +2,7 @@ package com.yjb.ui.main.finance;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -17,6 +18,7 @@ import com.dian.commonlib.utils.ToastUtil;
 import com.dian.commonlib.utils.widget.MultipleStatusView;
 import com.yjb.BuildConfig;
 import com.yjb.R;
+import com.yjb.app.HuoHuoApp;
 import com.yjb.mvp.contract.home.ArticleListContract;
 import com.yjb.mvp.contract.home.HomeYjRankContract;
 import com.yjb.mvp.model.bean.ArticleList;
@@ -25,6 +27,7 @@ import com.yjb.mvp.model.bean.ModuleItemBean;
 import com.yjb.mvp.presenter.home.ArticleListPresenter;
 import com.yjb.mvp.presenter.home.HomeYjRankPresenter;
 import com.yjb.ui.adapter.FinanceModuleAdapter;
+import com.yjb.ui.user.LoginActivity;
 import com.yjb.ui.widget.banner.BannerViewPager;
 import com.yjb.mvp.model.bean.ModuleBean;
 import com.yjb.ui.main.MainActivity;
@@ -231,5 +234,20 @@ public class FinanceFragmrnt extends BaseLoadFragment implements ArticleListCont
     @Override
     public void getRankSuccess(List<HomeYjRank> homeYjRank) {
         initModule(homeYjRank);
+    }
+
+    @Override
+    public void onError(Object msg, int code) {
+        if (code == 401) {
+            ToastUtil.show(getBaseActivity(), "登录过期，请重新登录");
+            Intent intent = new Intent(getBaseActivity(), LoginActivity.class);
+            SharedPreferences.Editor editor = getBaseActivity().getSharedPreferences("userinfo",
+                    getBaseActivity().MODE_PRIVATE).edit();
+            editor.putString("token", null);
+            editor.putString("user", null);
+            editor.commit();
+            startActivity(intent);
+            getBaseActivity().finish();
+        }
     }
 }

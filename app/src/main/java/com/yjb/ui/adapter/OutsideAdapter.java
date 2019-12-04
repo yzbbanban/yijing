@@ -24,9 +24,9 @@ public class OutsideAdapter extends BaseQuickAdapter<ActivityList.ListBean, Base
     @Override
     protected void convert(BaseMyViewHolder helper, ActivityList.ListBean item) {
         helper.setText(R.id.tvTitle, "" + item.getTitle());
-        helper.setText(R.id.tvDetailAddress, "" + item.getAddress());
+        helper.setText(R.id.tvDetailAddress, "活动地址：" + item.getAddress());
         helper.setText(R.id.tvDetailTime, "活动时间：" + item.getActivitystarttime_text());
-        helper.setText(R.id.tvDetailLimitTime, "报名截止:" + item.getActivitystoptime_text());
+        helper.setText(R.id.tvDetailLimitTime, "报名截止：" + item.getActivitystoptime_text());
         String groupHead = item.getCoverimage();//自定义头像
         if (TextUtils.isEmpty(groupHead)) {
             helper.loadImage(R.id.ivImage, R.drawable.group_icon);

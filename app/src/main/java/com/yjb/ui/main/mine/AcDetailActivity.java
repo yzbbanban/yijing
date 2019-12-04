@@ -128,7 +128,7 @@ public class AcDetailActivity extends BaseLoadActivity implements AcSignUpContra
                 tcAcDetailAddress.setText("" + tcAcDetailAddress.getText() + listBean.getAddress());
                 tcAcDetailOwner.setText("" + tcAcDetailOwner.getText() + listBean.getUser_id());
                 tcAcDetailPhone.setText("" + tcAcDetailPhone.getText() + listBean.getStatus_text());
-                tcAcDetailRemark.setText("" + tcAcDetailRemark.getText() + listBean.getRequirementdata());
+                tcAcDetailRemark.setText("" + tcAcDetailRemark.getText() +"");
                 acid = "" + listBean.getActivity_id();
                 break;
             case 2:
@@ -195,13 +195,13 @@ public class AcDetailActivity extends BaseLoadActivity implements AcSignUpContra
         ht = getHtmlData("" + bean.getContent());
         wvAcDetailIntroduce.loadDataWithBaseURL(null, ht, "text/html", "UTF-8", null);
 
-        tcAcDetailType.setText("" + tcAcDetailType.getText() + bean.getRequirementdata());
+        tcAcDetailType.setText("" + tcAcDetailType.getText() + bean.getRequirementdata_text());
         tcAcDetailCount.setText("" + tcAcDetailCount.getText() + bean.getActivityno());
         tcAcDetailTime.setText("" + tcAcDetailTime.getText() + bean.getActivitystarttime_text());
         tcAcDetailAddress.setText("" + tcAcDetailAddress.getText() + bean.getAddress());
         tcAcDetailOwner.setText("" + tcAcDetailOwner.getText() + bean.getUserid_text().getNickname());
         tcAcDetailPhone.setText("" + tcAcDetailPhone.getText() + bean.getUserid_text().getMobile());
-        tcAcDetailRemark.setText("" + tcAcDetailRemark.getText() + bean.getRequirementdata_text());
+        tcAcDetailRemark.setText("" + tcAcDetailRemark.getText() + "");
     }
 
     /**

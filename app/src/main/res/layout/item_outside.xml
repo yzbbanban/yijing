@@ -63,7 +63,7 @@
         android:maxLines="1"
         android:text="活动地点："
         android:textColor="@color/colorBlackTextNormal"
-        android:textSize="@dimen/textNormal"
+        android:textSize="@dimen/textSmall"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toRightOf="@+id/cardView"
         app:layout_constraintRight_toRightOf="parent"
