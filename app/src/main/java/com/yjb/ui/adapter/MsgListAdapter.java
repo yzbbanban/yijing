@@ -29,7 +29,7 @@ public class MsgListAdapter extends BaseQuickAdapter<NewsList.ListBean, BaseMyVi
         if (item.getCoverimage() == null || item.getCoverimage().length() == 0) {
             GlideEngine.load(imageView, R.drawable.contact_default_avatar);
         } else {
-            GlideEngine.load(imageView, BuildConfig.API_IMG_HOST + item.getCoverimage());
+            GlideEngine.load(imageView, "" + item.getCoverimage());
         }
         helper.setText(R.id.tvMsgTime, "新闻今天:" + DateFormatUtil.timeStamp2Date("" + item.getCreatetime()));
         helper.setText(R.id.tvAlreadyRead, item.getView() + "已读");

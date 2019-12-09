@@ -30,7 +30,7 @@ public class ShopAdapter extends BaseQuickAdapter<MallList.ListBean, BaseMyViewH
         if (TextUtils.isEmpty(groupHead)) {
             helper.loadImage(R.id.ivImage, R.drawable.group_icon);
         } else {
-            helper.loadImage(R.id.ivImage, BuildConfig.API_IMG_HOST + groupHead);
+            helper.loadImage(R.id.ivImage, "" + groupHead);
         }
         helper.addOnClickListener(R.id.acbBtnPay);
 

@@ -29,7 +29,7 @@ public class ScoreYjAdapter extends BaseQuickAdapter<RankList.ListBean, BaseMyVi
         if (TextUtils.isEmpty(groupHead)) {
             helper.loadImage(R.id.ivImage, R.drawable.group_icon);
         } else {
-            helper.loadRoundImage(R.id.ivImage, BuildConfig.API_IMG_HOST + groupHead);
+            helper.loadRoundImage(R.id.ivImage, "" + groupHead);
         }
 
         int index = item.getIndex() == 0 ? 4 : item.getIndex();

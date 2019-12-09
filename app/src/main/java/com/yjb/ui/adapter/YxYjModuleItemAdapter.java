@@ -31,7 +31,7 @@ public class YxYjModuleItemAdapter extends BaseQuickAdapter<YjTeam.ListBean.YjSe
         if (item.getPhotoimage() == null || item.getPhotoimage().length() == 0) {
             GlideEngine.load(imageView, R.drawable.contact_default_avatar);
         } else {
-            GlideEngine.load(imageView, BuildConfig.API_IMG_HOST + item.getPhotoimage());
+            GlideEngine.load(imageView, "" + item.getPhotoimage());
         }
         helper.setText(R.id.tvName, item.getNickname());
     }

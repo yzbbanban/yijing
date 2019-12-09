@@ -141,14 +141,14 @@ public class MineFragmrnt extends BaseFragment implements JFinfoContract.View {
             //使用默认
             tvLCCount.setText("0分");
             tvYDCoinCount.setText("0小时");
-            GlideEngine.loadRound(ivAvatar, BuildConfig.API_IMG_HOST + AppUtil.getImage());
+            GlideEngine.loadRound(ivAvatar, "" + AppUtil.getImage());
             tvNickName.setText("" + AppUtil.getNickName());
             rbPingFen.setRating(0.0f);
             btnTitle.setText("暂无称号");
         } else {
             tvLCCount.setText("" + msg.getScore() + "分");
             tvYDCoinCount.setText("" + msg.getWorktime() + "小时");
-            GlideEngine.loadRound(ivAvatar, BuildConfig.API_IMG_HOST + msg.getPhotoimage());
+            GlideEngine.loadRound(ivAvatar, "" + msg.getPhotoimage());
             AppUtil.setImage(msg.getPhotoimage());
             tvNickName.setText("" + msg.getNickname());
             rbPingFen.setRating(Float.parseFloat(msg.getStar()));
@@ -166,7 +166,7 @@ public class MineFragmrnt extends BaseFragment implements JFinfoContract.View {
     public void onError(Object msg, int code) {
         tvLCCount.setText("0分");
         tvYDCoinCount.setText("0小时");
-        GlideEngine.loadRound(ivAvatar, BuildConfig.API_IMG_HOST + AppUtil.getImage());
+        GlideEngine.loadRound(ivAvatar, "" + AppUtil.getImage());
         tvNickName.setText("" + AppUtil.getNickName());
         rbPingFen.setRating(0.0f);
         btnTitle.setText("暂无称号");

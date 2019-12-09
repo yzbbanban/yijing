@@ -150,7 +150,7 @@ public class ShopActivity extends BaseLoadActivity implements MallListContract.V
         listBean.addAll(mallList.getList());
         tvName.setText("" + mallList.getUser_nickname());
         tvNumber.setText("" + mallList.getUser_score());
-        GlideEngine.loadRound(ivPhoto, BuildConfig.API_IMG_HOST + AppUtil.getImage());
+        GlideEngine.loadRound(ivPhoto, "" + AppUtil.getImage());
         shopAdapter = new ShopAdapter(R.layout.item_shop, listBean);
         recyclerview.setLayoutManager(new GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false));
         recyclerview.setAdapter(shopAdapter);

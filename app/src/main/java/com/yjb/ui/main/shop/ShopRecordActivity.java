@@ -126,7 +126,7 @@ public class ShopRecordActivity extends BaseLoadActivity implements ExchangeList
         listBean.addAll(exchangeList.getList());
         tvNickName.setText("" + exchangeList.getUser_nickname());
         tvScore.setText("" + exchangeList.getUser_score());
-        GlideEngine.loadRound(ivPhoto, BuildConfig.API_IMG_HOST + AppUtil.getImage());
+        GlideEngine.loadRound(ivPhoto, "" + AppUtil.getImage());
         shopAdapter = new ShopRecordAdapter(R.layout.item_shop_record, listBean);
         rvRecord.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rvRecord.setAdapter(shopAdapter);

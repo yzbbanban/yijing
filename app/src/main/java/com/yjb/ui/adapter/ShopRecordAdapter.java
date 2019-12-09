@@ -31,7 +31,7 @@ public class ShopRecordAdapter extends BaseQuickAdapter<ExchangeList.ListBean, B
         if (TextUtils.isEmpty(groupHead)) {
             helper.loadImage(R.id.ivShopRecordImage, R.drawable.group_icon);
         } else {
-            helper.loadImage(R.id.ivShopRecordImage, BuildConfig.API_IMG_HOST + groupHead);
+            helper.loadImage(R.id.ivShopRecordImage, "" + groupHead);
         }
 
 

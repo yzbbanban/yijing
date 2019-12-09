@@ -29,7 +29,7 @@ public class SearchFriendAdapter extends BaseQuickAdapter<Friend,BaseMyViewHolde
 
     @Override
     protected void convert(BaseMyViewHolder helper, Friend item) {
-        helper.loadRoundImage(R.id.ivAvatar, BuildConfig.API_IMG_HOST + item.getHeadImage());
+        helper.loadRoundImage(R.id.ivAvatar, "" + item.getHeadImage());
         TextView tvName = helper.getView(R.id.tvName);
         TextView tvSearch = helper.getView(R.id.tvSearch);
         String remarkName = item.getNickName();

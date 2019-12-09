@@ -31,7 +31,7 @@ public class MyOutsideAdapter extends BaseQuickAdapter<AcMyList.ListBean, BaseMy
         if (TextUtils.isEmpty(groupHead)) {
             helper.loadImage(R.id.ivImage, R.drawable.group_icon);
         } else {
-            helper.loadImage(R.id.ivImage, BuildConfig.API_IMG_HOST + groupHead);
+            helper.loadImage(R.id.ivImage, "" + groupHead);
         }
 
     }

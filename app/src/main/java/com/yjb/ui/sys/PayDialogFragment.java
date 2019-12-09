@@ -159,7 +159,7 @@ public class PayDialogFragment extends BottomSheetDialogFragment implements PayP
                     return;
                 tvCoinCount.setText(coinCount);
                 tvRmb.setText(format);
-                GlideEngine.load(ivCoinLogo, BuildConfig.API_IMG_HOST + coinLogo);
+                GlideEngine.load(ivCoinLogo, "" + coinLogo);
                 tvCoinName.setText(coinName);
                 llPayContent.setVisibility(View.VISIBLE);
                 llZhuanCoin.setVisibility(View.GONE);

@@ -213,7 +213,7 @@ public class FinanceFragmrnt extends BaseLoadFragment implements ArticleListCont
 
         for (int i = 0, len = articleList.getList().size(); i < len; i++) {
             ArticleList.ListBean listBean = articleList.getList().get(i);
-            list.add(BuildConfig.API_IMG_HOST + listBean.getCoverimage());
+            list.add("" + listBean.getCoverimage());
         }
 
         banner.initBanner(list, true)//关闭3D画廊效果

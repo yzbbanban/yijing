@@ -79,7 +79,7 @@ public class SplashActivity extends BaseLoadActivity implements SplashContract.V
             ivSplash.setVisibility(View.VISIBLE);
             tvJump.setVisibility(View.VISIBLE);
             String time = data.getImageTime();
-            GlideEngine.loadNoPlaceholder(ivSplash, BuildConfig.API_IMG_HOST+data.getImageLink());
+            GlideEngine.loadNoPlaceholder(ivSplash, ""+data.getImageLink());
             tvJump.setVisibility(View.VISIBLE);
             countDownTimer = new CountDownTimer(Long.parseLong(time) * 1000L, 1000) {
                 @Override

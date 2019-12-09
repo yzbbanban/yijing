@@ -49,7 +49,7 @@ public class PhoneFriendHeadAdapter extends HeadAdapter<RecyclerView.ViewHolder,
             btnAdd.setBackgroundResource(R.drawable.shape_radio_ok_bt_enable);
             btnAdd.setTextColor(context.getResources().getColor(R.color.colorWhiteTextImportant));
         } else {
-            GlideEngine.loadRound(ivHead,BuildConfig.API_IMG_HOST+getItem(position).getHeadImage());
+            GlideEngine.loadRound(ivHead,""+getItem(position).getHeadImage());
             btnAdd.setText(getItem(position).getBecomeFriend() ? R.string.added : R.string.add);
             btnAdd.setBackgroundResource(!getItem(position).getBecomeFriend() ? R.drawable.shape_radio_bt_enable :
                     R.color.colorPrimary);

@@ -126,7 +126,7 @@ public class RegistActivity extends BaseLoadActivity implements RegistContract.V
             case R.id.tvRegistXieyi:
                 Intent intentWeb = new Intent(this, HuoHuoWebViewActivity.class);
                 intentWeb.putExtra(Constants.WEBTITLE, getString(R.string.btw_server_xieyi));
-                intentWeb.putExtra(Constants.WEBURL, BuildConfig.API_IMG_HOST + webUrl);
+                intentWeb.putExtra(Constants.WEBURL, "" + webUrl);
                 intentWeb.putExtra(Constants.WEBCLOSE, false);
                 startActivity(intentWeb);
                 break;

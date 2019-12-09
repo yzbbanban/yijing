@@ -118,7 +118,7 @@ public class AcDetailActivity extends BaseLoadActivity implements AcSignUpContra
         switch (type) {
             case 1:
                 AcMyList.ListBean listBean = (AcMyList.ListBean) getIntent().getSerializableExtra("AC_MY_DETAIL");
-                GlideEngine.load(ivAvatar, BuildConfig.API_IMG_HOST + listBean.getCoverimage());
+                GlideEngine.load(ivAvatar, "" + listBean.getCoverimage());
                 tcAcDetailTitle.setText("" + listBean.getTitle());
                 String ht = getHtmlData("" + listBean.getContent());
                 wvAcDetailIntroduce.loadDataWithBaseURL(null, ht, "text/html", "UTF-8", null);
@@ -128,7 +128,7 @@ public class AcDetailActivity extends BaseLoadActivity implements AcSignUpContra
                 tcAcDetailAddress.setText("" + tcAcDetailAddress.getText() + listBean.getAddress());
                 tcAcDetailOwner.setText("" + tcAcDetailOwner.getText() + listBean.getUser_id());
                 tcAcDetailPhone.setText("" + tcAcDetailPhone.getText() + listBean.getStatus_text());
-                tcAcDetailRemark.setText("" + tcAcDetailRemark.getText() +"");
+                tcAcDetailRemark.setText("" + tcAcDetailRemark.getText() + "");
                 acid = "" + listBean.getActivity_id();
                 break;
             case 2:
@@ -190,7 +190,7 @@ public class AcDetailActivity extends BaseLoadActivity implements AcSignUpContra
         bean = (ActivityList.ListBean) getIntent().getSerializableExtra("AC_MY_DETAIL");
         acid = "" + bean.getId();
         teamId = bean.getRequirementdata();
-        GlideEngine.load(ivAvatar, BuildConfig.API_IMG_HOST + bean.getCoverimage());
+        GlideEngine.load(ivAvatar, "" + bean.getCoverimage());
         tcAcDetailTitle.setText("" + bean.getTitle());
         ht = getHtmlData("" + bean.getContent());
         wvAcDetailIntroduce.loadDataWithBaseURL(null, ht, "text/html", "UTF-8", null);

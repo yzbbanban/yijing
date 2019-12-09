@@ -32,7 +32,7 @@ public class FriendHeadAdapter extends HeadAdapter<RecyclerView.ViewHolder, Frie
         final Friend friend = getItem(position);
         TextView tvName = holder.itemView.findViewById(R.id.tvName);
         ImageView ivAvatar = holder.itemView.findViewById(R.id.ivAvatar);
-        GlideEngine.loadRound(ivAvatar, BuildConfig.API_IMG_HOST + friend.getHeadImage());
+        GlideEngine.loadRound(ivAvatar, "" + friend.getHeadImage());
         tvName.setText(TextUtils.isEmpty(friend.getFriendRemark()) ? friend.getNickName() : friend.getFriendRemark());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

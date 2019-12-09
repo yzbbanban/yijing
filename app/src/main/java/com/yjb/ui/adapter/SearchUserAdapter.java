@@ -22,7 +22,7 @@ public class SearchUserAdapter extends BaseQuickAdapter<Friend, BaseMyViewHolder
 
     @Override
     protected void convert(BaseMyViewHolder helper, Friend item) {
-        helper.loadRoundImage(R.id.ivAvatar, BuildConfig.API_IMG_HOST + item.getHeadImage());
+        helper.loadRoundImage(R.id.ivAvatar, "" + item.getHeadImage());
         String remark = item.getNickName();
         helper.setText(R.id.tvName, TextUtils.isEmpty(remark) ? item.getNickName() : remark);
     }

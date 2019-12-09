@@ -30,7 +30,7 @@ public class GroupAdapter extends BaseQuickAdapter<Group, BaseMyViewHolder> {
         if (TextUtils.isEmpty(groupHead)) {
             helper.loadImage(R.id.ivAvatar, R.drawable.group_icon);
         } else {
-            helper.loadRoundImage(R.id.ivAvatar, BuildConfig.API_IMG_HOST + groupHead);
+            helper.loadRoundImage(R.id.ivAvatar, "" + groupHead);
         }
 
     }

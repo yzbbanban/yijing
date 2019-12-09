@@ -145,7 +145,7 @@ public class MsgFragmrnt extends BaseFragment implements NewsListContract.View {
             }
             for (int i = 0; i < len; i++) {
                 NewsList.ListBean news = newsList.getList().get(i);
-                list.add(BuildConfig.API_IMG_HOST + news.getCoverimage());
+                list.add("" + news.getCoverimage());
             }
             banner.initBanner(list, true)//关闭3D画廊效果
                     .addPageMargin(-18, 20)//参数1page之间的间距,参数2中间item距离边界的间距

@@ -53,7 +53,7 @@ public class MyQrDialog extends BaseDialog {
         userInfo = User.getUser().getUserInfo();
         if (userInfo != null) {
             String headImage = userInfo.getHeadImage();
-            GlideEngine.loadRound(ivAvatar, BuildConfig.API_IMG_HOST + headImage);
+            GlideEngine.loadRound(ivAvatar, "" + headImage);
             tvName.setText(userInfo.getNickName());
         }
         //生成二维码

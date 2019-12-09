@@ -30,7 +30,7 @@ public class YjFcModuleItemAdapter extends BaseQuickAdapter<FengcaiList.ListBean
         if (item.getPhotoimages() == null || item.getPhotoimages().length() == 0) {
             GlideEngine.load(imageView, R.drawable.contact_default_avatar);
         } else {
-            GlideEngine.load(imageView, BuildConfig.API_IMG_HOST + item.getPhotoimages());
+            GlideEngine.load(imageView, "" + item.getPhotoimages());
         }
     }
 }

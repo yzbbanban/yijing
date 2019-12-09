@@ -28,7 +28,7 @@ public class YiFcDetailAdapter extends BaseQuickAdapter<FengcaiList.ListBean.Fen
         if (TextUtils.isEmpty(groupHead)) {
             helper.loadImage(R.id.ivAvatar, R.drawable.group_icon);
         } else {
-            helper.loadImage(R.id.ivAvatar, BuildConfig.API_IMG_HOST + groupHead);
+            helper.loadImage(R.id.ivAvatar, "" + groupHead);
         }
 
     }
