@@ -1,7 +1,5 @@
 package com.yjb.mvp.model.bean;
 
-import com.google.gson.annotations.SerializedName;
-
 public class UserInfo {
 
     /**
@@ -30,41 +28,7 @@ public class UserInfo {
 
     public static class Yjinfo {
 
-
-
         private int teammgt_id;
-        /**
-         * id : 12
-         * user_id : 23
-         * vision : 好纠结就看看
-         * photoimage : http://yhyj.chinayhdqzj.com/uploads/20191204/69ed3eccd9106c82516d3c7c687e4918.jpg
-         * homeaddress : 安徽省安庆市枞阳县
-         * politically : 不能解决
-         * identifier : 2929399393
-         * job : 黄金季节
-         * createtime : 1575471908
-         * updatetime : 1575471908
-         * deletetime : null
-         * status : 0
-         * teammgt_id : null
-         * status_text : Status 0
-         */
-
-        private int id;
-        private int user_id;
-        private String vision;
-        private String photoimage;
-        private String homeaddress;
-        private String politically;
-        private String identifier;
-        private String job;
-        private int createtime;
-        private int updatetime;
-        private Object deletetime;
-        private String status;
-        @SerializedName("teammgt_id")
-        private Object teammgt_idX;
-        private String status_text;
 
         public int getTeammgt_id() {
             return teammgt_id;
@@ -74,136 +38,10 @@ public class UserInfo {
             this.teammgt_id = teammgt_id;
         }
 
-        public int getId() {
-            return id;
-        }
-
-        public void setId(int id) {
-            this.id = id;
-        }
-
-        public int getUser_id() {
-            return user_id;
-        }
-
-        public void setUser_id(int user_id) {
-            this.user_id = user_id;
-        }
-
-        public String getVision() {
-            return vision;
-        }
-
-        public void setVision(String vision) {
-            this.vision = vision;
-        }
-
-        public String getPhotoimage() {
-            return photoimage;
-        }
-
-        public void setPhotoimage(String photoimage) {
-            this.photoimage = photoimage;
-        }
-
-        public String getHomeaddress() {
-            return homeaddress;
-        }
-
-        public void setHomeaddress(String homeaddress) {
-            this.homeaddress = homeaddress;
-        }
-
-        public String getPolitically() {
-            return politically;
-        }
-
-        public void setPolitically(String politically) {
-            this.politically = politically;
-        }
-
-        public String getIdentifier() {
-            return identifier;
-        }
-
-        public void setIdentifier(String identifier) {
-            this.identifier = identifier;
-        }
-
-        public String getJob() {
-            return job;
-        }
-
-        public void setJob(String job) {
-            this.job = job;
-        }
-
-        public int getCreatetime() {
-            return createtime;
-        }
-
-        public void setCreatetime(int createtime) {
-            this.createtime = createtime;
-        }
-
-        public int getUpdatetime() {
-            return updatetime;
-        }
-
-        public void setUpdatetime(int updatetime) {
-            this.updatetime = updatetime;
-        }
-
-        public Object getDeletetime() {
-            return deletetime;
-        }
-
-        public void setDeletetime(Object deletetime) {
-            this.deletetime = deletetime;
-        }
-
-        public String getStatus() {
-            return status;
-        }
-
-        public void setStatus(String status) {
-            this.status = status;
-        }
-
-        public Object getTeammgt_idX() {
-            return teammgt_idX;
-        }
-
-        public void setTeammgt_idX(Object teammgt_idX) {
-            this.teammgt_idX = teammgt_idX;
-        }
-
-        public String getStatus_text() {
-            return status_text;
-        }
-
-        public void setStatus_text(String status_text) {
-            this.status_text = status_text;
-        }
-
         @Override
         public String toString() {
             return "Yjinfo{" +
                     "teammgt_id=" + teammgt_id +
-                    ", id=" + id +
-                    ", user_id=" + user_id +
-                    ", vision='" + vision + '\'' +
-                    ", photoimage='" + photoimage + '\'' +
-                    ", homeaddress='" + homeaddress + '\'' +
-                    ", politically='" + politically + '\'' +
-                    ", identifier='" + identifier + '\'' +
-                    ", job='" + job + '\'' +
-                    ", createtime=" + createtime +
-                    ", updatetime=" + updatetime +
-                    ", deletetime=" + deletetime +
-                    ", status='" + status + '\'' +
-                    ", teammgt_idX=" + teammgt_idX +
-                    ", status_text='" + status_text + '\'' +
                     '}';
         }
     }
