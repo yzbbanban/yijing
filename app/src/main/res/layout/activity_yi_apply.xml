@@ -262,7 +262,7 @@
                 android:id="@+id/ivPhoto"
                 android:layout_width="@dimen/dp_200"
                 android:layout_height="@dimen/dp_200"
-                android:src="@drawable/ic_add_menu_normal" />
+                android:src="@drawable/addimg" />
 
 
         </LinearLayout>

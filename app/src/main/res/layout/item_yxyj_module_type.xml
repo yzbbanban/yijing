@@ -8,6 +8,7 @@
     android:clickable="true"
     android:focusable="true"
     android:gravity="center"
+    android:layout_marginTop="4dp"
     android:orientation="vertical"
     android:padding="@dimen/marginViewLot">
 
@@ -22,7 +23,6 @@
             android:id="@+id/ivModuleIcon"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="4dp"
             android:scaleType="centerCrop"
             android:src="@drawable/contact_default_avatar"
             app:layout_constraintHorizontal_bias="0.0"
