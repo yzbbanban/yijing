@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_marginRight="@dimen/dp_5"
+    android:layout_marginTop="@dimen/dp_10"
     android:background="@drawable/ripple_comon_selector"
     android:clickable="true"
     android:focusable="true"
@@ -13,16 +15,14 @@
         android:id="@+id/cardView"
         android:layout_width="@dimen/dp_100"
         android:layout_height="@dimen/dp_100"
-        android:layout_marginRight="@dimen/dp_5"
-        android:padding="5dp"
+        android:padding="10dp"
         app:cardCornerRadius="@dimen/dp_5">
 
         <ImageView
             android:id="@+id/ivModuleIcon"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="4dp"
-            android:scaleType="centerInside"
+            android:scaleType="centerCrop"
             android:src="@drawable/contact_default_avatar"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"

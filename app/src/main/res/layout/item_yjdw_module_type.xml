@@ -8,8 +8,8 @@
     <ImageView
         android:id="@+id/ivDW"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_120"
-        android:scaleType="centerInside"
-        android:src="@drawable/contact_default_avatar" />
+        android:layout_height="@dimen/dp_125"
+        android:scaleType="fitStart"
+        android:src="@drawable/fx" />
 
 </LinearLayout>

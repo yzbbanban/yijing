@@ -63,8 +63,8 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
+                                android:layout_width="@dimen/dp_75"
+                                android:layout_height="@dimen/dp_75"
                                 android:background="@mipmap/yjac" />
 
                             <TextView
@@ -84,8 +84,8 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
+                                android:layout_width="@dimen/dp_75"
+                                android:layout_height="@dimen/dp_75"
                                 android:background="@mipmap/yjfc" />
 
                             <TextView
@@ -106,8 +106,8 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
+                                android:layout_width="@dimen/dp_75"
+                                android:layout_height="@dimen/dp_75"
                                 android:background="@mipmap/jfsc" />
 
                             <TextView
@@ -128,8 +128,8 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
+                                android:layout_width="@dimen/dp_75"
+                                android:layout_height="@dimen/dp_75"
                                 android:background="@mipmap/yjapply" />
 
                             <TextView
