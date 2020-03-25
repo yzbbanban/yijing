@@ -118,6 +118,6 @@ dependencies {
 
 greendao {
     schemaVersion 3 //数据库版本号
-    daoPackage 'com.huohuo.dao'
+    daoPackage 'com.yjb.dao'
     targetGenDir 'src/main/java'
 }
