@@ -17,9 +17,9 @@
 
 
         <android.support.v4.widget.NestedScrollView
-            android:background="@color/colorTM"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/colorTM">
 
 
             <RelativeLayout
@@ -46,11 +46,11 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:background="@color/colorTM"
                         android:id="@+id/llMenu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:background="@color/colorTM"
                         app:layout_constraintTop_toBottomOf="@+id/banner">
 
                         <LinearLayout
@@ -68,10 +68,10 @@
                                 android:background="@mipmap/yjac" />
 
                             <TextView
-                                android:textSize="@dimen/sp_14"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="义警活动" />
+                                android:text="义警活动"
+                                android:textSize="@dimen/sp_14" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -89,10 +89,10 @@
                                 android:background="@mipmap/yjfc" />
 
                             <TextView
-                                android:textSize="@dimen/sp_14"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="义警风采" />
+                                android:text="义警风采"
+                                android:textSize="@dimen/sp_14" />
 
                         </LinearLayout>
 
@@ -111,10 +111,10 @@
                                 android:background="@mipmap/jfsc" />
 
                             <TextView
-                                android:textSize="@dimen/sp_14"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="积分商城" />
+                                android:text="积分商城"
+                                android:textSize="@dimen/sp_14" />
 
                         </LinearLayout>
 
@@ -133,10 +133,10 @@
                                 android:background="@mipmap/yjapply" />
 
                             <TextView
-                                android:textSize="@dimen/sp_14"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="义警申请" />
+                                android:text="义警申请"
+                                android:textSize="@dimen/sp_14" />
 
                         </LinearLayout>
 

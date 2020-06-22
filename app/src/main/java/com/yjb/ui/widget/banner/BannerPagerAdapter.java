@@ -89,7 +89,6 @@ public class BannerPagerAdapter extends PagerAdapter {
                 mImagesListener.onImagesClick(index);
             }
         });
-
         container.addView(view);
         return view;
     }
