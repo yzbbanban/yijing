@@ -4,6 +4,7 @@ package com.yjb.ui.main.mine;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.constraint.ConstraintLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatRatingBar;
@@ -15,14 +16,18 @@ import com.dian.commonlib.app.App;
 import com.dian.commonlib.base.BaseFragment;
 import com.dian.commonlib.glide.GlideEngine;
 import com.dian.commonlib.utils.AppUtil;
+import com.dian.commonlib.utils.widget.MyDialog;
 import com.yjb.BuildConfig;
 import com.yjb.R;
+import com.yjb.app.HuoHuoConstants;
 import com.yjb.mvp.contract.home.JFinfoContract;
 import com.yjb.mvp.model.bean.JFInfo;
 import com.yjb.mvp.presenter.home.JFinfoPresenter;
 import com.yjb.ui.adapter.MsgListAdapter;
 import com.yjb.ui.main.MainActivity;
 import com.yjb.ui.user.LoginActivity;
+import com.yjb.ui.user.MobileCodeActivty;
+import com.yjb.ui.web.HuoHuoWebViewActivity;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -97,7 +102,7 @@ public class MineFragmrnt extends BaseFragment implements JFinfoContract.View {
                 startActivity(new Intent(getBaseActivity(), MyAcActivity.class));
                 break;
             case R.id.clAboutUs:
-
+                startActivity(new Intent(getBaseActivity(), AboutUsActivity.class));
                 break;
             case R.id.clLogOut:
                 AppUtil.setToken("");

@@ -25,7 +25,7 @@
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
     <application
-        android:name="com.yjb.app.HuoHuoApp"
+        android:name=".app.HuoHuoApp"
         android:allowBackup="true"
         android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
         android:icon="@drawable/logo"
@@ -35,33 +35,34 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:appComponentFactory">
-        <activity android:name="com.yjb.ui.main.finance.TeamIntroActivity"></activity>
-        <activity android:name="com.yjb.ui.main.finance.YiBestActivity" />
-        <activity android:name="com.yjb.ui.main.finance.YiApplyActivity" />
-        <activity android:name="com.yjb.ui.main.finance.YiFcDetailActivity" />
-        <activity android:name="com.yjb.ui.main.finance.DuiWuDetailActivity" />
-        <activity android:name="com.yjb.ui.main.finance.YiFcActivity" />
-        <activity android:name="com.yjb.ui.main.finance.ScoreActivity" />
-        <activity android:name="com.yjb.ui.main.mine.AcDetailActivity" />
-        <activity android:name="com.yjb.ui.main.mine.MyAcActivity" />
-        <activity android:name="com.yjb.ui.main.msg.NewsDetailActivity" />
-        <activity android:name="com.yjb.ui.main.shop.ShopRecordActivity" />
-        <activity android:name="com.yjb.ui.main.shop.ShopActivity" />
-        <activity android:name="com.yjb.ui.main.activi.YjActivity" />
+        <activity android:name=".ui.main.mine.AboutUsActivity"></activity>
+        <activity android:name=".ui.main.finance.TeamIntroActivity" />
+        <activity android:name=".ui.main.finance.YiBestActivity" />
+        <activity android:name=".ui.main.finance.YiApplyActivity" />
+        <activity android:name=".ui.main.finance.YiFcDetailActivity" />
+        <activity android:name=".ui.main.finance.DuiWuDetailActivity" />
+        <activity android:name=".ui.main.finance.YiFcActivity" />
+        <activity android:name=".ui.main.finance.ScoreActivity" />
+        <activity android:name=".ui.main.mine.AcDetailActivity" />
+        <activity android:name=".ui.main.mine.MyAcActivity" />
+        <activity android:name=".ui.main.msg.NewsDetailActivity" />
+        <activity android:name=".ui.main.shop.ShopRecordActivity" />
+        <activity android:name=".ui.main.shop.ShopActivity" />
+        <activity android:name=".ui.main.activi.YjActivity" />
 
         <service
-            android:name="com.yjb.im.SocketService"
+            android:name=".im.SocketService"
             android:exported="false" />
 
         <activity
-            android:name="com.yjb.ui.splash.TranslucentActivity"
+            android:name=".ui.splash.TranslucentActivity"
             android:theme="@style/AppTransparentBg" />
-        <activity android:name="com.yjb.ui.splash.SplashActivity" />
+        <activity android:name=".ui.splash.SplashActivity" />
         <activity
-            android:name="com.yjb.ui.main.MainActivity"
+            android:name=".ui.main.MainActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name="com.yjb.ui.user.LoginActivity"
+            android:name=".ui.user.LoginActivity"
             android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -69,35 +70,35 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.yjb.ui.user.InputLoginCodeActivity" />
-        <activity android:name="com.yjb.ui.user.RegistActivity" />
-        <activity android:name="com.yjb.ui.set.LanguageActivity" />
-        <activity android:name="com.yjb.ui.sys.PhoneCodeActivity" />
-        <activity android:name="com.yjb.ui.spread.SpreadIntroduceActivity" />
-        <activity android:name="com.yjb.ui.user.MobileCodeActivty" />
-        <activity android:name="com.yjb.ui.web.HuoHuoWebViewActivity" />
-        <activity android:name="com.yjb.ui.main.home.ModuleEditActivity" />
+        <activity android:name=".ui.user.InputLoginCodeActivity" />
+        <activity android:name=".ui.user.RegistActivity" />
+        <activity android:name=".ui.set.LanguageActivity" />
+        <activity android:name=".ui.sys.PhoneCodeActivity" />
+        <activity android:name=".ui.spread.SpreadIntroduceActivity" />
+        <activity android:name=".ui.user.MobileCodeActivty" />
+        <activity android:name=".ui.web.HuoHuoWebViewActivity" />
+        <activity android:name=".ui.main.home.ModuleEditActivity" />
         <activity
-            android:name="com.yjb.ui.main.msg.FriendActivity"
+            android:name=".ui.main.msg.FriendActivity"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.yjb.ui.main.msg.NewFriendActivity"
+            android:name=".ui.main.msg.NewFriendActivity"
             android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name="com.yjb.ui.main.msg.SearchFriendActivity" />
-        <activity android:name="com.yjb.ui.main.msg.FriendInfoActivity" />
+        <activity android:name=".ui.main.msg.SearchFriendActivity" />
+        <activity android:name=".ui.main.msg.FriendInfoActivity" />
         <activity
-            android:name="com.yjb.ui.main.msg.GroupActivity"
+            android:name=".ui.main.msg.GroupActivity"
             android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name="com.yjb.ui.main.msg.SearchUserActivity" />
-        <activity android:name="com.yjb.ui.main.msg.AddFriendActivity" />
+        <activity android:name=".ui.main.msg.SearchUserActivity" />
+        <activity android:name=".ui.main.msg.AddFriendActivity" />
         <activity
-            android:name="com.yjb.ui.main.msg.PhoneFriendActivity"
+            android:name=".ui.main.msg.PhoneFriendActivity"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.yjb.ui.scan.CaptureActivity"
+            android:name=".ui.scan.CaptureActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeTranslate" />
-        <activity android:name="com.yjb.ui.asset.AllAssetActvity" />
+        <activity android:name=".ui.asset.AllAssetActvity" />
     </application>
 
 </manifest>
