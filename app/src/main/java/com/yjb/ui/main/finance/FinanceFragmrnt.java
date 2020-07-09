@@ -23,11 +23,14 @@ import com.yjb.R;
 import com.yjb.app.HuoHuoApp;
 import com.yjb.mvp.contract.home.ArticleListContract;
 import com.yjb.mvp.contract.home.HomeYjRankContract;
+import com.yjb.mvp.contract.home.RankListContract;
 import com.yjb.mvp.model.bean.ArticleList;
 import com.yjb.mvp.model.bean.HomeYjRank;
 import com.yjb.mvp.model.bean.ModuleItemBean;
+import com.yjb.mvp.model.bean.RankList;
 import com.yjb.mvp.presenter.home.ArticleListPresenter;
 import com.yjb.mvp.presenter.home.HomeYjRankPresenter;
+import com.yjb.mvp.presenter.home.RankListPresenter;
 import com.yjb.ui.adapter.FinanceModuleAdapter;
 import com.yjb.ui.user.LoginActivity;
 import com.yjb.ui.widget.banner.BannerViewPager;
@@ -47,7 +50,8 @@ import butterknife.Unbinder;
  * Created by kennysun on 2019/8/8.
  */
 
-public class FinanceFragmrnt extends BaseLoadFragment implements ArticleListContract.View, HomeYjRankContract.View {
+public class FinanceFragmrnt extends BaseLoadFragment implements ArticleListContract.View,
+        HomeYjRankContract.View, RankListContract.View {
     @BindView(R.id.banner)
     BannerViewPager banner;
     @BindView(R.id.recyclerview)
@@ -70,6 +74,9 @@ public class FinanceFragmrnt extends BaseLoadFragment implements ArticleListCont
     FinanceModuleAdapter financeModuleAdapter;
 
     private ArticleListPresenter articleListPresenter;
+
+    private RankListPresenter rankListPresenter;
+
 
     private HomeYjRankPresenter homeYjRankPresenter;
 
@@ -193,9 +200,12 @@ public class FinanceFragmrnt extends BaseLoadFragment implements ArticleListCont
         articleListPresenter = new ArticleListPresenter();
         articleListPresenter.attachView(this, getBaseActivity());
         articleListPresenter.getList(AppUtil.getToken(), "1", "10");
-        homeYjRankPresenter = new HomeYjRankPresenter();
-        homeYjRankPresenter.attachView(this, getBaseActivity());
-        homeYjRankPresenter.getList(AppUtil.getToken());
+//        homeYjRankPresenter = new HomeYjRankPresenter();
+//        homeYjRankPresenter.attachView(this, getBaseActivity());
+//        homeYjRankPresenter.getList(AppUtil.getToken());
+        rankListPresenter = new RankListPresenter();
+        rankListPresenter.attachView(this, getBaseActivity());
+        rankListPresenter.getList(AppUtil.getToken(), "1", "20", 2);
     }
 
     @Override
@@ -251,5 +261,18 @@ public class FinanceFragmrnt extends BaseLoadFragment implements ArticleListCont
             startActivity(intent);
             getBaseActivity().finish();
         }
+    }
+
+    @Override
+    public void getRankListSuccess(RankList msg) {
+        List<HomeYjRank> homeYjRank = new ArrayList<>();
+        for (RankList.ListBean listBean : msg.getList()) {
+            HomeYjRank e = new HomeYjRank();
+            e.setNickname(listBean.getNickname());
+            e.setPhotoimage(listBean.getPhotoimage());
+            e.setScore(listBean.getScore());
+            homeYjRank.add(e);
+        }
+        initModule(homeYjRank);
     }
 }

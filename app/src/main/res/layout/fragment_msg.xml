@@ -5,31 +5,51 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
-    <com.yjb.ui.widget.banner.BannerViewPager
-        android:id="@+id/banner"
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/toolBar" />
+        android:layout_height="match_parent"
+        android:background="@color/colorTM">
 
-    <com.scwang.smartrefresh.layout.SmartRefreshLayout
-        android:id="@+id/refreshLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.dian.commonlib.utils.widget.MultipleStatusView
-            android:id="@+id/multipleStatusView"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerview"
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/marginViewSmall"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/banner" />
-        </com.dian.commonlib.utils.widget.MultipleStatusView>
-    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/toolBar">
+
+                <com.yjb.ui.widget.banner.BannerViewPager
+                    android:id="@+id/banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <com.scwang.smartrefresh.layout.SmartRefreshLayout
+                android:id="@+id/refreshLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.dian.commonlib.utils.widget.MultipleStatusView
+                    android:id="@+id/multipleStatusView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/marginViewSmall"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/banner" />
+                </com.dian.commonlib.utils.widget.MultipleStatusView>
+            </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
 
 </LinearLayout>
