@@ -37,7 +37,7 @@
 
     <TextView
         android:id="@+id/tvName"
-        android:layout_width="200dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginRight="180dp"
@@ -53,6 +53,17 @@
         app:layout_constraintStart_toEndOf="@+id/ivImage"
         app:layout_constraintTop_toTopOf="@+id/cardView" />
 
+    <android.support.v7.widget.AppCompatRatingBar
+        android:id="@+id/rbScore"
+        android:theme="@style/RatingBar"
+        style="@android:style/Widget.DeviceDefault.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rating="3"
+        android:stepSize="1"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDetailRemark"
+        app:layout_constraintEnd_toEndOf="@+id/tvDetailTime"
+        app:layout_constraintTop_toTopOf="@+id/tvDetailRemark" />
 
     <TextView
         android:id="@+id/tvDetailRemark"

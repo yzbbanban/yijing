@@ -8,6 +8,7 @@
     <!--homefragment-->
     <color name="homeNoticeBg">#22FA8B15</color>
     <color name="homeNoticeLabaBg">#FA8B15</color>
+    <color name="ratingBar">#FFE8CA5E</color>
     <color name="homeNoticeText">#8B2100</color>
     <color name="bctm">#00FFFFFF</color>
 

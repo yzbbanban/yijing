@@ -83,8 +83,8 @@ public class ScoreFragment extends BaseFragment implements RankListContract.View
         }
         for (int i = 0, len = msg.getList().size(); i < len; i++) {
             int index = i;
-            if (listBean.size() != 0) {
-                index = listBean.size() - 1 + i;
+            if (listBean.size() != 0 && type == 2) {
+                index = listBean.size() + i;
             }
             msg.getList().get(i).setIndex(index + 1);
         }

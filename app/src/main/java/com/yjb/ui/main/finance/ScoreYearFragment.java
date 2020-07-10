@@ -83,8 +83,9 @@ public class ScoreYearFragment extends BaseFragment implements RankListContract.
         }
         for (int i = 0, len = msg.getList().size(); i < len; i++) {
             int index = i;
-            if (listBean.size() != 0) {
-                index = listBean.size() - 1 + i;
+            //不为空或者不为刷新
+            if (listBean.size() != 0 && type == 2) {
+                index = listBean.size() + i;
             }
             msg.getList().get(i).setIndex(index + 1);
         }
