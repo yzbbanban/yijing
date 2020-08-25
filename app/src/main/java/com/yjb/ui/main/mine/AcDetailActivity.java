@@ -146,7 +146,7 @@ public class AcDetailActivity extends BaseLoadActivity implements AcSignUpContra
                             ToastUtil.show(AcDetailActivity.this, "无权限，不是义警");
                             return;
                         }
-                        ToastUtil.show(AcDetailActivity.this, "报名中。。。稍等");
+                        ToastUtil.show(AcDetailActivity.this, "报名成功");
                         acSIgnUpPresenter.getList(AppUtil.getToken(), acid, AppUtil.getUser(), tId);
                     }
                 });
